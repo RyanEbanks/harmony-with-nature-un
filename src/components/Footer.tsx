@@ -1,13 +1,19 @@
-import logo from './logo.svg';
+import oceanlogo from '../images/1ocean-logo-white.svg';
 import '../App.scss';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FaSquareXTwitter } from 'react-icons/fa6';
 import { FaSquareInstagram } from 'react-icons/fa6';
 import { FaYoutube } from 'react-icons/fa6';
 
+
 function Footer() {
   return (
     <div className='footer'>
+      <div className='about-ocean-container'>
+        <h3 className='footer-title'>About</h3>
+        <img className='footer-img' src={oceanlogo} />
+        <a className='footer-p'>Learn More</a>
+      </div>
       <div className='about-container'>
         <h3 className='footer-title'>About Us</h3>
         <a className='footer-p'>About</a>

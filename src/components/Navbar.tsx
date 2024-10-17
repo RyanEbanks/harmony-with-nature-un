@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../images/logo-white.svg';
+import logo from '../images/hwni-logo.svg';
+import oceanlogo from '../images/1ocean-logo.svg';
 import { Link } from 'react-router-dom';
 import '../App.scss'
 
@@ -17,18 +18,19 @@ function Navbar() {
       {/* Navbar LG Screens */}
       <div className='nav-lg'>
         <div className='nav-img-container'>
-          <img className='nav-img' src={logo} />
+          <div className='overlay'>
+          <img className='nav-img' alt='Main Website Logo' src={logo} />
+          <img className='nav-img-2' alt='Affiliated Website Logo' src={oceanlogo} />
+          </div>
         </div>
         <div className='nav-p-container'>
-          <p className='nav-p'>Home</p>
-          <p className='nav-p'>Chronology</p>
-          <p className='nav-p'>Dialogues</p>
-          <p className='nav-p'>Rights of Nature</p>
-          <p className='nav-p'>Platform</p>
-          <p className='nav-p'>Library</p>
-          <p className='nav-p'>UN Docs</p>
-          <p className='nav-p'>Gratitude</p>
-        <button className='nav-btn btn'>Trust Fund</button>
+          <button className='nav-btn'>Home</button>
+          <button className='nav-btn'>ROF</button>
+          <button className='nav-btn'>Timeline</button>
+          <button className='nav-btn'>NEA</button>
+          <button className='nav-btn'>Library</button>
+          <button className='nav-btn'>Sponsors</button>
+          <button className='nav-donate'>Donate</button>
         </div>
       </div>
     </div>
