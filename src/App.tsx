@@ -1,26 +1,27 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from '../src/components/Navbar';
 import Footer from '../src/components/Footer';
 import Home from '../src/components/Home';
-// import { Route, Routes } from 'react-router-dom';
-import logo from './logo.svg';
+import About from '../src/components/About';
+// import Timeline from './components/Timeline';
 import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
-      <Home />
-      <Footer/>
-      {/* <Routes>
-    <Route path='/' element={
-      <>
-      <Navbar/>
-      <Footer/>
-      </>
-    } />
-      </Routes> */}
-    </div>
+    <Router>
+      <div className='App'>
+        <Navbar />
+        <div>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          {/* <Route path='/timeline' element={<Timeline />} /> */}
+        </Routes>
+        <Footer />
+        </div>
+      </div>
+    </Router>
   );
 }
 

@@ -19,15 +19,23 @@ function Navbar() {
       <div className='nav-lg'>
         <div className='nav-img-container'>
           <div className='overlay'>
-          <img className='nav-img' alt='Main Website Logo' src={logo} />
-          <img className='nav-img-2' alt='Affiliated Website Logo' src={oceanlogo} />
+          <img className='nav-img' alt='Main Website Logo' src={oceanlogo} />
+          <img className='nav-img-2' alt='Affiliated Website Logo' src={logo} />
           </div>
         </div>
         <div className='nav-p-container'>
+          <Link to='/'>
           <button className='nav-btn'>Home</button>
-          <button className='nav-btn'>ROF</button>
+          </Link>
+          <Link to='/about'>
+          <button className='nav-btn'>About Us</button>
+          </Link>
+          <button className='nav-btn special-nav-font-size'>Rights Of Nature</button>
+          <Link to='/timeline'>
           <button className='nav-btn'>Timeline</button>
-          <button className='nav-btn'>NEA</button>
+          </Link>
+          <button className='nav-btn'>Assemblies</button>
+          <button className='nav-btn'>News</button>
           <button className='nav-btn'>Library</button>
           <button className='nav-btn'>Sponsors</button>
           <button className='nav-donate'>Donate</button>
