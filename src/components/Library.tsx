@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../App.css';
 import { libraryData } from '../library-resources';
 import { TbWorld } from "react-icons/tb";
-import line from '../images/Rectangle 10.svg'
+// import line from '../images/Rectangle 10.svg'
 
 // Definining the type for the book information
 interface Book {
@@ -23,7 +23,7 @@ function Library() {
     }, []);
 
     return (
-        <div className='mx-10'>
+        <div className='w-3/4 mx-auto'>
             <div className='flex mt-10 px-20 text-xl'>
                 <p><span className='text-6xl'>T</span>he following Library offers extensive written and audio-visual material focusing on a
                     non-anthropocentric view of the world derived from analysis, reports and research in the
@@ -48,7 +48,7 @@ function Library() {
                                     <span className='pt-0.5 px-0.5'><TbWorld /></span>
                                     {book.language}</p>
                             </div>
-                            <img className='mt-5' alt='Harmony with nature institue logo' src={line}></img>
+                            <img className='mt-5' alt='Harmony with nature institue logo' src='/images/Rectangle 10.svg'></img>
                         </li>
                     ))}
                 </ul>

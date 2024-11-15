@@ -1,4 +1,4 @@
-import oceanlogo from '../images/1ocean-logo-white.svg';
+// import oceanlogo from '../images/1ocean-logo-white.svg';
 import '../App.css';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FaSquareInstagram } from 'react-icons/fa6';
@@ -10,7 +10,7 @@ function Footer() {
     <div className='flex justify-center bg-[#004d6f] text-white border border-red-500 pb-5 mx-[10px] rounded-t-lg'>
       <div className='flex flex-grow'>
         {/* <h3 className='footer-title'>About</h3> */}
-        <img className='h-[200px] w-[200px] border border-green-500 mx-auto' src={oceanlogo} />
+        <img className='h-[200px] w-[200px] border border-green-500 mx-auto' src='/images/1ocean-logo-white.svg' />
         {/* <a className='footer-p'>Learn More</a> */}
       </div>
       <div className='flex flex-col mt-5 flex-grow'>

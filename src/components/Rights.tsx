@@ -30,4 +30,4 @@ function Rights () {
   );
 }
 
-export default Rights
+export default Rights;
