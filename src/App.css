@@ -1,7 +1,10 @@
-@import '~leaflet/dist/leaflet.css';
-//General Styling
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import '~leaflet/dist/leaflet.css';
 .btn {
-  // background: #f08e80;
+   background: #f08e80;
   background: #F0910C;
   border: 0px;
   color: white;
@@ -10,70 +13,70 @@
 }
 
 a {
-  color: white; /* Default color */
+  color: white; 
 }
 
 a:visited {
-  color: white; /* Ensure visited links stay white */
+  color: white; 
 }
 
 .btn:hover,
 .nav-donate:hover, .footer-donate:hover {
-  // background: rgb(240, 142, 128, 0.5);
+   background: rgb(240, 142, 128, 0.5);
   background: rgb(240, 145, 12, 0.5);
   color: rgb(255, 255, 255, 0.9);
-}
+} */
 
-// Navigation Bar
-.nav,
+
+/* .nav,
 .footer {
   display: flex;
   flex-direction: row;
-  // margin: 0 20px 0 20px;
+   margin: 0 20px 0 20px;
 }
 
 .nav {
   background: url('../src/images/temp-bg.jpg') no-repeat center center;
   background-size: cover;
   height: 60vh;
-}
+} */
 
-.overlay {
-  position: absolute; /* Position it absolutely within the nav */
+/* .overlay {
+  position: absolute; 
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   max-height: 60vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Black tint with opacity */
+  background-color: rgba(0, 0, 0, 0.5); 
   z-index: 1;
-}
+} */
 
-.nav-lg {
+/* .nav-lg {
   color: white;
   display: flex;
   flex-direction: row;
-  // border: solid blue 2px;
+   border: solid blue 2px;
   flex-grow: 2;
 }
 
 .special-nav-font-size {
   font-size: 16px !important;
-  // font-weight: 550 !important;
-}
+   font-weight: 550 !important;
+} */
 
-// .nav-img-container {
-//   width: 300px;
-//   height: 200px;
-//   overflow: hidden;
-// }
+ /* .nav-img-container {
+   width: 300px;
+   height: 200px;
+   overflow: hidden;
+ }
 
 .nav-img, .nav-img-2 {
   margin-top: 10px;
   height: 100px;
   width: 300px;
-  // background-color: rgba(0, 0, 0, 0.3);
-  // border: solid purple;
+   background-color: rgba(0, 0, 0, 0.3);
+   border: solid purple;
 }
 
 .nav-img-2 {
@@ -82,20 +85,20 @@ a:visited {
 
 .nav-img {
   margin-left: 20px;
-  // border: solid purple;
+   border: solid purple;
 }
 
 .nav-p-container {
   display: flex;
-  // border: solid red 2px;
+   border: solid red 2px;
   flex-grow: 2;
   height: 100px;
   justify-content: flex-end;
   margin-top: 20px;
   z-index: 2;
-}
+} */
 
-.nav-btn,
+/* .nav-btn,
 .nav-donate, .footer-donate {
   color: white;
   font-weight: 400;
@@ -108,7 +111,7 @@ a:visited {
 }
 
 .nav-btn {
-  // background-color: rgba(0, 0, 0, 0.1);
+   background-color: rgba(0, 0, 0, 0.1);
   background-color: transparent;
 }
 
@@ -118,13 +121,13 @@ a:visited {
 }
 
 .nav-donate, .footer-donate {
-  // background-color: #f08e80;
+   background-color: #f08e80;
   background-color: #F0910C;
 }
 
-//Home
+Home */
 
-.video-container {
+/* .video-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -132,16 +135,16 @@ a:visited {
   padding-bottom: 40px;
   overflow: hidden;
   max-width: 100%;
-  // background: #fdf0e6;
+   background: #fdf0e6;
   background-color: rgba(122, 130, 48, 0.6);
-  // background: rgb(98, 104, 38, 0.8);
-  // background: #5C6340;
+   background: rgb(98, 104, 38, 0.8);
+   background: #5C6340;
 }
 
 .iframe-container,
 .video-text {
   display: flex;
-  // border: solid orange;
+   border: solid orange;
 }
 
 .iframe-container {
@@ -150,10 +153,10 @@ a:visited {
 
 iframe {
   border-radius: 5px;
-}
+} */
 
 
-.video-text {
+/* .video-text {
   font-size: 1.6rem;
   margin-right: 10%;
   display: flex;
@@ -161,7 +164,7 @@ iframe {
   align-items: center;
   padding-left: 50px;
   padding-right: 50px;
-  // color: #4A4A4A;
+   color: #4A4A4A;
 }
 
 .home-container {
@@ -176,19 +179,19 @@ iframe {
 .home-intro {
   display: flex;
   flex-direction: column;
-  // border: solid red;
+   border: solid red;
   text-align: center;
   margin-left: 10%;
   margin-right: 10%;
   padding-top: 20px;
   padding-bottom: 20px;
-  // background-color: #F0910C;
-  background-color: rgba(0, 0, 0, 0.9); /* Black tint with opacity */
+   background-color: #F0910C;
+  background-color: rgba(0, 0, 0, 0.9); 
   color: white;
   font-weight: bold;
-}
+} */
 
-.home-info {
+/* .home-info {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
@@ -203,7 +206,7 @@ iframe {
   margin-right: 10%;
   padding-left: 20px;
   padding-right: 20px;
-  // border: solid green 2px;
+   border: solid green 2px;
   justify-content: center;
 }
 
@@ -224,7 +227,7 @@ iframe {
 .img-size-2 {
   height: 404px;
   width: 404px;
-  // border: solid red 2px;
+   border: solid red 2px;
   border-radius: 5px;
 }
 
@@ -234,15 +237,15 @@ iframe {
 
 .img-size-2 {
   margin-right: 10%;
-}
+} */
 
-.home-btn {
+/* .home-btn {
   font-size: 1.5rem;
   max-width: 200px;
   font-weight: 300;
 }
 
-//About Page
+About Page
 .about-background-container {
   width: 100%;
   height: 100%;
@@ -250,7 +253,7 @@ iframe {
   background: linear-gradient(45deg, rgba(0, 77, 111, 0.1) 55%, transparent 55%),
     linear-gradient(-45deg, rgba(0, 77, 111, 0.1) 55%, transparent 85%, transparent 85%, rgba(0, 77, 111, 0.1) 75%);
   background-size: 50px 50px;
-  z-index: -1; /* Ensures it stays behind other elements */
+  z-index: -1; 
 }
 
 .intro-container {
@@ -261,14 +264,14 @@ iframe {
 
 .intro-content, .intro-img, .tertiary-content {
   flex-grow: 1;
-  // border: solid red;
+   border: solid red;
   margin: 20px;
   border-radius: 5px;
   padding: 20px;
 
   h1 {
     font-size: 2rem;
-    // border: solid yellow;
+     border: solid yellow;
     margin: 2px;
   }
 
@@ -281,15 +284,15 @@ iframe {
     font-size: 1.6rem;
     margin: 2px;
   }
-}
+} */
 
-.about-logo{
+/* .about-logo{
   height: 80%;
   width: 404px;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); /* Bottom shadow */
-  // border: solid red 2px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); 
+   border: solid red 2px;
 }
 
 .secondary-container {
@@ -310,47 +313,47 @@ iframe {
 .tertiary-content {
   display: flex;
   flex-direction: row;
-  // border: solid green;
+   border: solid green;
 }
 
 .tertiary-child-content {
   display: flex;
   flex-direction: column;
-  // border: solid red;
+   border: solid red;
   margin-left: 20px;
   margin-right: 20px;
 
-  // p {
-  //   background: #F0910C;
-  //   border-radius: 5px;
-  //   padding-top: 10px;
-  //   padding-bottom: 10px;
-  // }
-}
+   p {
+     background: #F0910C;
+     border-radius: 5px;
+     padding-top: 10px;
+     padding-bottom: 10px;
+   }
+} */
 
-.about-img {
+/* .about-img {
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  // border: solid blue;
+   border: solid blue;
   margin-top: auto;
   margin-bottom: auto;
 }
 
-// Footer
+ Footer
 .footer {
   justify-content: center;
-  // background: #0b0d63;
+   background: #0b0d63;
   background: #004d6f;
   color: white;
-  // border: solid red;
+   border: solid red;
   padding-bottom: 20px;
   margin-left: 10px;
   margin-right: 10px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  // position: absolute;
-  // bottom: 0;
+   position: absolute;
+   bottom: 0;
 }
 
 .content-container {
@@ -363,7 +366,7 @@ iframe {
 .about-ocean-container {
   display: flex;
   flex-grow: 1;
-  // border: solid yellow;
+   border: solid yellow;
 }
 
 .about-container,
@@ -372,8 +375,8 @@ iframe {
 .copyright-container {
   display: flex;
   flex-direction: row;
-  // border: solid green;
-  // justify-content: center;
+   border: solid green;
+   justify-content: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
@@ -383,42 +386,42 @@ iframe {
     margin-right: 5px;
   }
 
-}
+} */
 
-.footer-about-p {
+/* .footer-about-p {
   width: 100px;
   font-size: 1.1rem;
   text-align: center;
-  // border: solid red;
+   border: solid red;
 }
 
 .footer-img {
   height: 200px;
   width: 200px;
-  // border: solid green;
+   border: solid green;
   margin-left: auto;
   margin-right: auto;
 }
 
-// .footer-submit-container {
-//   display: flex;
-//   flex-direction: column;
-//   // border: solid red;
-//   margin-left: 10%;
-//   margin-right: 10%;
-// }
+ .footer-submit-container {
+   display: flex;
+   flex-direction: column;
+    border: solid red;
+   margin-left: 10%;
+   margin-right: 10%;
+ }
 
-// .footer-submit {
-//   display: flex;
-//   flex-direction: column;
-// }
+ .footer-submit {
+   display: flex;
+   flex-direction: column;
+ }
 
-// .footer-submit-title {
-//   text-align: left;
-// }
+ .footer-submit-title {
+   text-align: left;
+ }
 
 .footer-p {
-  // border: solid green;
+   border: solid green;
   font-size: large;
 }
 
@@ -452,4 +455,4 @@ iframe {
 .footer-input {
   margin-top: 5px;
   margin-bottom: 5px;
-}
+} */
