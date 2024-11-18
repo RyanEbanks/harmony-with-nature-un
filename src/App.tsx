@@ -6,6 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Library from './components/Library';
 import './App.css';
+import Sponsors from './components/Sponsors';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/library' element={<Library />} />
+        <Route path='/sponsors' element={<Sponsors />} />
         {/* <Route path='/timeline' element={<Timeline />} /> */}
       </Routes>
       <Footer />

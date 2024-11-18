@@ -20,7 +20,7 @@ function Footer() {
           <a className='text-lg mx-[5px] no-underline footer-link w-[100px] text-[1.1rem] text-center border border-red-500' href='/about' rel='noopener noreferrer'>About Us</a>
           <a className='text-lg mx-[5px] no-underline footer-link w-[100px] text-[1.1rem] text-center border border-red-500'>Contact Us</a>
           <div>
-            <button className='text-white font-normal text-[1.1rem] h-[50px] w-[100px] mt-[5px] mr-[20px] bg-[#F0910c] border-0 hover:bg-[rgba(240,145,12,0.5)] hover:text-[rgba(255,255,255,0.9)]'>Donate</button>
+            <button className='bg-[#F0910c] border-0 hover:bg-[rgba(240,145,12,0.5)] hover:text-[rgba(255,255,255,0.9)] py-3 px-8 text-[1.1rem] font-semibold text-white outline-none'>Donate</button>
           </div>
         </div>
         <div className='flex flex-row border border-green-500 justify-center mx-auto mt-1 text-left'>

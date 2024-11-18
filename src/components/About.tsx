@@ -10,10 +10,10 @@ function About() {
     <div className='about-parent-container antialiased'>
       <div className='w-full h-full'>
         <div className='flex flex-col'>
-          <div className='mx-auto w-[60%] my-10 rounded-lg p-5'>
+          <div className='px-auto  mb-10 rounded-lg p-5 bg-[#afb482] bg-opacity-80'>
             <h1 className='text-5xl my-1 mt-1 mb-4 text-center font-semibold'>Who We Are</h1>
             <div className='w-[50%] h-[50%] mx-auto my-10 p-5'>
-              <img className='w-full h-full' alt='Harmony with nature institue logo' src='/images/hwni-logo.svg'></img>
+              <img className='w-[60%] h-full mx-auto' alt='Harmony with nature institue logo' src='/images/hwni-logo.svg'></img>
             </div>
           </div>
           <div className='w-[60%] mx-auto my-10'>
