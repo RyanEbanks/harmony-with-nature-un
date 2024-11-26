@@ -32,7 +32,7 @@ function About() {
             and effective solutions for delegations.</h1>
           <div className='my-20 flex flex-row'>
             <div className='mx-2 my-10'>
-              <h3 className='text-2xl font-semibold mb-5'>Our Approach</h3>
+              <h3 className='about-h3-styling'>Our Approach</h3>
               <p className='text-xl font-[350]'>This special project of 1 Ocean Fund seeks to help remove this barrier.
                 We will make available our expertise to help developing country
                 government delegations to better understand the concepts surrounding
@@ -41,7 +41,7 @@ function About() {
                 convened by sponsoring governments and organizations.</p>
             </div>
             <div className='mx-2 my-10'>
-              <h3 className='text-2xl font-semibold mb-5'>Our Services</h3>
+              <h3 className='about-h3-styling'>Our Services</h3>
               <p className='text-xl font-[350]'>
                 We will provide personalized consultations with small delegations to
                 explain the institutional and policy framework that currently informs

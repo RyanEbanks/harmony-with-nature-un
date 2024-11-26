@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Button Classes */
+.btn-primary {
+  @apply bg-[#F0910c] border-0 hover:bg-[rgba(240,145,12,0.5)] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
+}
+
+.home-btn-styling {
+  @apply font-normal text-[1.1rem] h-[50px] w-[150px] mt-5 mr-[20px];
+}
+
+/* Picture Styling for the home button */
+.home-picture-styling {
+  @apply h-[404px] w-[404px] rounded-md;
+}
+
+/* About Page */
+.about-h3-styling {
+  @apply text-2xl font-semibold mb-5;
+}
