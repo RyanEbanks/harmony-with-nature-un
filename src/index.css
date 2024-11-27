@@ -23,10 +23,10 @@ code {
 
 /* Picture Styling for the home button */
 .home-picture-styling {
-  @apply h-[404px] w-[404px] rounded-md;
+  @apply h-[202px] w-[250px] lg:h-[404px] lg:w-[404px] rounded-md;
 }
 
 /* About Page */
 .about-h3-styling {
-  @apply text-2xl font-semibold mb-5;
+  @apply text-xl lg:text-2xl font-semibold mb-5;
 }

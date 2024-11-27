@@ -23,28 +23,28 @@ function Library() {
     }, []);
 
     return (
-        <div className='w-3/4 mx-auto'>
-            <div className='flex mt-10 px-20 text-xl'>
-                <p><span className='text-6xl'>T</span>he following Library offers extensive written and audio-visual material focusing on a
+        <div className='w-[90%] lg:w-3/4 mx-auto'>
+            <div className='flex mt-10 lg:px-20 text-lg lg:text-xl'>
+                <p><span className='text-3xl lg:text-6xl'>T</span>he following Library offers extensive written and audio-visual material focusing on a
                     non-anthropocentric view of the world derived from analysis, reports and research in the
                     fields of ethics, science, ecological economics, literature, politics, social sciences,
                     philosophy, deep ecology, systems thinking and Earth jurisprudence. The information contained
                     herein supports the belief that we must move away from a human-centered worldview and build
                     governance structures in which Nature is treated in partnership with humankind.</p>
             </div>
-            <div className='flex mt-10 mb-10 px-20'>
+            <div className='flex mt-10 mb-10 lg:px-20'>
                 <ul>
                     {books.map((book, index) => (
                         <li key={index} className='mt-2 mb-5'>
                             <div className='bg-gray-200 py-2'>
-                                <h2 className='text-lg'>{book.title}</h2>
+                                <h2 className='text-md lg:text-lg'>{book.title}</h2>
                             </div>
                             <div className='py-2'>
-                                <p className='text-base'>{book.author} &#40;{book.year}&#41; - {book.publisher} - {book.country}</p>
+                                <p className='text-sm lg:text-base'>{book.author} &#40;{book.year}&#41; - {book.publisher} - {book.country}</p>
                             </div>
                             <div className='flex flex-row'>
-                                <p className='flex text-sm mr-1 p-2 font-semibold bg-gray-200 w-28 justify-center'>{book.type}</p>
-                                <p className='flex flex-row text-sm ml-1 p-2 font-semibold bg-gray-200 w-28 justify-center'>
+                                <p className='flex text-xs lg:text-sm mr-1 p-2 font-semibold bg-gray-200 w-28 justify-center'>{book.type}</p>
+                                <p className='flex flex-row text-xs lg:text-sm ml-1 p-2 font-semibold bg-gray-200 w-28 justify-center'>
                                     <span className='pt-0.5 px-0.5'><TbWorld /></span>
                                     {book.language}</p>
                             </div>
