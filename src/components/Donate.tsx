@@ -6,18 +6,18 @@ const Donate = () => {
     <div className='donate-container'>
       <div className='bg-half-blue-white py-10 relative flex'>
         <div className='relative'>
-      <img className='home-picture-styling w-1/2 h-full mx-auto' alt='charity image' src='/images/charity.svg'></img>\
-      <div className='z-20 absolute left-[34%] top-[80%]'>
+      <img className='home-picture-styling w-[90%] lg:w-1/2 h-full mx-auto' alt='charity image' src='/images/charity.svg'></img>\
+      <div className='z-20 absolute left-[11%] top-[73%] md:left-[19%] md:top-[80%] lg:left-[34%] lg:top-[80%]'>
       <PaymentButton />
       </div>
         </div>
       </div>
-    <div className='flex flex-col md:flex-row mx-auto md:mx-44'>
+    <div className='flex flex-col md:flex-row mx-auto md:mx-24 lg:mx-24'>
       <div className='flex flex-col mt-8 max-w-lg md:w-1/2 md:mt-32 mx-auto'>
-        <h1 className='mb-4 text-left text-4xl font-semibold'>Connect with Us About Donations</h1>
-        <p className='text-left text-xl'>
+        <h1 className='mb-4 text-center lg:text-left text-2xl md:text-4xl font-semibold'>Connect with Us About Donations</h1>
+        <p className='text-center md:text-left text-base lg:text-xl'>
           <ul>
-            <li className='pb-2 text-2xl italic'>We'd Love to Hear From You</li>
+            <li className='pb-2 text-xl md:text-2xl italic'>We'd Love to Hear From You</li>
             <li className='pt-2'>1. Questions About Your Donation?</li>
             <li className='pt-2'>2. Have Questions Before You Donate?</li>
           </ul>

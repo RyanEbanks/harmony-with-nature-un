@@ -14,9 +14,35 @@ code {
 
 /* Button Classes */
 .btn-primary {
-  @apply bg-[#F0910c] border-0 hover:bg-[rgba(240,145,12,0.5)] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
+  @apply bg-[#F0910c] border-0 hover:bg-[#f0910c80] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
 }
 
+/* Navigation bar */
+.lg-nav-parent {
+  @apply hidden lg:text-white lg:flex lg:flex-row lg:flex-grow-[2] h-[90px];
+}
+
+.lg-nav-link {
+  @apply text-black font-normal text-[1.1rem] h-[50px] w-[100px] border-0 mr-[20px] hover:underline underline-offset-8;
+}
+
+.lg-nav-content-container {
+  @apply flex flex-row flex-grow-[2] h-[100px] z-[2];
+}
+
+.lg-nav-img-container {
+  @apply flex justify-start h-20;
+}
+
+.lg-nav-img {
+  @apply h-[75px] w-[300px] my-1;
+}
+
+.lg-nav-content {
+  @apply flex flex-row items-center ml-auto mr-5 h-[90px];
+}
+
+/* Home Button  */
 .home-btn-styling {
   @apply font-normal text-[1.1rem] h-[50px] w-[150px] mt-5 mr-[20px];
 }
@@ -27,6 +53,26 @@ code {
 }
 
 /* About Page */
-.about-h3-styling {
+.about-primary-h1-styling {
+  @apply text-3xl lg:text-4xl font-semibold m-1;
+}
+
+.about-primary-h3-styling {
   @apply text-xl lg:text-2xl font-semibold mb-5;
+}
+
+.about-secondary-h3-styling {
+  @apply text-xl lg:text-2xl m-1;
+}
+
+.about-secondary-p-styling {
+  @apply text-lg lg:text-xl font-[350] m-1;
+}
+
+.about-img-div-styling {
+  @apply my-10 rounded-lg p-2 lg:py-5 lg:w-[50%] lg:mx-10;
+}
+
+.about-img {
+  @apply w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] my-auto rounded-full;
 }
