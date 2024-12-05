@@ -2,86 +2,56 @@ import React from 'react'
 
 const Sponsors = () => {
   return (
-    <div className='flex flex-col md:flex-row mx-auto md:mx-44'>
-    <div className='flex flex-col mt-8 max-w-lg md:w-1/2 md:mt-32 mx-auto'>
-        <h1 className='mb-4 text-left text-4xl font-semibold'>Become a Sponsor</h1>
-        <p className='text-left text-xl'>
-        Contact us because we are dedicated to empowering delegations with the knowledge, tools, and support they need to navigate international deliberations effectively.
-           </p>
-    </div>
-    <div className='flex flex-col mt-8 md:items-center md:justify-center md:p-12 md:w-1/2 mx-auto'>
-  <div className='mx-auto w-full max-w-lg md:max-w-[550px]'>
-    <form>
-      <div className='mb-5'>
-        <label
-          htmlFor='name'
-          className='mb-3 block text-base font-medium'
-        >
-          Full Name
-        </label>
-        <input
-          type='text'
-          name='name'
-          id='name'
-          placeholder='Full Name'
-          className='w-full border border-[#e0e0e0] text-[#6B7280] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md'
-        />
+    <div className='flex flex-col w-[60%] mx-auto'>
+      <div>
+        <h1 className='w-1/2 text-4xl font-semibold text-center mx-auto border-red-400 border-2 my-5'>Our Partners</h1>
+        <h3 className='text-xl md:text-2xl my-1 w-[90%] lg:w-full mx-auto text-center lg:text-left border-green-400 border-2'>The Harmony with Nature Institute thrives because of the incredible support from organizations, businesses, and individuals who share
+          our vision. Your contributions help us explore innovative ways to connect with nature, deepen our understanding of its wonders, and
+          champion its preservation for generations to come.
+        </h3>
       </div>
-      <div className='mb-5'>
-        <label
-          htmlFor='email'
-          className='mb-3 block text-base font-medium'
-        >
-          Email 
-        </label>
-        <input
-          type='email'
-          name='email'
-          id='email'
-          placeholder='example@example.com'
-          className='w-full border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
-        />
+      <div className='flex flex-col border-purple-400 border-2'>
+        <div className='flex flex-row border-blue-400 border-2 mx-auto justify-center my-5'>
+          <img className='about-img' alt='1 Ocean Logo' src='/images/sponsors/Group-130dsfg.png' />
+          <img className='about-img' alt='Sellsy Logo' src='/images/sponsors/1-OCEAN-Logo-rond-site-Sellsy-1536x1536.png' />
+          <img className='about-img' alt='CNRS Logo' src='/images/sponsors/cnrs_rond.png' />
+        </div>
+
+        <div className='flex flex-row border-blue-400 border-2 mx-auto justify-center my-5'>
+          <img className='about-img' alt='Criobe Logo' src='/images/sponsors/criobe_rond.png' />
+          <img className='about-img' alt='Dreamy Yatch Logo' src='/images/sponsors/dreamyacht_rond.png' />
+          <img className='about-img' alt='IRIS Logo' src='/images/sponsors/Group-174f.png' />
+          <img className='about-img' alt='Paul Ricard Logo' src='/images/sponsors/institutpaulricard_rond.png' />
+        </div>
+
+        <div className='flex flex-row border-blue-400 border-2 mx-auto justify-center my-5'>
+          <img className='about-img' alt='Lacaza logo' src='/images/sponsors/lacazaproductions_rond.png' />
+          <img className='about-img' alt='Lecob Logo' src='/images/sponsors/lecob_rond.png' />
+          <img className='about-img' alt='Marine Ocean Logo' src='/images/sponsors/Logo_Marine-et-ocean_rond.png' />
+          <img className='about-img' alt='Unesco Logo' src='/images/sponsors/logoMBunesco-1536x1536.png' />
+        </div>
+
+        <div className='flex flex-row border-blue-400 border-2 mx-auto justify-center my-5'>
+          <img className='about-img' alt='Brother Logo' src='/images/sponsors/Logo-rond-BROTHIER-site-1536x1536.png' />
+          <img className='about-img' alt='Change Logo' src='/images/sponsors/Logo-rond-Change-site-1.png' />
+          <img className='about-img' alt='Fondation De La Mer Logo' src='/images/sponsors/Logo-rond-FONDATION-DE-LA-MER-site-1536x1536.png' />
+          <img className='about-img' alt='Sense Logo' src='/images/sponsors/logosense-e1679913536786.png' />
+        </div>
+
+        <div className='flex flex-row border-blue-400 border-2 mx-auto justify-center my-5'>
+          <img className='about-img' alt='Nausicaa Logo' src='/images/sponsors/nausicaa_rond.png' />
+          <img className='about-img' alt='Ouest France Logo' src='/images/sponsors/ouestfrance_rond.png' />
+          <img className='about-img' alt='Gares Logo' src='/images/sponsors/sncfgares_rond.png' />
+          <img className='about-img' alt='Sony Logo' src='/images/sponsors/sony_rond.png' />
+        </div>
+
+        <div className='flex flex-row border-blue-400 border-2 mx-auto justify-center my-5'>
+          <img className='about-img' alt='Subsea Tech Logo' src='/images/sponsors/subseatech_rond.png' />
+          <img className='about-img' alt='Unesco Rond Logo' src='/images/sponsors/unesco_rond.png' />
+          <img className='about-img' alt='Unesco Coi Logo' src='/images/sponsors/unescocoi_rond.png' />
+          <img className='about-img' alt='Vilebrequin Logo' src='/images/sponsors/vilebrequin_rond.png' />
+        </div>
       </div>
-      <div className='mb-5'>
-        <label
-          htmlFor='subject'
-          className='mb-3 block text-base font-medium'
-        >
-          Subject
-        </label>
-        <input
-          type='text'
-          name='subject'
-          id='subject'
-          placeholder='Enter your subject'
-          className='w-full border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
-        />
-      </div>
-      <div className='mb-5'>
-        <label
-          htmlFor='message'
-          className='mb-3 block text-base font-medium'
-        >
-          Message
-        </label>
-        <textarea
-          rows={4}
-          name='message'
-          id='message'
-          placeholder='Type your message'
-          className='w-full resize-none border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
-        ></textarea>
-      </div>
-      <div className='mb-8'>
-        <button
-          className='bg-[#F0910c] border-0 hover:bg-[rgba(240,145,12,0.5)] hover:text-[rgba(255,255,255,0.9)] py-3 px-8 text-base font-semibold text-white outline-none'
-        >
-          Submit
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
     </div>
   )
 }

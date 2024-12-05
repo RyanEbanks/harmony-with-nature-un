@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage: {
         'half-blue-white': 'linear-gradient(180deg, #004d6f 80%, white 20%)',
       },
+      fontFamily: {
+        poppins:["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],

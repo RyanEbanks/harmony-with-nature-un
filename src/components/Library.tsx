@@ -17,10 +17,41 @@ interface Book {
 
 function Library() {
     const [books, setBooks] = useState<Book[]>([]);
+    const [searchQuery, setSearchQuery] = useState<string>('');
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [booksPerPage] = useState<number>(30);
 
     useEffect(() => {
-        return setBooks(libraryData);
+        setBooks(libraryData as Book[]);
     }, []);
+
+    // Filter books based on search query
+    const filteredBooks = books.filter((book) => {
+        return (
+            book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            book.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            book.publisher.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    });
+
+    // Pagination logic
+    const indexOfLastBook = currentPage * booksPerPage;
+    const indexOfFirstBook = indexOfLastBook - booksPerPage;
+    const currentBooks = filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
+
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const handlePreviousPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
 
     return (
         <div className='w-[90%] lg:w-3/4 mx-auto'>
@@ -32,9 +63,20 @@ function Library() {
                     herein supports the belief that we must move away from a human-centered worldview and build
                     governance structures in which Nature is treated in partnership with humankind.</p>
             </div>
-            <div className='flex mt-10 mb-10 lg:px-20'>
+               {/* Search Bar */}
+               <div className="my-5">
+                <input
+                    type="text"
+                    placeholder="Search books..."
+                    className="w-full px-4 py-2 border rounded-lg"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+            </div>
+      {/* Book List */}
+      <div className='flex mt-10 mb-10 lg:px-20'>
                 <ul>
-                    {books.map((book, index) => (
+                    {currentBooks.map((book, index) => (
                         <li key={index} className='mt-2 mb-5'>
                             <div className='bg-gray-200 py-2'>
                                 <h2 className='text-md lg:text-lg'>{book.title}</h2>
@@ -48,10 +90,29 @@ function Library() {
                                     <span className='pt-0.5 px-0.5'><TbWorld /></span>
                                     {book.language}</p>
                             </div>
-                            <img className='mt-5' alt='Harmony with nature institue logo' src='/images/Rectangle 10.svg'></img>
+                            <img className='mt-5' alt='Harmony with nature institute logo' src='/images/Rectangle 10.svg'></img>
                         </li>
                     ))}
                 </ul>
+            </div>
+
+            {/* Pagination Controls */}
+            <div className="flex justify-between mt-5">
+                <button 
+                    onClick={handlePreviousPage}
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                >
+                    Previous
+                </button>
+                <p className="self-center">Page {currentPage} of {totalPages}</p>
+                <button 
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages}
+                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                >
+                    Next
+                </button>
             </div>
         </div>
     )

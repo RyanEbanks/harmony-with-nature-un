@@ -23,7 +23,7 @@ code {
 }
 
 .lg-nav-link {
-  @apply text-black font-normal text-[1.1rem] h-[50px] w-[100px] border-0 mr-[20px] hover:underline underline-offset-8;
+  @apply text-white font-normal text-sm h-[50px] w-[100px] border-0 mr-[20px] hover:bg-[#22281a] rounded-md underline-offset-8;
 }
 
 .lg-nav-content-container {
@@ -49,30 +49,45 @@ code {
 
 /* Picture Styling for the home button */
 .home-picture-styling {
-  @apply h-[202px] w-[250px] lg:h-[404px] lg:w-[404px] rounded-md;
+  @apply h-[202px] w-[250px] md:h-[302px] md:w-[350px] lg:h-[504px] lg:w-[543px] rounded-md;
 }
 
 /* About Page */
 .about-primary-h1-styling {
-  @apply text-3xl lg:text-4xl font-semibold m-1;
+  @apply text-3xl md:text-4xl font-semibold m-1;
 }
 
 .about-primary-h3-styling {
-  @apply text-xl lg:text-2xl font-semibold mb-5;
+  @apply text-xl md:text-2xl font-semibold mb-5 px-5 lg:px-0;
 }
 
 .about-secondary-h3-styling {
-  @apply text-xl lg:text-2xl m-1;
+  @apply text-xl md:text-2xl m-1;
 }
 
 .about-secondary-p-styling {
-  @apply text-lg lg:text-xl font-[350] m-1;
+  @apply text-lg md:text-xl font-[350] m-1;
 }
 
 .about-img-div-styling {
   @apply my-10 rounded-lg p-2 lg:py-5 lg:w-[50%] lg:mx-10;
 }
 
+.tertiary-child-content {
+  @apply p-10;
+}
 .about-img {
   @apply w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] my-auto rounded-full;
+}
+
+/* Sponsors */
+
+/* Footer */
+.footer-a {
+ @apply hover:text-[#2C88B0] text-lg md:text-xl no-underline w-[200px] my-2;
+}
+
+
+.footer-icons {
+  @apply flex justify-center items-center bg-[#004d6f] hover:bg-[#2C88B0] h-10 w-10 rounded-lg mx-2 md:mx-5 lg:mx-[5px] no-underline;
 }

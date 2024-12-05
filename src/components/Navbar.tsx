@@ -98,8 +98,9 @@ function Navbar() {
       {/* Navbar LG Screens */}
       {showBackground ? (
         <div>
+          <div className='bg-cover bg-center h-[30vh] lg:h-[60vh]' style={{ backgroundImage: "url('/images/new-bg.svg')" }}>
           <div className='lg-nav-parent'>
-              <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-50 z-1'></div>
+              {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
             <div className='lg-nav-content-container'>
               <div className='lg-nav-img-container'>
                 <a href='/'>
@@ -139,7 +140,7 @@ function Navbar() {
               </div>   
             </div>
           </div>
-          <div className='bg-cover bg-center h-[30vh] lg:h-[60vh]' style={{ backgroundImage: "url('/images/temp-bg.jpg')" }}></div>
+          </div>
           {/* <Modal /> */}
         </div>
       ) : (

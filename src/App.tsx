@@ -13,7 +13,7 @@ import Donate from './components/Donate';
 function App() {
   return (
     <Router>
-    <div className='App font-sans'>
+    <div className='App font-poppins'>
       <Navbar />
       <div>
       <Routes>
