@@ -99,54 +99,66 @@ function Navbar() {
       {showBackground ? (
         <div>
           <div className='bg-cover bg-center h-[30vh] lg:h-[60vh]' style={{ backgroundImage: "url('/images/new-bg.svg')" }}>
-          <div className='lg-nav-parent'>
+            <div className='lg-nav-parent'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
-            <div className='lg-nav-content-container'>
-              <div className='lg-nav-img-container'>
-                <a href='/'>
-                  <img className='h-[75px] w-[300px] my-2' alt='Main Website Logo' src='/images/hwni-logo.svg' />
-                </a>
+              <div className='lg-nav-content-container pt-5'>
+                <div className='lg-nav-img-container'>
+                  <a href='/'>
+                    <img className='h-[75px] w-[300px] my-2' alt='Main Website Logo' src='/images/hwni-logo.svg' />
+                  </a>
+                </div>
+                <div className='lg-nav-content justify-center mx-auto'>
+                  <Link to='/'>
+                    <button className='lg-nav-link'>Home</button>
+                  </Link>
+                  <Link to='/about'>
+                    <button className='lg-nav-link'>About Us</button>
+                  </Link>
+                  <Link to='/rights-of-nature'>
+                    <button className='lg-nav-link'>Rights Of Nature</button>
+                  </Link>
+                  <Link to='/timeline'>
+                    <button className='lg-nav-link'>Timeline</button>
+                  </Link>
+                  <Link to='/assemblies'>
+                    <button className='lg-nav-link'>Assemblies</button>
+                  </Link>
+                  <Link to='/news'>
+                    <button className='lg-nav-link'>News</button>
+                  </Link>
+                  <Link to='/library'>
+                    <button className='lg-nav-link'>Library</button>
+                  </Link>
+                  <Link to='/sponsors'>
+                    <button className='lg-nav-link'>Sponsors</button>
+                  </Link>
+                </div>
+                <div className='flex justify-center items-center'>
+                  <Link to='/donate'>
+                    <button className='btn-primary-test font-normal text-[1.1rem] h-[50px] w-[100px] mr-[50px]'>Donate</button>
+                  </Link>
+                  </div>
               </div>
-              <div className='lg-nav-content'>
-              <Link to='/'>
-                <button className='lg-nav-link'>Home</button>
-              </Link>
-              <Link to='/about'>
-                <button className='lg-nav-link'>About Us</button>
-              </Link>
-              <Link to='/rights-of-nature'>
-                <button className='lg-nav-link'>Rights Of Nature</button>
-              </Link>
-              <Link to='/timeline'>
-                <button className='lg-nav-link'>Timeline</button>
-              </Link>
-              <Link to='/assemblies'>
-                <button className='lg-nav-link'>Assemblies</button>
-              </Link>
-              <Link to='/news'>
-                <button className='lg-nav-link'>News</button>
-              </Link>
-              <Link to='/library'>
-                <button className='lg-nav-link'>Library</button>
-              </Link>
-              <Link to='/sponsors'>
-                <button className='lg-nav-link'>Sponsors</button>
-              </Link>
-              <Link to='/donate'>
-                <button className='btn-primary font-normal text-[1.1rem] h-[50px] w-[100px] mr-[20px]'>Donate
-                  {/* <a href='https://buy.stripe.com/eVadU1ciQ01F5EIdQQ' target='_blank' rel='noopener noreferrer'>Donate</a> */}
-                </button>
-              </Link>
-              </div>   
+              {/* <div>
+            <img className='pt-2' alt='horizontal line' src='/images/horizontal.svg' />
+            </div> */}
+            </div>
+            <div className='flex flex-row mt-20'>
+              <div className='flex flex-col w-1/2 px-36 justify-center'>
+              <h1 className='text-white text-6xl font-semibold'>Discover the best startup websites</h1>
+              <p className='pt-5 text-white text-xl'>Exrodinary websites from startups across the universe.</p>
+              </div>
+              <div className='flex w-1/2'>
+              <div className='rounded-lg h-[304px] w-[543px] mx-auto bg-fixed bg-cover bg-center bg-no-repeat' style={{ backgroundImage: "url('/images/temp-bg.jpg')" }}></div>
+                {/* <img className='rounded-lg h-[304px] w-[543px] mx-auto bg-fixed' alt='Homescreen template' src='/images/temp-bg.jpg' /> */}
+              </div>
             </div>
           </div>
-          </div>
-          {/* <Modal /> */}
         </div>
       ) : (
         <div>
           <div className='lg-nav-parent'>
-              {/* <div className='absolute top-20 left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-50 z-1'></div> */}
+            {/* <div className='absolute top-20 left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-50 z-1'></div> */}
             <div className='lg-nav-content-container'>
               <div className='lg-nav-img-container'>
                 <a href='/'>
@@ -154,36 +166,36 @@ function Navbar() {
                 </a>
               </div>
               <div className='lg-nav-content'>
-              <Link to='/'>
-                <button className='lg-nav-link'>Home</button>
-              </Link>
-              <Link to='/about'>
-                <button className='lg-nav-link'>About Us</button>
-              </Link>
-              <Link to='/rights-of-nature'>
-                <button className='lg-nav-link'>Rights Of Nature</button>
-              </Link>
-              <Link to='/timeline'>
-                <button className='lg-nav-link'>Timeline</button>
-              </Link>
-              <Link to='/assemblies'>
-                <button className='lg-nav-link'>Assemblies</button>
-              </Link>
-              <Link to='/news'>
-                <button className='lg-nav-link'>News</button>
-              </Link>
-              <Link to='/library'>
-                <button className='lg-nav-link'>Library</button>
-              </Link>
-              <Link to='/sponsors'>
-                <button className='lg-nav-link'>Sponsors</button>
-              </Link>
-              <Link to='/donate'>
-                <button className='btn-primary font-normal text-[1.1rem] h-[50px] w-[100px] mr-[20px]'>Donate
-                  {/* <a href='https://buy.stripe.com/eVadU1ciQ01F5EIdQQ' target='_blank' rel='noopener noreferrer'>Donate</a> */}
-                </button>
-              </Link>
-              </div>   
+                <Link to='/'>
+                  <button className='lg-nav-link'>Home</button>
+                </Link>
+                <Link to='/about'>
+                  <button className='lg-nav-link'>About Us</button>
+                </Link>
+                <Link to='/rights-of-nature'>
+                  <button className='lg-nav-link'>Rights Of Nature</button>
+                </Link>
+                <Link to='/timeline'>
+                  <button className='lg-nav-link'>Timeline</button>
+                </Link>
+                <Link to='/assemblies'>
+                  <button className='lg-nav-link'>Assemblies</button>
+                </Link>
+                <Link to='/news'>
+                  <button className='lg-nav-link'>News</button>
+                </Link>
+                <Link to='/library'>
+                  <button className='lg-nav-link'>Library</button>
+                </Link>
+                <Link to='/sponsors'>
+                  <button className='lg-nav-link'>Sponsors</button>
+                </Link>
+                <Link to='/donate'>
+                  <button className='btn-primary font-normal text-[1.1rem] h-[50px] w-[100px] mr-[20px]'>Donate
+                    {/* <a href='https://buy.stripe.com/eVadU1ciQ01F5EIdQQ' target='_blank' rel='noopener noreferrer'>Donate</a> */}
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
           {/* <Modal /> */}
