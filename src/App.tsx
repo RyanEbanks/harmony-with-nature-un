@@ -9,6 +9,9 @@ import './App.css';
 import Sponsors from './components/Sponsors';
 import Timeline from './components/Timeline';
 import Donate from './components/Donate';
+import News from './components/News';
+import Rights from './components/Rights';
+import Assemblies from './components/Assemblies';
 
 function App() {
   return (
@@ -19,7 +22,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
+        <Route path='/right-of-nature' element={<Rights />} />
         <Route path='/timeline' element={<Timeline />} />
+        <Route path='/assemblies' element={<Assemblies />} />
+        <Route path='/news' element={<News />} />
         <Route path='/library' element={<Library />} />
         <Route path='/sponsors' element={<Sponsors />} />
         <Route path='/donate' element={<Donate />} />

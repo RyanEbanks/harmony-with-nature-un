@@ -1,8 +1,11 @@
 import React from 'react'
+import Map from './Map'
 
 const Assemblies = () => {
   return (
-    <div>Assemblies</div>
+    <div>
+      <Map />
+    </div>
   )
 }
 

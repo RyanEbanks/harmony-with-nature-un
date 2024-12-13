@@ -1,9 +1,10 @@
 import React from 'react'
+import Map from './Map';
 
 function Rights () {
   return (
     <div>
-        <div className='map-container'></div>
+          <Map />
         <div className='rights-main-container'>
             <h1>Rights of Nature Law and Policy</h1>
             <p>The law has seen the beginning of an evolution toward recognition of 

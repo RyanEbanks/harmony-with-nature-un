@@ -14,19 +14,29 @@ code {
 
 /* Button Classes */
 .btn-primary {
-  @apply bg-[#F0910c] border-0 hover:bg-[#f0910c80] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
+  @apply bg-[#40916C] rounded-full border-0 hover:bg-[#f0910c80] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
+}
+
+.btn-secondary {
+  @apply bg-[#F0910c] rounded-full border-0 hover:bg-[#f0910c80] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
 }
 
 .btn-primary-test {
-  @apply bg-[#F0910c] text-white rounded-full hover:bg-[#22281a] hover:text-white;
+  @apply bg-[#40916C] rounded-full text-white hover:bg-[#d8830b] hover:text-black;
 }
+
+
 /* Navigation bar */
 .lg-nav-parent {
-  @apply hidden lg:text-white lg:flex lg:flex-row lg:flex-grow-[2] h-[90px];
+  @apply hidden lg:text-white lg:flex lg:flex-row lg:flex-grow-[2] h-[100px];
 }
 
 .lg-nav-link {
-  @apply text-white font-normal text-base h-[50px] w-[120px] border-0 mr-[20px] hover:bg-[#22281a] rounded-md underline-offset-8;
+  @apply text-center mx-6 text-black font-semibold text-base h-[50px] hover:text-[#40916C] underline-offset-8;
+}
+
+.lg-nav-link-2 {
+  @apply text-black font-normal text-base h-[50px] w-[100px] border-0 mr-[20px] hover:bg-[#f0910c80] rounded-md underline-offset-8;
 }
 
 .lg-nav-content-container {
@@ -42,7 +52,7 @@ code {
 }
 
 .lg-nav-content {
-  @apply flex flex-row items-center h-[90px];
+  @apply flex flex-row items-center;
 }
 
 /* Home Button  */
@@ -52,7 +62,7 @@ code {
 
 /* Picture Styling for the home button */
 .home-picture-styling {
-  @apply h-[202px] w-[250px] md:h-[302px] md:w-[350px] lg:h-[504px] lg:w-[543px] rounded-md;
+  @apply h-[202px] w-[250px] md:h-[302px] md:w-[350px] lg:h-[504px] lg:w-[543px] rounded-md object-cover;
 }
 
 /* About Page */
