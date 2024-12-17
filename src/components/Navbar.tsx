@@ -3,12 +3,11 @@ import React, { useState } from 'react';
 // import oceanlogo from '../images/1ocean-logo.svg';
 import { Link, useLocation } from 'react-router-dom';
 import '../App.css'
-import { CiMenuBurger } from "react-icons/ci";
-import { MdClose } from "react-icons/md";
-import { motion, AnimatePresence } from "motion/react"
+import { CiMenuBurger } from 'react-icons/ci';
+import { motion, AnimatePresence } from 'motion/react'
 // import Modal from './Modal';
-import { IoIosPlay } from "react-icons/io";
-import { AiOutlineClose } from "react-icons/ai";
+import { IoIosPlay } from 'react-icons/io';
+import { MdClose } from 'react-icons/md';
 
 function Navbar() {
   const [toggleVideo, setToggleVideo] = useState(false);
@@ -59,9 +58,9 @@ function Navbar() {
           {toggleMenu && (
             <motion.div
               className='absolute top-0 right-0 h-screen w-full z-10 bg-white text-2xl shadow-lg'
-              initial="hidden"
-              animate="visible"
-              exit="exit"
+              initial='hidden'
+              animate='visible'
+              exit='exit'
               variants={menuVariants}
               transition={{ type: 'tween', duration: 0.4 }}
             >
@@ -104,17 +103,17 @@ function Navbar() {
       {/* Navbar LG Screens */}
       {showBackground ? (
         <div>
-          {/* <div className='bg-cover bg-center h-[30vh] lg:h-[60vh]' style={{ backgroundImage: "url('/images/new-placeholder/banner.mp4')" }}> */}
+          {/* <div className='bg-cover bg-center h-[30vh] lg:h-[60vh]' style={{ backgroundImage: 'url('/images/new-placeholder/banner.mp4')' }}> */}
           <div>
             <div className='lg-nav-parent'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
               <div className='lg-nav-content-container'>
-                <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto'>
+                <div className='lg-nav-img-container w-[20%] flex pl-12 items-center my-auto'>
                   <a href='/'>
                     <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
                   </a>
                 </div>
-                <div className='lg-nav-content justify-center w-2/3 h-[80px] my-auto'>
+                <div className='lg-nav-content justify-center w-[80%] h-[80px] my-auto'>
                   <Link to='/'>
                     <button className='lg-nav-link'>Home</button>
                   </Link>
@@ -140,15 +139,12 @@ function Navbar() {
                     <button className='lg-nav-link'>Sponsors</button>
                   </Link>
                 </div>
-                <div className='flex justify-center items-center h-[80px] mx-auto my-auto w-1/3'>
+                <div className='flex pr-12 justify-end items-center h-[80px] mx-auto my-auto w-[20%]'>
                   <Link to='/donate'>
                     <button className='btn-primary-test font-normal text-[1.1rem] h-[50px] w-[100px]'>Donate</button>
                   </Link>
                 </div>
               </div>
-              {/* <div>
-            <img className='pt-2' alt='horizontal line' src='/images/horizontal.svg' />
-            </div> */}
             </div>
             <div className='bg-cover bg-center h-[30vh] lg:h-[80vh]'>
               <video className='w-full h-full object-none' src='/images/new-placeholder/banner.mp4'
@@ -156,10 +152,10 @@ function Navbar() {
                 muted
                 playsInline />
               <div className='flex flex-row mt-20 absolute top-5 right-0 h-screen w-full z-10'>
-                <div className='flex flex-col w-1/2 h-[80vh] px-36 justify-center border-l-8 border-[#F0910c]'>
-                  <h1 className='py-2 text-white text-6xl font-normal'>Towards a Sustainable Future</h1>
-                  <p className='py-5 text-white text-xl font-light'>Devising a new world will require a new relationship with the Earth and with humankind's own existence.</p>
-                  <div className='flex flex-row h-[80px] w-[250px] border-[#b3b3b3] border-4 py-2'>
+                <div className='flex flex-col w-1/2 h-[80vh] px-36 justify-center'>
+                  <h1 className='pl-4 py-2 text-white text-6xl font-normal border-l-8 border-[#F0910c]'>A Sustainable Future</h1>
+                  <p className='pl-6 py-5 text-white text-xl font-light'>Devising a new world will require a new relationship with the Earth and with humankind's own existence.</p>
+                  <div className='ml-6 flex flex-row h-[80px] w-[250px] border-[#b3b3b3] border-4 py-2'>
                     <span className='flex items-center'><IoIosPlay style={{ fontSize: '48px', color: 'white' }} /></span>
                     <button onClick={openVideo}>
                       <div className='flex flex-col text-lg text-white text-left font-bold'>
@@ -172,68 +168,68 @@ function Navbar() {
               </div>
             </div>
             {toggleVideo && (
-              <div className='flex flex-row rounded-lg bg-white p-10 w-[40%] absolute top-[30vh] left-[30%] right-auto z-40'>
-                <iframe
-                  width="600"
-                  height="400"
-                  src="https://www.youtube.com/embed/kkP4oFIZf8s?si=fV2vb-ZudbQMp0v4"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-                <button onClick={closeVideo} className='border-red-400 border-2 h-[30px] ml-auto'>
-                  <AiOutlineClose />
+              <div className='flex flex-col w-[40%] h-[410px] absolute top-[30vh] left-[30%] z-40'>
+                <button onClick={closeVideo} className='h-[30px] ml-auto text-white text-2xl font-bold hover:text-slate-200'>
+                  <MdClose />
                 </button>
+                <div className='relative w-full h-full bg-black'>
+                  <iframe
+                    className='w-full h-full'
+                    src='https://www.youtube.com/embed/kkP4oFIZf8s?si=fV2vb-ZudbQMp0v4'
+                    title='YouTube video player'
+                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                    referrerPolicy='strict-origin-when-cross-origin'
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
+
             )}
           </div>
         </div>
       ) : (
         <div>
-          <div className='lg-nav-parent mb-5'>
-            {/* <div className='absolute top-20 left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-50 z-1'></div> */}
-            <div className='lg-nav-content-container pt-5'>
-              <div className='lg-nav-img-container'>
-                <a href='/'>
-                  <img className='h-[75px] w-[300px] my-2' alt='Main Website Logo' src='/images/hwni-logo.svg' />
-                </a>
-              </div>
-              <div className='lg-nav-content justify-center mx-auto'>
-                <Link to='/'>
-                  <button className='lg-nav-link-2'>Home</button>
-                </Link>
-                <Link to='/about'>
-                  <button className='lg-nav-link-2'>About Us</button>
-                </Link>
-                <Link to='/rights-of-nature'>
-                  <button className='lg-nav-link-2'>Rights Of Nature</button>
-                </Link>
-                <Link to='/timeline'>
-                  <button className='lg-nav-link-2'>Timeline</button>
-                </Link>
-                <Link to='/assemblies'>
-                  <button className='lg-nav-link-2'>Assemblies</button>
-                </Link>
-                <Link to='/news'>
-                  <button className='lg-nav-link-2'>News</button>
-                </Link>
-                <Link to='/library'>
-                  <button className='lg-nav-link-2'>Library</button>
-                </Link>
-                <Link to='/sponsors'>
-                  <button className='lg-nav-link-2'>Sponsors</button>
-                </Link>
+          <div className='lg-nav-parent'>
+              {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
+              <div className='lg-nav-content-container'>
+                <div className='lg-nav-img-container w-[20%] flex pl-12 items-center my-auto'>
+                  <a href='/'>
+                    <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
+                  </a>
+                </div>
+                <div className='lg-nav-content justify-center w-[80%] h-[80px] my-auto'>
+                  <Link to='/'>
+                    <button className='lg-nav-link'>Home</button>
+                  </Link>
+                  <Link to='/about'>
+                    <button className='lg-nav-link'>About Us</button>
+                  </Link>
+                  <Link to='/rights-of-nature'>
+                    <button className='lg-nav-link'>Rights</button>
+                  </Link>
+                  <Link to='/timeline'>
+                    <button className='lg-nav-link'>Timeline</button>
+                  </Link>
+                  <Link to='/assemblies'>
+                    <button className='lg-nav-link'>Assemblies</button>
+                  </Link>
+                  <Link to='/news'>
+                    <button className='lg-nav-link'>News</button>
+                  </Link>
+                  <Link to='/library'>
+                    <button className='lg-nav-link'>Library</button>
+                  </Link>
+                  <Link to='/sponsors'>
+                    <button className='lg-nav-link'>Sponsors</button>
+                  </Link>
+                </div>
+                <div className='flex pr-12 justify-end items-center h-[80px] mx-auto my-auto w-[20%]'>
+                  <Link to='/donate'>
+                    <button className='btn-primary-test font-normal text-[1.1rem] h-[50px] w-[100px]'>Donate</button>
+                  </Link>
+                </div>
               </div>
             </div>
-            <div className='flex justify-center items-center'>
-              <Link to='/donate'>
-                <button className='btn-primary-test font-normal text-[1.1rem] h-[50px] w-[100px] mr-[50px]'>Donate</button>
-              </Link>
-            </div>
-          </div>
-          {/* <Modal /> */}
-          {/* <div className='bg-cover bg-center h-[30vh] lg:h-[60vh]' style={{ backgroundImage: "url('/images/temp-bg.jpg')" }}></div> */}
         </div>
       )}
     </div>

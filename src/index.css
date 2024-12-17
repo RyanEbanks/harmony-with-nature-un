@@ -18,7 +18,7 @@ code {
 }
 
 .btn-secondary {
-  @apply bg-[#F0910c] rounded-full border-0 hover:bg-[#f0910c80] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
+  @apply bg-[#F0910c]  rounded-full border-0 hover:bg-[#f0910c80] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
 }
 
 .btn-primary-test {
@@ -32,7 +32,7 @@ code {
 }
 
 .lg-nav-link {
-  @apply text-center mx-6 text-black font-semibold text-base h-[50px] hover:text-[#40916C] underline-offset-8;
+  @apply text-center mx-8 text-black font-semibold text-[1.1rem] h-[50px] hover:text-[#40916C] underline-offset-8;
 }
 
 .lg-nav-link-2 {
@@ -60,9 +60,24 @@ code {
   @apply font-normal text-[1.1rem] h-[50px] w-[150px] mt-5 mr-[20px];
 }
 
+.home-link-container {
+  @apply relative flex-shrink-0 w-[300px] h-[180px];
+}
+
+.home-link-container-content {
+  @apply absolute top-0 left-0 w-full h-full flex flex-col justify-end text-left z-20 px-2 bg-black bg-opacity-40;
+}
+
+.home-link-container-h1 {
+  @apply text-[#F0910c] text-[1.1rem] font-black;
+}
+
+.home-link-container-p {
+  @apply text-white text-base;
+}
 /* Picture Styling for the home button */
 .home-picture-styling {
-  @apply h-[202px] w-[250px] md:h-[302px] md:w-[350px] lg:h-[504px] lg:w-[543px] rounded-md object-cover;
+  @apply sm:h-[300px] sm:w-[450px] md:h-[400px] md:w-[600px] lg:h-[504px] lg:w-[896px] object-cover;
 }
 
 /* About Page */
@@ -90,7 +105,20 @@ code {
   @apply p-10;
 }
 .about-img {
-  @apply w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] my-auto rounded-full;
+  @apply w-[100px] h-[100px] mx-2 my-auto rounded-full;
+}
+
+/* Timeline  */
+.year-h1 {
+  @apply text-2xl md:text-5xl font-light mx-8 lg:mx-0 border-b-[6px] border-[#F0910c] pb-2 mb-[27px];
+}
+
+.month-h1 {
+ @apply text-xl md:text-3xl font-normal mx-8 lg:mx-0 border-l-[6px] border-[#004d6f] pl-2 mb-5 mt-10;
+}
+
+.timeline-p {
+  @apply text-lg font-normal mb-2 leading-golden lg:leading-golden-lg;
 }
 
 /* Sponsors */

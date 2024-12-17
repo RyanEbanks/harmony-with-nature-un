@@ -11,7 +11,7 @@ function About() {
       <div className='w-full h-full'>
         <div className='flex flex-col bg-[#FAF9F6]'>
           <div className='w-full lg:w-[80%] lg:mx-auto mt-20 mb-10'>
-            <h3 className='text-3xl md:text-4xl font-semibold mb-5 text-center'>Our Mission</h3>
+            <h3 className='text-4xl fmb-5 text-center md:text-5xl font-light border-l-8 border-r-8 border-[#F0910c]'>Our Mission</h3>
             <p className='text-xl md:text-2xl my-1 w-[90%] lg:w-full mx-auto text-center lg:text-left'>Developing country government delegations are all too often at a
               disadvantage in their participation in international deliberations at
               the United Nations.  Their staffs are either too few or are

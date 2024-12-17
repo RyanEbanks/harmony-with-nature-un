@@ -1,10 +1,11 @@
 import React from 'react'
 import Map from './Map';
+import Map2 from './Map2';
 
 function Rights () {
   return (
     <div>
-          <Map />
+          <Map2 />
         <div className='rights-main-container'>
             <h1>Rights of Nature Law and Policy</h1>
             <p>The law has seen the beginning of an evolution toward recognition of 
@@ -26,7 +27,8 @@ function Rights () {
                 in the professional and public spheres to advance Earth 
                 Jurisprudence worldwide.</p>
         </div>
-        <div className='rights-secondary-container'></div>
+        <div className='rights-secondary-container'>
+        </div>
     </div>
   );
 }
