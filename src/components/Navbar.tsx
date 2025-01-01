@@ -162,7 +162,7 @@ function Navbar() {
                   </Link>
                 </div>
                 <div className='flex pr-12 justify-end items-center h-[80px] mx-auto my-auto w-[20%]'>
-                  <div className="flex items-center space-x-4">
+                  <div className='flex items-center space-x-4'>
                     <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
                       <button className='btn-primary-test h-[50px] w-[100px] flex items-center justify-center'>
                         <img src='/images/1ocean-logo-white.svg' alt='1Ocean Logo' className='h-[40px] w-[50px]' />
