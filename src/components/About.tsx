@@ -9,45 +9,83 @@ function About() {
   return (
     <div className='about-parent-container antialiased'>
       <div className='w-full h-full'>
-        <div className='flex flex-col bg-[#FAF9F6]'>
-          <div className='w-full lg:w-[80%] lg:mx-auto mt-20 mb-10'>
-            <h3 className='text-4xl fmb-5 text-center md:text-5xl font-light border-l-8 border-r-8 border-[#F0910c]'>Our Mission</h3>
-            <p className='text-xl md:text-2xl my-1 w-[90%] lg:w-full mx-auto text-center lg:text-left'>Developing country government delegations are all too often at a
-              disadvantage in their participation in international deliberations at
-              the United Nations.  Their staffs are either too few or are
-              inadequately knowledgeable about the subject matter that they are
-              assigned to cover, or both.  Their budgets are also insufficient,
-              if not lacking, to hire experts that can provide them with the kind
-              of information they need to carry out their remits.</p>
+        {/* Mission Section */}
+        <div className='relative bg-[#FAF9F6] py-16 md:py-24'>
+          {/* Decorative Element */}
+          <div className='absolute top-0 left-0 w-1/3 h-2 bg-[#F0910c]'></div>
+          
+          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+            <div className='text-center mb-16'>
+              <h3 className='inline-block text-4xl md:text-6xl font-light mb-8 relative'>
+                Our Mission
+                <span className='absolute bottom-0 left-0 w-full h-1 bg-[#F0910c] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
+              </h3>
+            </div>
+
+            <div className='bg-white rounded-lg shadow-lg p-8 md:p-12 transform hover:-translate-y-1 transition-transform duration-300'>
+              <div className='max-w-4xl mx-auto'>
+                <p className='text-xl md:text-2xl font-light leading-relaxed text-gray-700'>
+                  Developing country government delegations are all too often at a
+                  disadvantage in their participation in international deliberations at
+                  the United Nations. Their staffs are either too few or are
+                  inadequately knowledgeable about the subject matter that they are
+                  assigned to cover, or both. Their budgets are also insufficient,
+                  if not lacking, to hire experts that can provide them with the kind
+                  of information they need to carry out their remits.
+                </p>
+              </div>
+            </div>
+
+            {/* Quote Section */}
+            <div className='mt-16 max-w-4xl mx-auto'>
+              <blockquote className='text-2xl md:text-3xl font-light italic text-center text-gray-600'>
+                "Our team is equipped with the expertise and resources necessary to provide tailored support
+                and effective solutions for delegations."
+                <footer className='mt-4 text-lg md:text-xl text-[#40916C] font-normal'>
+                  — Kevin Hill
+                </footer>
+              </blockquote>
+            </div>
           </div>
         </div>
+
         <div className='w-full lg:w-[90%] lg:mx-auto my-10'>
-          <div className='w-[60%] mx-auto'>
-            <h1 className='text-2xl md:text-3xl lg:text-5xl my-1 mt-1 mb-4 lg:w-full mx-auto font-semibold italic text-center lg:text-left px-5 lg:px-0'>"Our team is equipped with the expertise and resources necessary to provide tailored support
-              and effective solutions for delegations."<span className='text-2xl lg:text-3xl ml-10'>- Kevin Hill</span></h1>
-          </div>
-          <div className='my-20 flex flex-col lg:flex-row lg:w-full mx-auto lg:mx-0'>
-            <div className='mx-2 my-10'>
-              <h3 className='about-primary-h3-styling'>Our Approach</h3>
-              <p className='text-md md:text-xl font-[350] px-5 lg:px-0'>This special project of 1 Ocean Fund seeks to help remove this barrier.
+          {/* Services Section */}
+      <div className="bg-gray-50 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Approach */}
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h2 className="text-2xl md:text-3xl font-light mb-6 border-b-4 border-[#40916C] pb-2">
+                Our Approach
+              </h2>
+              <p className="text-lg font-light leading-relaxed">
+                This special project of 1 Ocean Fund seeks to help remove this barrier.
                 We will make available our expertise to help developing country
                 government delegations to better understand the concepts surrounding
                 the Rights of Nature within the context of deliberations convened
                 under the auspices of the United Nations and regional meetings
-                convened by sponsoring governments and organizations.</p>
+                convened by sponsoring governments and organizations.
+              </p>
             </div>
-            <div className='mx-2 my-10'>
-              <h3 className='about-primary-h3-styling'>Our Services</h3>
-              <p className='text-md md:text-xl font-[350] px-5 lg:px-0'>
+
+            {/* Services */}
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h2 className="text-2xl md:text-3xl font-light mb-6 border-b-4 border-[#40916C] pb-2">
+                Our Services
+              </h2>
+              <p className="text-lg font-light leading-relaxed">
                 We will provide personalized consultations with small delegations to
                 explain the institutional and policy framework that currently informs
                 the Rights of Nature within the context of the United Nations.
                 Our consultations will provide these delegations with a critical
                 analysis of upcoming meetings and the different ways that the subject
-                matter could be interpreted, helping the delegations be better
-                informed and prepared for a more effective engagement.
+                matter could be interpreted.
               </p>
             </div>
+          </div>
+        </div>
+
           </div>
         </div>
         <div className='flex flex-col'>

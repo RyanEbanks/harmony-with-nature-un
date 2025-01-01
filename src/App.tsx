@@ -1,41 +1,57 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
 import Library from './components/Library';
-import './App.css';
 import Sponsors from './components/Sponsors';
 import Timeline from './components/Timeline';
 import Donate from './components/Donate';
 import News from './components/News';
-import Rights from './components/Rights';
+import Rights from './components/Rights'; // Ensure this is the correct import
 import Assemblies from './components/Assemblies';
+import Policy from './components/Policy';
+import Law from './components/Law';
+import SignIn from './components/SignIn';
+import Posts from './components/Posts';
+import events from './lawData';
+import policyEvents from './policyData';
+import './App.css';
+import TwoFactor from './components/TwoFactor';
+import PostDetail from './components/PostDetail';
 
-function App() {
+const App: React.FC = () => {
+  const [law, setLaw] = useState<keyof typeof events>('US');
+  const [policy, setPolicy] = useState<keyof typeof policyEvents>('General');
+
   return (
     <Router>
-    <div className='App font-poppins'>
-      <Navbar />
-      <div>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/rights-of-nature' element={<Rights />} />
-        <Route path='/timeline' element={<Timeline />} />
-        <Route path='/assemblies' element={<Assemblies />} />
-        <Route path='/news' element={<News />} />
-        <Route path='/library' element={<Library />} />
-        <Route path='/sponsors' element={<Sponsors />} />
-        <Route path='/donate' element={<Donate />} />
-        {/* <Route path='/timeline' element={<Timeline />} /> */}
-      </Routes>
-      <Footer />
+      <div className='App font-poppins'>
+        <Navbar />
+        <div>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/rights-of-nature' element={<Rights setLaw={setLaw} setPolicy={setPolicy} />} />
+            <Route path='/timeline' element={<Timeline />} />
+            <Route path='/assemblies' element={<Assemblies />} />
+            <Route path='/news' element={<News />} />
+            <Route path='/news/:id' element={<PostDetail />} />
+            <Route path='/library' element={<Library />} />
+            <Route path='/sponsors' element={<Sponsors />} />
+            <Route path='/donate' element={<Donate />} />
+            <Route path='/law' element={<Law law={law} />} />
+            <Route path='/policy' element={<Policy policy={policy} />} />
+            <Route path='/login' element={<SignIn />} />
+            <Route path='/upload' element={<Posts />} />
+            <Route path='/two-factor-authentication' element={<TwoFactor />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-    </div>
-  </Router>
+    </Router>
   );
-}
+};
 
 export default App;

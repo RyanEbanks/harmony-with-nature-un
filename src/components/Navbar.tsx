@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import logo from '../images/hwni-logo.svg';
 // import oceanlogo from '../images/1ocean-logo.svg';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../App.css'
 import { CiMenuBurger } from 'react-icons/ci';
 import { motion, AnimatePresence } from 'motion/react'
@@ -11,6 +11,17 @@ import { MdClose } from 'react-icons/md';
 
 function Navbar() {
   const [toggleVideo, setToggleVideo] = useState(false);
+  const navigate = useNavigate();
+  const username = localStorage.getItem('username');
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('authToken'));
+
+  const handleSignOut = () => {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('username');
+    localStorage.removeItem('tempEmail');
+    setIsAuthenticated(false);
+    navigate('/');
+  };
 
   const openVideo = () => setToggleVideo(true);
   const closeVideo = () => setToggleVideo(false);
@@ -95,6 +106,17 @@ function Navbar() {
                 <Link to='/donate'>
                   <button className='my-4' onClick={menuSelect}>Donate</button>
                 </Link>
+                {isAuthenticated && (
+                  <button
+                    onClick={() => {
+                      handleSignOut();
+                      menuSelect();
+                    }}
+                    className='my-4 text-red-600 hover:text-red-700'
+                  >
+                    Sign Out
+                  </button>
+                )}
               </ul>
             </motion.div>
           )}
@@ -105,7 +127,7 @@ function Navbar() {
         <div>
           {/* <div className='bg-cover bg-center h-[30vh] lg:h-[60vh]' style={{ backgroundImage: 'url('/images/new-placeholder/banner.mp4')' }}> */}
           <div>
-            <div className='lg-nav-parent'>
+            <div className='lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
               <div className='lg-nav-content-container'>
                 <div className='lg-nav-img-container w-[20%] flex pl-12 items-center my-auto'>
@@ -140,13 +162,28 @@ function Navbar() {
                   </Link>
                 </div>
                 <div className='flex pr-12 justify-end items-center h-[80px] mx-auto my-auto w-[20%]'>
-                  <Link to='/donate'>
-                    <button className='btn-primary-test font-normal text-[1.1rem] h-[50px] w-[100px]'>Donate</button>
-                  </Link>
+                  <div className="flex items-center space-x-4">
+                    <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
+                      <button className='btn-primary-test h-[50px] w-[100px] flex items-center justify-center'>
+                        <img src='/images/1ocean-logo-white.svg' alt='1Ocean Logo' className='h-[40px] w-[50px]' />
+                      </button>
+                    </a>
+                    <Link to='/donate'>
+                      <button className='btn-primary-test h-[50px] w-[100px] flex items-center justify-center font-normal text-[1.1rem]'>Donate</button>
+                    </Link>
+                    {isAuthenticated && (
+                      <button
+                        onClick={handleSignOut}
+                        className='px-4 py-2 text-red-600 hover:text-red-700 font-medium'
+                      >
+                        Sign Out
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className='bg-cover bg-center h-[30vh] lg:h-[80vh]'>
+            <div className='bg-cover bg-center h-[30vh] lg:h-[80vh] mt-[100px]'>
               <video className='w-full h-full object-none' src='/images/new-placeholder/banner.mp4'
                 autoPlay
                 muted
@@ -189,47 +226,60 @@ function Navbar() {
         </div>
       ) : (
         <div>
-          <div className='lg-nav-parent'>
-              {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
-              <div className='lg-nav-content-container'>
-                <div className='lg-nav-img-container w-[20%] flex pl-12 items-center my-auto'>
-                  <a href='/'>
-                    <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
-                  </a>
-                </div>
-                <div className='lg-nav-content justify-center w-[80%] h-[80px] my-auto'>
-                  <Link to='/'>
-                    <button className='lg-nav-link'>Home</button>
-                  </Link>
-                  <Link to='/about'>
-                    <button className='lg-nav-link'>About Us</button>
-                  </Link>
-                  <Link to='/rights-of-nature'>
-                    <button className='lg-nav-link'>Rights</button>
-                  </Link>
-                  <Link to='/timeline'>
-                    <button className='lg-nav-link'>Timeline</button>
-                  </Link>
-                  <Link to='/assemblies'>
-                    <button className='lg-nav-link'>Assemblies</button>
-                  </Link>
-                  <Link to='/news'>
-                    <button className='lg-nav-link'>News</button>
-                  </Link>
-                  <Link to='/library'>
-                    <button className='lg-nav-link'>Library</button>
-                  </Link>
-                  <Link to='/sponsors'>
-                    <button className='lg-nav-link'>Sponsors</button>
-                  </Link>
-                </div>
-                <div className='flex pr-12 justify-end items-center h-[80px] mx-auto my-auto w-[20%]'>
-                  <Link to='/donate'>
-                    <button className='btn-primary-test font-normal text-[1.1rem] h-[50px] w-[100px]'>Donate</button>
-                  </Link>
-                </div>
+          <div className='lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
+            {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
+            <div className='lg-nav-content-container'>
+              <div className='lg-nav-img-container w-[20%] flex pl-12 items-center my-auto'>
+                <a href='/'>
+                  <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
+                </a>
+              </div>
+              <div className='lg-nav-content justify-center w-[80%] h-[80px] my-auto'>
+                <Link to='/'>
+                  <button className='lg-nav-link'>Home</button>
+                </Link>
+                <Link to='/about'>
+                  <button className='lg-nav-link'>About Us</button>
+                </Link>
+                <Link to='/rights-of-nature'>
+                  <button className='lg-nav-link'>Rights</button>
+                </Link>
+                <Link to='/timeline'>
+                  <button className='lg-nav-link'>Timeline</button>
+                </Link>
+                <Link to='/assemblies'>
+                  <button className='lg-nav-link'>Assemblies</button>
+                </Link>
+                <Link to='/news'>
+                  <button className='lg-nav-link'>News</button>
+                </Link>
+                <Link to='/library'>
+                  <button className='lg-nav-link'>Library</button>
+                </Link>
+                <Link to='/sponsors'>
+                  <button className='lg-nav-link'>Sponsors</button>
+                </Link>
+              </div>
+              <div className='flex pr-12 justify-end items-center h-[80px] mx-auto my-auto w-[20%]'>
+              <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
+                      <button className='btn-primary-test h-[50px] w-[100px] flex items-center justify-center'>
+                        <img src='/images/1ocean-logo-white.svg' alt='1Ocean Logo' className='h-[40px] w-[50px]' />
+                      </button>
+                    </a>
+                <Link to='/donate'>
+                  <button className='btn-primary-test font-normal text-[1.1rem] h-[50px] w-[100px]'>Donate</button>
+                </Link>
+                {isAuthenticated && (
+                                <button
+                                    onClick={handleSignOut}
+                                    className='ml-4 px-4 py-2 text-red-600 hover:text-red-700 font-medium'
+                                >
+                                    Sign Out
+                                </button>
+                            )}
               </div>
             </div>
+          </div>
         </div>
       )}
     </div>

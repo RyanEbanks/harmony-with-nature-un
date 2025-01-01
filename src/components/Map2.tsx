@@ -1,377 +1,456 @@
-import mapboxgl from 'mapbox-gl';
 import React, { useState } from 'react';
 import ReactMapGL from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { GiPineTree } from 'react-icons/gi';
-import { renderToStaticMarkup } from 'react-dom/server';
-import marker from '../images/custom-marker.svg'
-// import Flag from 'react-world-flags';
+import { MdClose } from 'react-icons/md';
+import { Marker } from 'react-map-gl'; // Ensure Marker is imported
+import events from '../lawData';
+import policyEvents from '../policyData';
+import { useNavigate } from 'react-router-dom';
 
-const Map = () => {
+type Map2Props = {
+    setLaw: React.Dispatch<React.SetStateAction<keyof typeof events>>
+    setPolicy: React.Dispatch<React.SetStateAction<keyof typeof policyEvents>>
+}
+
+const Map2: React.FC<Map2Props> = ({setLaw, setPolicy}) => {
+  const navigate = useNavigate();
   const [viewport, setViewport] = useState({
     latitude: 37.0902, // Center over the continental U.S.
     longitude: -95.7129,
-    zoom: 2, // Zoom out to see the U.S.
+    zoom: 2.1, // Zoom out to see the U.S.
     pitch: 0,
     bearing: 0,
   });
 
+  interface MarkerType {
+    code: string;
+    displayImg: string;
+    description: {
+      name: string;
+      info: string;
+    };
+    // Add other optional fields as needed
+    lng: number;
+    lat: number;
+  }
+
+  const [togglePopUp, setTogglePopUp] = useState(false);
+  const [selectedMarker, setSelectedMarker] = useState<MarkerType | null>(null);
+
+  // const openPopUp = () => setTogglePopUp(true);
+  const closePopUp = () => setTogglePopUp(false);
+
+// removed bounds because it was causing the markers to act funny on click
+  // const bounds = new LngLatBounds([-180, -80], [200, 90]); // Setting map boundry to Southwest corner & Northeast corner [minLng, minLat, maxLng, maxLat]
+
   //Custom Marker
-  const markerAR = document.createElement('div');
-  const markerAU = document.createElement('div');
-  const markerBD = document.createElement('div');
-  const markerBE = document.createElement('div');
-  const markerBZ = document.createElement('div');
-  const markerBO = document.createElement('div');
-  const markerBR = document.createElement('div');
-  const markerCA = document.createElement('div');
-  const markerCL = document.createElement('div');
-  const markerCO = document.createElement('div');
-  const markerCR = document.createElement('div');
-  const markerEC = document.createElement('div');
-  const markerSV = document.createElement('div');
-  const markerFR = document.createElement('div');
-  const markerGT = document.createElement('div');
-  const markerIN = document.createElement('div');
-  const markerMX = document.createElement('div');
-  const markerNL = document.createElement('div');
-  const markerNZ = document.createElement('div');
-  const markerNG = document.createElement('div');
-  const markerPK = document.createElement('div');
-  const markerPA = document.createElement('div');
-  const markerPE = document.createElement('div');
-  const markerPT = document.createElement('div');
-  const markerZA = document.createElement('div');
-  const markerES = document.createElement('div');
-  const markerCH = document.createElement('div');
-  const markerUG = document.createElement('div');
-  const markerGB = document.createElement('div');
-  const markerUS = document.createElement('div')
+  //Marker Data
+  const markersData = [
+    {
+      code: 'AR',
+      image: '/images/markers/markerAR.svg',
+      displayImg: '/images/scenery/AR.jpg',
+      lng: -64.967,
+      lat: -34.9964,
+      description: { name: 'Argentina', info: 'Located in South America.' },
+    },
+    {
+      code: 'AU',
+      image: '/images/markers/markerAU.svg',
+      displayImg: '/images/scenery/AU.jpg',
+      lng: 134.4896,
+      lat: -25.7323,
+      description: { name: 'Australia', info: 'Located in Oceania.' },
+    },
+    {
+      code: 'BD',
+      image: '/images/markers/markerBD.svg',
+      displayImg: '/images/scenery/BD.jpg',
+      lng: 90.3563,
+      lat: 23.685,
+      description: { name: 'Bangladesh', info: 'Located in South Asia.' },
+    },
+    {
+      code: 'BE',
+      image: '/images/markers/markerBE.svg',
+      displayImg: '/images/scenery/BE.jpg',
+      lng: 4.469936,
+      lat: 50.6407,
+      description: { name: 'Belgium', info: 'Located in Europe.' },
+    },
+    {
+      code: 'BZ',
+      image: '/images/markers/markerBZ.svg',
+      displayImg: '/images/scenery/BZ.jpg',
+      lng: -88.7274,
+      lat: 17.1899,
+      description: { name: 'Belize', info: 'Located in Central America.' },
+    },
+    {
+      code: 'BO',
+      image: '/images/markers/markerBO.svg',
+      displayImg: '/images/scenery/BO.jpg',
+      lng: -64.6872,
+      lat: -16.2902,
+      description: { name: 'Bolivia', info: 'Located in South America.' },
+    },
+    {
+      code: 'BR',
+      image: '/images/markers/markerBR.svg',
+      displayImg: '/images/scenery/BR.jpg',
+      lng: -54.7314,
+      lat: -14.235,
+      description: { name: 'Brazil', info: 'Located in South America.' },
+    },
+    {
+      code: 'CA',
+      image: '/images/markers/markerCA.svg',
+      displayImg: '/images/scenery/CA.jpg',
+      lng: -106.3468,
+      lat: 56.1304,
+      description: { name: 'Canada', info: 'Located in North America.' },
+    },
+    {
+      code: 'CL',
+      image: '/images/markers/markerCL.svg',
+      displayImg: '/images/scenery/CL.jpg',
+      lng: -71.3817,
+      lat: -37.2704,
+      description: { name: 'Chile', info: 'Located in South America.' },
+    },
+    {
+      code: 'CO',
+      image: '/images/markers/markerCO.svg',
+      displayImg: '/images/scenery/CO.jpg',
+      lng: -74.2973,
+      lat: 4.5709,
+      description: { name: 'Colombia', info: 'Located in South America.' },
+    },
+    {
+      code: 'CR',
+      image: '/images/markers/markerCR.svg',
+      displayImg: '/images/scenery/CR.jpg',
+      lng: -84.1954,
+      lat: 9.7489,
+      description: { name: 'Costa Rica', info: 'Located in Central America.' },
+    },
+    {
+      code: 'EC',
+      image: '/images/markers/markerEC.svg',
+      displayImg: '/images/scenery/EC.jpg',
+      lng: -78.1834,
+      lat: -1.8312,
+      description: { name: 'Ecuador', info: 'Located in South America.' },
+    },
+    {
+      code: 'SV',
+      image: '/images/markers/markerSV.svg',
+      displayImg: '/images/scenery/SV.jpg',
+      lng: -88.8965,
+      lat: 13.7942,
+      description: { name: 'El Salvador', info: 'Located in Central America.' },
+    },
+    {
+      code: 'FR',
+      image: '/images/markers/markerFR.svg',
+      displayImg: '/images/scenery/FR.jpg',
+      lng: 2.2137,
+      lat: 46.2276,
+      description: { name: 'France', info: 'Located in Europe.' },
+    },
+    {
+      code: 'GT',
+      image: '/images/markers/markerGT.svg',
+      displayImg: '/images/scenery/GT.jpg',
+      lng: -90.2308,
+      lat: 15.7835,
+      description: { name: 'Guatemala', info: 'Located in Central America.' },
+    },
+    {
+      code: 'IN',
+      image: '/images/markers/markerIN.svg',
+      displayImg: '/images/scenery/IN.jpg',
+      lng: 78.9629,
+      lat: 20.5937,
+      description: { name: 'India', info: 'Located in South Asia.' },
+    },
+    {
+      code: 'MX',
+      image: '/images/markers/markerMX.svg',
+      displayImg: '/images/scenery/MX.jpg',
+      lng: -102.5528,
+      lat: 23.6345,
+      description: { name: 'Mexico', info: 'Located in North America.' },
+    },
+    {
+      code: 'NL',
+      image: '/images/markers/markerNL.svg',
+      displayImg: '/images/scenery/NL.jpg',
+      lng: 5.2913,
+      lat: 52.1326,
+      description: { name: 'Netherlands', info: 'Located in Europe.' },
+    },
+    {
+      code: 'NZ',
+      image: '/images/markers/markerNZ.svg',
+      displayImg: '/images/scenery/NZ.jpg',
+      lng: 174.8859,
+      lat: -40.9006,
+      description: { name: 'New Zealand', info: 'Located in Oceania.' },
+    },
+    {
+      code: 'NG',
+      image: '/images/markers/markerNG.svg',
+      displayImg: '/images/scenery/NG.jpg',
+      lng: 8.6753,
+      lat: 9.082,
+      description: { name: 'Nigeria', info: 'Located in Africa.' },
+    },
+    {
+      code: 'PK',
+      image: '/images/markers/markerPK.svg',
+      displayImg: '/images/scenery/PK.jpg',
+      lng: 69.3451,
+      lat: 30.3753,
+      description: { name: 'Pakistan', info: 'Located in South Asia.' },
+    },
+    {
+      code: 'PA',
+      image: '/images/markers/markerPA.svg',
+      displayImg: '/images/scenery/PA.jpg',
+      lng: -80.7821,
+      lat: 8.538,
+      description: { name: 'Panama', info: 'Located in Central America.' },
+    },
+    {
+      code: 'PE',
+      image: '/images/markers/markerPE.svg',
+      displayImg: '/images/scenery/PE.jpg',
+      lng: -75.0152,
+      lat: -9.19,
+      description: { name: 'Peru', info: 'Located in South America.' },
+    },
+    {
+      code: 'PT',
+      image: '/images/markers/markerPT.svg',
+      displayImg: '/images/scenery/PT.jpg',
+      lng: -8.2245,
+      lat: 39.3999,
+      description: { name: 'Portugal', info: 'Located in Europe.' },
+    },
+    {
+      code: 'ZA',
+      image: '/images/markers/markerZA.svg',
+      displayImg: '/images/scenery/ZA.jpg',
+      lng: 24.9916,
+      lat: -30.5595,
+      description: { name: 'South Africa', info: 'Located in Africa.' },
+    },
+    {
+      code: 'ES',
+      image: '/images/markers/markerES.svg',
+      displayImg: '/images/scenery/ES.jpg',
+      lng: -3.7038,
+      lat: 40.4168,
+      description: { name: 'Spain', info: 'Located in Europe.' },
+    },
+    {
+      code: 'CH',
+      image: '/images/markers/markerCH.svg',
+      displayImg: '/images/scenery/CH.jpg',
+      lng: 8.2275,
+      lat: 46.8182,
+      description: { name: 'Switzerland', info: 'Located in Europe.' },
+    },
+    {
+      code: 'UG',
+      image: '/images/markers/markerUG.svg',
+      displayImg: '/images/scenery/UG.jpg',
+      lng: 32.2903,
+      lat: 1.3733,
+      description: { name: 'Uganda', info: 'Located in Africa.' },
+    },
+    {
+      code: 'GB',
+      image: '/images/markers/markerGB.svg',
+      displayImg: '/images/scenery/GB.jpg',
+      lng: -2.2137,
+      lat: 54.0,
+      description: { name: 'United Kingdom', info: 'Located in Europe.' },
+    },
+    {
+      code: 'US',
+      image: '/images/markers/markerUS.svg',
+      displayImg: '/images/scenery/US.jpg',
+      lng: -99.9018,
+      lat: 37.0902,
+      description: { name: 'United States', info: 'Located in North America.' },
+    },
+  ];
 
-  markerAR.style.width = '50px';
-  markerAU.style.width = '50px';
-  markerBD.style.width = '50px';
-  markerBE.style.width = '50px';
-  markerBZ.style.width = '50px';
-  markerBO.style.width = '50px';
-  markerBR.style.width = '50px';
-  markerCA.style.width = '50px';
-  markerCL.style.width = '50px';
-  markerCO.style.width = '50px';
-  markerCR.style.width = '50px';
-  markerEC.style.width = '50px';
-  markerSV.style.width = '50px';
-  markerFR.style.width = '50px';
-  markerGT.style.width = '50px';
-  markerIN.style.width = '50px';
-  markerMX.style.width = '50px';
-  markerNL.style.width = '50px';
-  markerNZ.style.width = '50px';
-  markerNG.style.width = '50px';
-  markerPK.style.width = '50px';
-  markerPA.style.width = '50px';
-  markerPE.style.width = '50px';
-  markerPT.style.width = '50px';
-  markerZA.style.width = '50px';
-  markerES.style.width = '50px';
-  markerCH.style.width = '50px';
-  markerUG.style.width = '50px';
-  markerGB.style.width = '50px';
-  markerUS.style.width = '50px';
+  const handleMarkerClick = (marker: MarkerType) => {
+    setSelectedMarker(marker);
+    setTogglePopUp(true);
+  }
 
-  markerAR.style.height = '50px';
-  markerAU.style.height = '50px';
-  markerBD.style.height = '50px';
-  markerBE.style.height = '50px';
-  markerBZ.style.height = '50px';
-  markerBO.style.height = '50px';
-  markerBR.style.height = '50px';
-  markerCA.style.height = '50px';
-  markerCL.style.height = '50px';
-  markerCO.style.height = '50px';
-  markerCR.style.height = '50px';
-  markerEC.style.height = '50px';
-  markerSV.style.height = '50px';
-  markerFR.style.height = '50px';
-  markerGT.style.height = '50px';
-  markerIN.style.height = '50px';
-  markerMX.style.height = '50px';
-  markerNL.style.height = '50px';
-  markerNZ.style.height = '50px';
-  markerNG.style.height = '50px';
-  markerPK.style.height = '50px';
-  markerPA.style.height = '50px';
-  markerPE.style.height = '50px';
-  markerPT.style.height = '50px';
-  markerZA.style.height = '50px';
-  markerES.style.height = '50px';
-  markerCH.style.height = '50px';
-  markerUG.style.height = '50px';
-  markerGB.style.height = '50px';
-  markerUS.style.height = '50px';
+  const handleMapMove = (e: any) => {
+    setViewport(e.viewState);
+  }
 
-  // markerAR.style.backgroundImage = <Flag code='AR' />;
-  // markerAU.style.backgroundImage = <Flag code='AU' />;
-  // markerBD.style.backgroundImage = <Flag code='BD' />;
-  // markerBE.style.backgroundImage = <Flag code='BE' />;
-  // markerBZ.style.backgroundImage = <Flag code='BZ' />;
-  // markerBO.style.backgroundImage = <Flag code='BO' />;
-  // markerBR.style.backgroundImage = <Flag code='BR' />;
-  // markerCA.style.backgroundImage = <Flag code='CA' />;
-  // markerCL.style.backgroundImage = <Flag code='CL' />;
-  // markerCO.style.backgroundImage = <Flag code='CO' />;
-  // markerCR.style.backgroundImage = <Flag code='CR' />;
-  // markerEC.style.backgroundImage = <Flag code='EC' />;
-  // markerSV.style.backgroundImage = <Flag code='SV' />;
-  // markerFR.style.backgroundImage = <Flag code='FR' />;
-  // markerGT.style.backgroundImage = <Flag code='GT' />;
-  // markerIN.style.backgroundImage = <Flag code='IN' />;
-  // markerMX.style.backgroundImage = <Flag code='MX' />;
-  // markerNL.style.backgroundImage = <Flag code='NL' />;
-  // markerNZ.style.backgroundImage = <Flag code='NZ' />;
-  // markerNG.style.backgroundImage = <Flag code='NG' />;
-  // markerPK.style.backgroundImage = <Flag code='PK' />;
-  // markerPA.style.backgroundImage = <Flag code='PA' />;
-  // markerPE.style.backgroundImage = <Flag code='PE' />;
-  // markerPT.style.backgroundImage = <Flag code='PT' />;
-  // markerZA.style.backgroundImage = <Flag code='ZA' />;
-  // markerES.style.backgroundImage = <Flag code='ES' />;
-  // markerCH.style.backgroundImage = <Flag code='CH' />;
-  // markerUG.style.backgroundImage = <Flag code='UG' />;
-  // markerGB.style.backgroundImage = <Flag code='GB' />;
-  // markerUS.style.backgroundImage = <Flag code='US' />;
+  const handleLawClick = (law: keyof typeof events) => {
+    setLaw(law);
+    navigate('/law');
+  }
 
+  const handlePolicyClick = (policy: keyof typeof policyEvents) => {
+    setPolicy(policy);
+    navigate('/policy');
+  }
 
-  markerAR.style.backgroundImage = "url(https://flagcdn.com/ar.svg)"; // Argentina
-  markerAU.style.backgroundImage = "url(https://flagcdn.com/au.svg)"; // Australia
-  markerBD.style.backgroundImage = "url(https://flagcdn.com/bd.svg)"; // Bangladesh
-  markerBE.style.backgroundImage = "url(https://flagcdn.com/be.svg)"; // Belgium
-  markerBZ.style.backgroundImage = "url(https://flagcdn.com/bz.svg)"; // Belize
-  markerBO.style.backgroundImage = "url(https://flagcdn.com/bo.svg)"; // Bolivia
-  markerBR.style.backgroundImage = "url(https://flagcdn.com/br.svg)"; // Brazil
-  markerCA.style.backgroundImage = "url(https://flagcdn.com/ca.svg)"; // Canada
-  markerCL.style.backgroundImage = "url(https://flagcdn.com/cl.svg)"; // Chile
-  markerCO.style.backgroundImage = "url(https://flagcdn.com/co.svg)"; // Colombia
-  markerCR.style.backgroundImage = "url(https://flagcdn.com/cr.svg)"; // Costa Rica
-  markerEC.style.backgroundImage = "url(https://flagcdn.com/ec.svg)"; // Ecuador
-  markerSV.style.backgroundImage = "url(https://flagcdn.com/sv.svg)"; // El Salvador
-  markerFR.style.backgroundImage = "url(https://flagcdn.com/fr.svg)"; // France
-  markerGT.style.backgroundImage = "url(https://flagcdn.com/gt.svg)"; // Guatemala
-  markerIN.style.backgroundImage = "url(https://flagcdn.com/in.svg)"; // India
-  markerMX.style.backgroundImage = "url(https://flagcdn.com/mx.svg)"; // Mexico
-  markerNL.style.backgroundImage = "url(https://flagcdn.com/nl.svg)"; // Netherlands
-  markerNZ.style.backgroundImage = "url(https://flagcdn.com/nz.svg)"; // New Zealand
-  markerNG.style.backgroundImage = "url(https://flagcdn.com/ng.svg)"; // Nigeria
-  markerPK.style.backgroundImage = "url(https://flagcdn.com/pk.svg)"; // Pakistan
-  markerPA.style.backgroundImage = "url(https://flagcdn.com/pa.svg)"; // Panama
-  markerPE.style.backgroundImage = "url(https://flagcdn.com/pe.svg)"; // Peru
-  markerPT.style.backgroundImage = "url(https://flagcdn.com/pt.svg)"; // Portugal
-  markerZA.style.backgroundImage = "url(https://flagcdn.com/za.svg)"; // South Africa
-  markerES.style.backgroundImage = "url(https://flagcdn.com/es.svg)"; // Spain
-  markerCH.style.backgroundImage = "url(https://flagcdn.com/ch.svg)"; // Switzerland
-  markerUG.style.backgroundImage = "url(https://flagcdn.com/ug.svg)"; // Uganda
-  markerGB.style.backgroundImage = "url(https://flagcdn.com/gb.svg)"; // United Kingdom
-  markerUS.style.backgroundImage = "url(https://flagcdn.com/us.svg)"; // United States
+  // const handleMapLoad = (map: mapboxgl.Map) => {
+  //   // Iterate through marker data
+  //   markersData.forEach((markerData) => {
+  //     const marker = document.createElement('div');
+  //     marker.className = `marker${markerData.code}`;
+  //     marker.style.width = '50px';
+  //     marker.style.height = '50px';
+  //     marker.style.backgroundImage = `url(${markerData.image})`;
+  //     marker.style.backgroundSize = 'contain';
+  //     marker.style.backgroundRepeat = 'no-repeat';
 
-  markerAR.style.backgroundSize = 'contain'; // Argentina
-  markerAU.style.backgroundSize = 'contain'; // Australia
-  markerBD.style.backgroundSize = 'contain'; // Bangladesh
-  markerBE.style.backgroundSize = 'contain'; // Belgium
-  markerBZ.style.backgroundSize = 'contain'; // Belize
-  markerBO.style.backgroundSize = 'contain'; // Bolivia
-  markerBR.style.backgroundSize = 'contain'; // Brazil
-  markerCA.style.backgroundSize = 'contain'; // Canada
-  markerCL.style.backgroundSize = 'contain'; // Chile
-  markerCO.style.backgroundSize = 'contain'; // Colombia
-  markerCR.style.backgroundSize = 'contain'; // Costa Rica
-  markerEC.style.backgroundSize = 'contain'; // Ecuador
-  markerSV.style.backgroundSize = 'contain'; // El Salvador
-  markerFR.style.backgroundSize = 'contain'; // France
-  markerGT.style.backgroundSize = 'contain'; // Guatemala
-  markerIN.style.backgroundSize = 'contain'; // India
-  markerMX.style.backgroundSize = 'contain'; // Mexico
-  markerNL.style.backgroundSize = 'contain'; // Netherlands
-  markerNZ.style.backgroundSize = 'contain'; // New Zealand
-  markerNG.style.backgroundSize = 'contain'; // Nigeria
-  markerPK.style.backgroundSize = 'contain'; // Pakistan
-  markerPA.style.backgroundSize = 'contain'; // Panama
-  markerPE.style.backgroundSize = 'contain'; // Peru
-  markerPT.style.backgroundSize = 'contain'; // Portugal
-  markerZA.style.backgroundSize = 'contain'; // South Africa
-  markerES.style.backgroundSize = 'contain'; // Spain
-  markerCH.style.backgroundSize = 'contain'; // Switzerland
-  markerUG.style.backgroundSize = 'contain'; // Uganda
-  markerGB.style.backgroundSize = 'contain'; // United Kingdom
-  markerUS.style.backgroundSize = 'contain'; // United States
+  //     // Add marker to map with the specified longitude and latitude
+  //     new mapboxgl.Marker(marker)
+  //       .setLngLat([markerData.lng, markerData.lat])
+  //       .addTo(map);
 
-  markerAR.style.backgroundRepeat = 'no-repeat'; // Argentina
-  markerAU.style.backgroundRepeat = 'no-repeat'; // Australia
-  markerBD.style.backgroundRepeat = 'no-repeat'; // Bangladesh
-  markerBE.style.backgroundRepeat = 'no-repeat'; // Belgium
-  markerBZ.style.backgroundRepeat = 'no-repeat'; // Belize
-  markerBO.style.backgroundRepeat = 'no-repeat'; // Bolivia
-  markerBR.style.backgroundRepeat = 'no-repeat'; // Brazil
-  markerCA.style.backgroundRepeat = 'no-repeat'; // Canada
-  markerCL.style.backgroundRepeat = 'no-repeat'; // Chile
-  markerCO.style.backgroundRepeat = 'no-repeat'; // Colombia
-  markerCR.style.backgroundRepeat = 'no-repeat'; // Costa Rica
-  markerEC.style.backgroundRepeat = 'no-repeat'; // Ecuador
-  markerSV.style.backgroundRepeat = 'no-repeat'; // El Salvador
-  markerFR.style.backgroundRepeat = 'no-repeat'; // France
-  markerGT.style.backgroundRepeat = 'no-repeat'; // Guatemala
-  markerIN.style.backgroundRepeat = 'no-repeat'; // India
-  markerMX.style.backgroundRepeat = 'no-repeat'; // Mexico
-  markerNL.style.backgroundRepeat = 'no-repeat'; // Netherlands
-  markerNZ.style.backgroundRepeat = 'no-repeat'; // New Zealand
-  markerNG.style.backgroundRepeat = 'no-repeat'; // Nigeria
-  markerPK.style.backgroundRepeat = 'no-repeat'; // Pakistan
-  markerPA.style.backgroundRepeat = 'no-repeat'; // Panama
-  markerPE.style.backgroundRepeat = 'no-repeat'; // Peru
-  markerPT.style.backgroundRepeat = 'no-repeat'; // Portugal
-  markerZA.style.backgroundRepeat = 'no-repeat'; // South Africa
-  markerES.style.backgroundRepeat = 'no-repeat'; // Spain
-  markerCH.style.backgroundRepeat = 'no-repeat'; // Switzerland
-  markerUG.style.backgroundRepeat = 'no-repeat'; // Uganda
-  markerGB.style.backgroundRepeat = 'no-repeat'; // United Kingdom
-  markerUS.style.backgroundRepeat = 'no-repeat'; // United States
+  //     marker.addEventListener('click', () => handleMarkerClick(markerData) //passing in the marker data 
+  //     );
+  //   });
+  // }
 
-
-
-  const handleMapLoad = (map: mapboxgl.Map) => {
-    new mapboxgl.Marker(markerAR)
-      .setLngLat([-58.4173, -34.6118]) // Argentina (Buenos Aires)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerAU)
-      .setLngLat([151.2093, -33.8688]) // Australia (Sydney)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerBD)
-      .setLngLat([90.4125, 23.8103]) // Bangladesh (Dhaka)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerBE)
-      .setLngLat([4.3517, 50.8503]) // Belgium (Brussels)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerBZ)
-      .setLngLat([-88.758, 17.5046]) // Belize (Belmopan)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerBO)
-      .setLngLat([-68.1193, -16.4897]) // Bolivia (La Paz)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerBR)
-      .setLngLat([-47.9292, -15.7801]) // Brazil (Brasilia)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerCA)
-      .setLngLat([-75.6972, 45.4215]) // Canada (Ottawa)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerCL)
-      .setLngLat([-70.6483, -33.4569]) // Chile (Santiago)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerCO)
-      .setLngLat([-74.0721, 4.711]) // Colombia (Bogotá)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerCR)
-      .setLngLat([-84.0833, 9.9347]) // Costa Rica (San José)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerEC)
-      .setLngLat([-78.4678, -0.1807]) // Ecuador (Quito)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerSV)
-      .setLngLat([-89.2182, 13.6929]) // El Salvador (San Salvador)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerFR)
-      .setLngLat([2.3522, 48.8566]) // France (Paris)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerGT)
-      .setLngLat([-90.5269, 14.6349]) // Guatemala (Guatemala City)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerIN)
-      .setLngLat([77.209, 28.6139]) // India (New Delhi)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerMX)
-      .setLngLat([-99.1332, 19.4326]) // Mexico (Mexico City)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerNL)
-      .setLngLat([4.9041, 52.3676]) // Netherlands (Amsterdam)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerNZ)
-      .setLngLat([174.7787, -41.2924]) // New Zealand (Wellington)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerNG)
-      .setLngLat([7.4913, 9.0556]) // Nigeria (Abuja)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerPK)
-      .setLngLat([73.0551, 33.6844]) // Pakistan (Islamabad)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerPA)
-      .setLngLat([-79.5188, 8.9824]) // Panama (Panama City)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerPE)
-      .setLngLat([-77.0428, -12.0464]) // Peru (Lima)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerPT)
-      .setLngLat([-9.1394, 38.7223]) // Portugal (Lisbon)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerZA)
-      .setLngLat([28.0473, -26.2041]) // South Africa (Johannesburg)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerES)
-      .setLngLat([-3.7038, 40.4168]) // Spain (Madrid)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerCH)
-      .setLngLat([7.4474, 46.9481]) // Switzerland (Bern)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerUG)
-      .setLngLat([32.5832, 0.3476]) // Uganda (Kampala)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerGB)
-      .setLngLat([-0.1276, 51.5074]) // United Kingdom (London)
-      .addTo(map);
-
-    new mapboxgl.Marker(markerUS)
-      .setLngLat([-77.0369, 38.9072]) // United States (Washington, D.C.)
-      .addTo(map);
-
+  // Zoom In function
+  const zoomIn = () => {
+    setViewport(prevState => ({
+      ...prevState,
+      zoom: Math.min(prevState.zoom + 0.5, 20), // Max zoom is 20
+    }));
   };
 
+  // Zoom Out function
+  const zoomOut = () => {
+    setViewport(prevState => ({
+      ...prevState,
+      zoom: Math.max(prevState.zoom - 0.5, 2), // Min zoom is 0
+    }));
+  }
+
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <div style={{ position: 'relative', width: '100vw', height: '90vh' }}>
       <ReactMapGL
         {...viewport}
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle='mapbox://styles/mapbox/satellite-streets-v11'
-        onMove={(evt) => setViewport(evt.viewState)} // Handle map movement
-        onLoad={(e) => handleMapLoad(e.target)} // Ensure the map instance is passed
-        scrollZoom={false} // Enable zoom for user interaction
-      />
+        onMove={handleMapMove} // Handle map movement
+        minZoom={2.1}
+        maxZoom={5}
+        cooperativeGestures={true} // Enable ctrl + scroll zoom
+        dragRotate={false}
+      >
+        {markersData.map((markerData) => (
+          <Marker
+            key={markerData.lng}
+            latitude={markerData.lat}
+            longitude={markerData.lng}
+          >
+            <div style={{ cursor: 'pointer', width: '50px', height: '50px' }}>
+              <img src={markerData.image} alt={markerData.description.name}
+                onClick={() => handleMarkerClick(markerData)}
+              />
+            </div>
+          </Marker>
+        ))}
+        {/* Custom Zoom Buttons */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            position: 'absolute',
+            bottom: '40px',
+            left: '20px',
+            zIndex: 1,
+          }}
+        >
+          <button
+            onClick={zoomIn}
+            style={{
+              backgroundColor: '#007bff',
+              color: 'white',
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              border: 'none',
+              marginBottom: '10px',
+              fontSize: '25px',
+              cursor: 'pointer',
+            }}
+          >
+            +
+          </button>
+
+          <button
+            onClick={zoomOut}
+            style={{
+              backgroundColor: '#007bff',
+              color: 'white',
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              border: 'none',
+              marginTop: '10px',
+              fontSize: '25px',
+              cursor: 'pointer',
+            }}
+          >
+            −
+          </button>
+        </div>
+        {/* Pop-Up Display */}
+        {togglePopUp && selectedMarker && (
+          <div className='flex flex-col w-[430px] h-[517px] absolute top-0 right-10 z-40 rounded-xl'>
+            <button
+              onClick={closePopUp}
+              className='h-[30px] ml-auto text-white text-2xl font-bold hover:text-slate-200'
+            >
+              <MdClose />
+            </button>
+            <div className='relative w-full h-full bg-white rounded-xl'>
+              <img src={selectedMarker.displayImg} alt='Marker' className='w-[400px] h-[313px] mx-auto my-5' />
+              <div className='flex flex-col justify-center items-center'>
+                <h1 className='text-[28px] font-normal mb-5'>{selectedMarker.description.name}</h1>
+                <p className='text-[18px] mb-5'>{selectedMarker.description.info}</p>
+                <div className='flex flex-row mb-5'>
+                  <button 
+                    className='text-[14px] font-light px-5 rounded-full w-[106px] h-[30px] border-black border-2 hover:border-[#004d6f] hover:text-[#004d6f] mx-2'
+                    onClick={() => handleLawClick(selectedMarker.code as keyof typeof events)}
+                  >
+                    Law
+                  </button>
+                  <button className='text-[14px] font-light px-5 rounded-full w-[106px] h-[30px] border-black border-2 hover:border-[#004d6f] hover:text-[#004d6f] mx-2'
+                    onClick={() => handlePolicyClick(selectedMarker.code as keyof typeof policyEvents)}
+                  >
+                    Policy
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </ReactMapGL>
     </div>
   );
+
+
 };
 
-export default Map;
+export default Map2;
+

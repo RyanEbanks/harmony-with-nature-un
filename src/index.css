@@ -61,7 +61,7 @@ code {
 }
 
 .home-link-container {
-  @apply relative flex-shrink-0 w-[300px] h-[180px];
+  @apply relative flex-shrink-0 w-[300px] h-[180px] hover:border-4 hover:border-[#F0910c];
 }
 
 .home-link-container-content {
@@ -132,3 +132,4 @@ code {
 .footer-icons {
   @apply flex justify-center items-center bg-[#004d6f] hover:bg-[#2C88B0] h-10 w-10 rounded-lg mx-2 md:mx-5 lg:mx-[5px] no-underline;
 }
+

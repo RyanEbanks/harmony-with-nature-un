@@ -1,70 +1,149 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const News = () => {
-  return (
-    <div>
-      <h1 className='my-10 text-center text-4xl'>All Posts</h1>
-      <div className='main-post w-3/4 mx-auto flex flex-row relative border border-[#B4B4B4]'>
-        <div className='flex w-[60%]'>
-        <img className='w-full h-full' alt='picture of a lagoon' src='../images/new-placeholder/the-lagoon.webp' />
-        </div>
-        <div className='flex flex-col w-[40%] p-5'>
-          <p className='font-extralight text-sm'>Posted by: Kevin Hill</p>
-          <p className='font-extralight text-sm'>Date: December 9, 2024</p>
-        <h1 className='text-4xl font-semibold pt-10'>The Lagoon Of Hope</h1>
-        <p className='pt-5 font-light'>Coral reffs could disappear before 2050. The temperature of our oceans is increasing...</p>
-        <div className='pt-20 border-b border-[#B4B4B4] w-[98%] mr-5'></div>
-        <a className='pt-5 font-light'>Click here to learn more -&#8250;</a>
-        </div>
-      </div>
-
-      <div className='flex flex-row flex-wrap'>
-
-      <div className='main-post m-10 w-[40%] mx-auto flex flex-row relative border border-[#B4B4B4]'>
-        <div className='flex w-[45%]'>
-        <img className='w-full h-full object-fill' alt='picture of a lagoon' src='../images/new-placeholder/Cap-Roux.webp' />
-        </div>
-        <div className='flex flex-col w-[55%] p-5'>
-          <p className='font-extralight text-sm'>Posted by: Bob Brown</p>
-          <p className='font-extralight text-sm'>Date: December 7, 2024</p>
-        <h1 className='text-4xl font-semibold pt-10'>Cap Roux</h1>
-        <p className='pt-5 font-light'>The Cap Roux Fishing Cantonment is a 450 hectare marine protected area....</p>
-        <div className='pt-20 border-b border-[#B4B4B4] w-[98%] mr-5'></div>
-        <a className='pt-5 font-light'>Click here to learn more -&#8250;</a>
-        </div>
-      </div>
-
-      <div className='main-post m-10 w-[40%] mx-auto flex flex-row relative border border-[#B4B4B4]'>
-        <div className='flex w-[45%]'>
-        <img className='w-full h-full object-fill' alt='picture of a lagoon' src='../images/new-placeholder/Pelagos.webp' />
-        </div>
-        <div className='flex flex-col w-[55%] p-5'>
-          <p className='font-extralight text-sm'>Posted by: Mark White</p>
-          <p className='font-extralight text-sm'>Date: December 6, 2024</p>
-        <h1 className='text-4xl font-semibold pt-10'>Pelagos</h1>
-        <p className='pt-5 font-light'>Like many marine species, cetaceans are strongly impacted by human activity...</p>
-        <div className='pt-20 border-b border-[#B4B4B4] w-[98%] mr-5'></div>
-        <a className='pt-5 font-light'>Click here to learn more -&#8250;</a>
-        </div>
-      </div>
-
-      <div className='main-post m-10 w-[40%] mx-auto flex flex-row relative border border-[#B4B4B4]'>
-        <div className='flex w-[45%]'>
-        <img className='w-full h-full object-fill' alt='picture of a lagoon' src='../images/new-placeholder/Entrecasteaux.webp' />
-        </div>
-        <div className='flex flex-col w-[55%] p-5'>
-          <p className='font-extralight text-sm'>Posted by: John Doe</p>
-          <p className='font-extralight text-sm'>Date: December 5, 2024</p>
-        <h1 className='text-4xl font-semibold pt-10'>Entrecasteaux</h1>
-        <p className='pt-5 font-light'>In the far west of the Pacific Ocean, between the Australian coasts and the Vanuatu archipelago...</p>
-        <div className='pt-20 border-b border-[#B4B4B4] w-[98%] mr-5'></div>
-        <a className='pt-5 font-light'>Click here to learn more -&#8250;</a>
-        </div>
-      </div>
-
-      </div>
-    </div>
-  )
+interface Post {
+    id: string;
+    title: string;
+    displayText: string;
+    author: string;
+    category: string;
+    image: string;
+    createdAt: string;
 }
+
+const News: React.FC = () => {
+    const navigate = useNavigate();
+    const [posts, setPosts] = useState<Post[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        setIsAuthenticated(!!localStorage.getItem('authToken'));
+        fetchPosts();
+    }, []);
+
+    const fetchPosts = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/posts', {
+                credentials: 'include'
+            });
+            const data = await response.json();
+            console.log('Fetched posts:', data); // Debug log
+            setPosts(Array.isArray(data) ? data : []);
+        } catch (error) {
+            console.error('Error fetching posts:', error);
+            setError('Failed to load posts');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handlePostClick = (postId: string) => {
+        navigate(`/news/${postId}`);
+    };
+
+    const handleDelete = async (postId: string) => {
+        if (!window.confirm('Are you sure you want to delete this post?')) return;
+
+        try {
+            const response = await fetch(`http://localhost:5000/api/posts/${Number(postId)}`, {
+                method: 'DELETE',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setPosts(posts.filter(post => post.id !== postId));
+            } else {
+                const data = await response.json();
+                throw new Error(data.error || 'Failed to delete post');
+            }
+        } catch (error) {
+            console.error('Error deleting post:', error);
+            alert('Failed to delete post');
+        }
+    };
+
+    if (loading) {
+        return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    }
+
+    return (
+        <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+                <h1 className="text-4xl font-bold text-gray-900 mb-8">Latest News</h1>
+                {error ? (
+                    <div className="text-center text-red-600">{error}</div>
+                ) : posts.length === 0 ? (
+                    <div className="text-center text-gray-600">No posts available</div>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {posts.map((post) => (
+                            <div 
+                                key={post.id} 
+                                className="bg-white rounded-lg shadow-lg overflow-hidden relative"
+                            >
+                                {isAuthenticated && (
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation(); // Prevent navigation
+                                            handleDelete(post.id);
+                                        }}
+                                        className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors duration-200 z-10"
+                                        aria-label="Delete post"
+                                    >
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                )}
+                                <div 
+                                    onClick={() => handlePostClick(post.id)}
+                                    className="cursor-pointer transform transition duration-200 hover:scale-105"
+                                >
+                                    {post.image && (
+                                        <div className="w-full h-48 relative">
+                                            <img 
+                                                src={post.image.startsWith('http') ? post.image : `http://localhost:5000${post.image}`}
+                                                alt={post.title}
+                                                className="w-full h-full object-cover"
+                                                onError={(e) => {
+                                                    console.error('Image failed to load:', post.image);
+                                                    (e.target as HTMLImageElement).style.display = 'none';
+                                                }}
+                                            />
+                                        </div>
+                                    )}
+                                    <div className="p-6">
+                                        <span className="text-sm font-medium text-green-600">
+                                            {post.category}
+                                        </span>
+                                        <h2 className="mt-2 text-xl font-semibold text-gray-900">
+                                            {post.title}
+                                        </h2>
+                                        <p className="mt-3 text-gray-600 line-clamp-3">
+                                            {post.displayText}
+                                        </p>
+                                        <div className="mt-4 text-sm text-gray-500 flex flex-row">
+                                            <div className="mr-2">
+                                            {new Date(post.createdAt).toLocaleDateString()}
+                                            </div>
+                                            <div>
+                                            By {post.author}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
 
 export default News;

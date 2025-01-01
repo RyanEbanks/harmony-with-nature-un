@@ -7,61 +7,109 @@ function Home() {
   return (
     <div className='home-container'>
       <div className='pl-[210px] py-10 flex overflow-x-scroll gap-4 bg-[#FAF9F6]'>
-        <div className='home-link-container'>
-          <img src='/images/general-assembly.avif' alt='general-assembly' className='w-[300px] h-[180px]' />
-          <div className='home-link-container-content'>
-            <h1 className='home-link-container-h1'>Sonia Guajajara</h1>
-            <p className='home-link-container-p'>Dialogue of the General Assembly on Harmony with Nature 2023</p>
-          </div>
+        <div className='home-link-container overflow-hidden'>
+          <a href='https://www.youtube.com/watch?v=A7OPXQA-2GI' target='_blank' rel="noopener noreferrer" className="block">
+            <img 
+              src='/images/general-assembly.avif' 
+              alt='general-assembly' 
+              className='w-[300px] h-[180px] object-cover' 
+            />
+            <div className='home-link-container-content'>
+              <h1 className='home-link-container-h1'>Sonia Guajajara</h1>
+              <p className='home-link-container-p'>Dialogue of the General Assembly on Harmony with Nature 2023</p>
+            </div>
+          </a>
         </div>
-        <div className='home-link-container'>
-          <img src='/images/camila-zarate.avif' alt='camila-zarate' className='w-[300px] h-[180px]' />
-          <div className='home-link-container-content'>
-            <h1 className='home-link-container-h1'>Camila Zarate</h1>
-            <p className='home-link-container-p'>Commission Rights of Nature 2022</p>
-          </div>
+        <div className='home-link-container overflow-hidden'>
+          <a href='https://www.youtube.com/watch?v=FeU4hRWg_SU' target='_blank' rel="noopener noreferrer">
+            <img 
+              src='/images/camila-zarate.avif' 
+              alt='camila-zarate' 
+              className='w-[300px] h-[180px] object-cover' 
+            />
+            <div className='home-link-container-content'>
+              <h1 className='home-link-container-h1'>Camila Zarate</h1>
+              <p className='home-link-container-p'>Commission Rights of Nature 2022</p>
+            </div>
+          </a>
         </div>
-        <div className='home-link-container'>
-          <img src='/images/frank-tumusiime.avif' alt='franktumusiime' className='w-[300px] h-[180px]' />
-          <div className='home-link-container-content'>
-            <h1 className='home-link-container-h1'>Frank Tumusiime</h1>
-            <p className='home-link-container-p'>UNGA Dialogue on Harmony with Nature 2022</p>
-          </div>
+        <div className='home-link-container overflow-hidden'>
+          <a href='https://www.youtube.com/watch?v=h3D-n1zq1bc' target='_blank' rel="noopener noreferrer">
+            <img 
+              src='/images/frank-tumusiime.avif' 
+              alt='franktumusiime' 
+              className='w-[300px] h-[180px] object-cover' 
+            />
+            <div className='home-link-container-content'>
+              <h1 className='home-link-container-h1'>Frank Tumusiime</h1>
+              <p className='home-link-container-p'>UNGA Dialogue on Harmony with Nature 2022</p>
+            </div>
+          </a>
         </div>
-        <div className='home-link-container'>
-          <img src='/images/general-assembly-nigeria.avif' alt='general-assembly-nigeria' className='w-[300px] h-[180px]' />
-          <div className='home-link-container-content'>
-            <h1 className='home-link-container-h1'>Nigeria UN</h1>
-            <p className='home-link-container-p'>General Assembly Nigeria on Harmony with Nature 2023</p>
-          </div>
+        <div className='home-link-container overflow-hidden'>
+          <a href='https://www.youtube.com/watch?v=VSuvB_7O59k' target='_blank' rel="noopener noreferrer">
+            <img 
+              src='/images/general-assembly-nigeria.avif' 
+              alt='general-assembly-nigeria' 
+              className='w-[300px] h-[180px] object-cover' 
+            />
+            <div className='home-link-container-content'>
+              <h1 className='home-link-container-h1'>Nigeria UN</h1>
+              <p className='home-link-container-p'>General Assembly Nigeria on Harmony with Nature 2023</p>
+            </div>
+          </a>
         </div>
-        <div className='home-link-container'>
-          <img src='/images/manjeri-subin.avif' alt='manjeri-subin.avif' className='w-[300px] h-[180px]' />
-          <div className='home-link-container-content'>
-            <h1 className='home-link-container-h1'>Manjeri Subin</h1>
-            <p className='home-link-container-p'>UN GA Dialogue on Harmony with Nature 2022</p>
-          </div>
+        <div className='home-link-container overflow-hidden'>
+          <a href='https://www.youtube.com/watch?v=ySrmWHf1sQo' target='_blank' rel="noopener noreferrer">
+            <img 
+              src='/images/manjeri-subin.avif' 
+              alt='manjeri-subin.avif' 
+              className='w-[300px] h-[180px] object-cover' 
+            />
+            <div className='home-link-container-content'>
+              <h1 className='home-link-container-h1'>Manjeri Subin</h1>
+              <p className='home-link-container-p'>UN GA Dialogue on Harmony with Nature 2022</p>
+            </div>
+          </a>
         </div>
-        <div className='home-link-container'>
-          <img src='/images/general-assembly-spain.avif' alt='general-assembly-spain' className='w-[300px] h-[180px]' />
-          <div className='home-link-container-content'>
-            <h1 className='home-link-container-h1'>Spain UN</h1>
-            <p className='home-link-container-p'>General Assembly Spain on Harmony with Nature 2023</p>
-          </div>
+        <div className='home-link-container overflow-hidden'>
+          <a href='https://www.youtube.com/watch?v=KZD9oPr1_do' target='_blank' rel="noopener noreferrer">
+            <img 
+              src='/images/general-assembly-spain.avif' 
+              alt='general-assembly-spain' 
+              className='w-[300px] h-[180px] object-cover' 
+            />
+            <div className='home-link-container-content'>
+              <h1 className='home-link-container-h1'>Spain UN</h1>
+              <p className='home-link-container-p'>General Assembly Spain on Harmony with Nature 2023</p>
+            </div>
+          </a>
         </div>
-        <div className='home-link-container'>
-          <img src='/images/marie-toussaint.avif' alt='marie-toussaint' className='w-[300px] h-[180px]' />
-          <div className='home-link-container-content'>
-            <h1 className='home-link-container-h1'>Marie Toussaint</h1>
-            <p className='home-link-container-p'>Europian Union General Assembly on Harmony with Nature 2022</p>
-          </div>
+        <div className='home-link-container overflow-hidden'>
+          <a href='https://www.youtube.com/watch?v=egvFugMiNrk' target='_blank' rel="noopener noreferrer">
+            <img 
+              src='/images/marie-toussaint.avif' 
+              alt='marie-toussaint' 
+              className='w-[300px] h-[180px] object-cover' 
+            />
+            <div className='home-link-container-content'>
+              <h1 className='home-link-container-h1'>Marie Toussaint</h1>
+              <p className='home-link-container-p'>Europian Union General Assembly on Harmony with Nature 2022</p>
+            </div>
+          </a>
         </div>
-        <div className='home-link-container'>
-          <img src='/images/cintia-balaudo.avif' alt='cintia-balaudo' className='w-[300px] h-[180px]' />
-          <div className='home-link-container-content'>
-            <h1 className='home-link-container-h1'>Cintia Balaudo</h1>
-            <p className='home-link-container-p'>General Assembly Argentina on Harmony with Nature 2022</p>
-          </div>
+        <div className='home-link-container overflow-hidden'>
+          <a href='https://www.youtube.com/watch?v=W_uRXnnew4A' target='_blank' rel="noopener noreferrer">
+            <img 
+              src='/images/cintia-balaudo.avif' 
+              alt='cintia-balaudo' 
+              className='w-[300px] h-[180px] object-cover' 
+            />
+            <div className='home-link-container-content'>
+              <h1 className='home-link-container-h1'>Cintia Balaudo</h1>
+              <p className='home-link-container-p'>General Assembly Argentina on Harmony with Nature 2022</p>
+            </div>
+          </a>
         </div>
       </div>
       {/* old bg for div on line 10: bg-[#afb482] bg-opacity-80 */}
