@@ -1,14 +1,15 @@
 import React from 'react'
 import Map from './Map'
+import '../index.css';
 
 const Assemblies: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
-      <div className='w-full h-full mt-[100px]'>
+      <div className='w-full h-full mt-[20px] md:mt-[100px]'>
         <Map />
       </div>
       {/* Header Section */}
-      <div className="w-full bg-[#FAF9F6] py-16 md:py-24">
+      <div className="w-full bg-[#FAF9F6] px-5 md:px-0 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-6xl font-light mb-8">
             <span className="border-l-8 border-[#40916C] pl-6">Earth Assembly</span>

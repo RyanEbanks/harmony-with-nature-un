@@ -12,17 +12,18 @@ code {
     monospace;
 }
 
+
 /* Button Classes */
 .btn-primary {
-  @apply bg-[#40916C] rounded-full border-0 hover:bg-[#f0910c80] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
+  @apply bg-[#40916C] rounded-full border-0 hover:bg-[#549c7c] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
 }
 
 .btn-secondary {
-  @apply bg-[#F0910c]  rounded-full border-0 hover:bg-[#f0910c80] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
+  @apply bg-[#F0910c] rounded-full border-0 hover:bg-[#f0910c80] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
 }
 
 .btn-primary-test {
-  @apply bg-[#40916C] rounded-full text-white hover:bg-[#d8830b] hover:text-black;
+  @apply bg-[#40916C] rounded-full text-white hover:bg-[#549c7c] hover:text-black;
 }
 
 
@@ -60,8 +61,16 @@ code {
   @apply font-normal text-[1.1rem] h-[50px] w-[150px] mt-5 mr-[20px];
 }
 
+.nav-btn-styling {
+  @apply font-normal text-[1.1rem] h-[50px] w-[150px] mr-[20px];
+}
+
 .home-link-container {
-  @apply relative flex-shrink-0 w-[300px] h-[180px] hover:border-4 hover:border-[#F0910c];
+  @apply relative flex-shrink-0 w-[200px] h-[140px] md:w-[300px] md:h-[180px] hover:border-4 hover:border-[#F0910c];
+}
+
+.home-video-thumbnail-container {
+ @apply w-[200px] h-[140px] md:w-[300px] md:h-[180px] object-cover;
 }
 
 .home-link-container-content {
@@ -69,11 +78,11 @@ code {
 }
 
 .home-link-container-h1 {
-  @apply text-[#F0910c] text-[1.1rem] font-black;
+  @apply text-[#F0910c] text-lg md:text-[1.1rem] font-black;
 }
 
 .home-link-container-p {
-  @apply text-white text-base;
+  @apply text-white text-xs md:text-base;
 }
 /* Picture Styling for the home button */
 .home-picture-styling {
@@ -82,7 +91,7 @@ code {
 
 /* About Page */
 .about-primary-h1-styling {
-  @apply text-3xl md:text-4xl font-semibold m-1;
+  @apply text-center md:text-left text-3xl md:text-4xl font-semibold m-1;
 }
 
 .about-primary-h3-styling {
@@ -90,11 +99,11 @@ code {
 }
 
 .about-secondary-h3-styling {
-  @apply text-xl md:text-2xl m-1;
+  @apply text-center md:text-left text-xl md:text-2xl m-1;
 }
 
 .about-secondary-p-styling {
-  @apply text-lg md:text-xl font-[350] m-1;
+  @apply text-center md:text-left text-lg md:text-xl font-[350] m-1;
 }
 
 .about-img-div-styling {
@@ -105,7 +114,7 @@ code {
   @apply p-10;
 }
 .about-img {
-  @apply w-[100px] h-[100px] mx-2 my-auto rounded-full;
+  @apply w-[150px] h-[150px] mx-2 my-auto rounded-full;
 }
 
 /* Timeline  */
@@ -114,15 +123,17 @@ code {
 }
 
 .month-h1 {
- @apply text-xl md:text-3xl font-normal mx-8 lg:mx-0 border-l-[6px] border-[#004d6f] pl-2 mb-5 mt-10;
+ @apply text-center md:text-left text-xl md:text-3xl font-normal mx-8 lg:mx-0 border-l-[6px] border-[#004d6f] pl-2 mb-5 mt-10;
 }
 
 .timeline-p {
-  @apply text-lg font-normal mb-2 leading-golden lg:leading-golden-lg;
+  @apply text-center md:text-left text-sm md:text-lg font-normal mb-2 leading-golden lg:leading-golden-lg;
 }
 
-/* Sponsors */
-
+/* Donate */
+.donate-picture-styling {
+  @apply sm:h-[400px] sm:w-full md:h-[400px] md:w-[600px] lg:h-[504px] lg:w-[896px] object-cover;
+}
 /* Footer */
 .footer-a {
  @apply hover:text-[#2C88B0] text-lg md:text-xl no-underline w-[200px] my-2;
@@ -133,3 +144,25 @@ code {
   @apply flex justify-center items-center bg-[#004d6f] hover:bg-[#2C88B0] h-10 w-10 rounded-lg mx-2 md:mx-5 lg:mx-[5px] no-underline;
 }
 
+/* Button Styling for Donation  */
+.fancy:hover {
+  color: white;
+  background: black;
+}
+.fancy:hover span:first-child {
+  width: 0.9375rem;
+  background: white;
+}
+.fancy:hover .text {
+  color: white;
+  padding-left: 1.5em;
+}
+.fancy:hover .top-key {
+  left: -2px;
+  width: 0px;
+}
+.fancy:hover .bottom-key-1,
+.fancy:hover .bottom-key-2 {
+  right: 0;
+  width: 0;
+}

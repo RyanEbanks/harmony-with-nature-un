@@ -68,7 +68,7 @@ function Navbar() {
         <AnimatePresence>
           {toggleMenu && (
             <motion.div
-              className='absolute top-0 right-0 h-screen w-full z-10 bg-white text-2xl shadow-lg'
+              className='absolute top-0 right-0 h-screen w-full z-20 bg-white text-2xl shadow-lg'
               initial='hidden'
               animate='visible'
               exit='exit'
@@ -100,9 +100,9 @@ function Navbar() {
                 <Link to='/library'>
                   <button className='my-4' onClick={menuSelect}>Library</button>
                 </Link>
-                <Link to='/sponsors'>
+                {/* <Link to='/sponsors'>
                   <button className='my-4' onClick={menuSelect}>Sponsors</button>
-                </Link>
+                </Link> */}
                 <Link to='/donate'>
                   <button className='my-4' onClick={menuSelect}>Donate</button>
                 </Link>
@@ -157,19 +157,19 @@ function Navbar() {
                   <Link to='/library'>
                     <button className='lg-nav-link'>Library</button>
                   </Link>
-                  <Link to='/sponsors'>
+                  {/* <Link to='/sponsors'>
                     <button className='lg-nav-link'>Sponsors</button>
-                  </Link>
+                  </Link> */}
                 </div>
                 <div className='flex pr-12 justify-end items-center h-[80px] mx-auto my-auto w-[20%]'>
                   <div className='flex items-center space-x-4'>
                     <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
-                      <button className='btn-primary-test h-[50px] w-[100px] flex items-center justify-center'>
+                      <button className='btn-primary nav-btn-styling ml-8 lg:ml-0 flex items-center justify-center'>
                         <img src='/images/1ocean-logo-white.svg' alt='1Ocean Logo' className='h-[40px] w-[50px]' />
                       </button>
                     </a>
                     <Link to='/donate'>
-                      <button className='btn-primary-test h-[50px] w-[100px] flex items-center justify-center font-normal text-[1.1rem]'>Donate</button>
+                      <button className='btn-primary nav-btn-styling ml-8 lg:ml-0'>Donate</button>
                     </Link>
                     {isAuthenticated && (
                       <button
@@ -183,19 +183,19 @@ function Navbar() {
                 </div>
               </div>
             </div>
-            <div className='bg-cover bg-center h-[30vh] lg:h-[80vh] mt-[100px]'>
-              <video className='w-full h-full object-none' src='/images/new-placeholder/banner.mp4'
+            <div className='bg-cover bg-center h-[30vh] lg:h-[80vh] md:mt-[100px]'>
+              <video className='w-full h-full object-contain md:object-none' src='/images/new-placeholder/banner.mp4'
                 autoPlay
                 muted
                 playsInline />
-              <div className='flex flex-row mt-20 absolute top-5 right-0 h-screen w-full z-10'>
-                <div className='flex flex-col w-1/2 h-[80vh] px-36 justify-center'>
-                  <h1 className='pl-4 py-2 text-white text-6xl font-normal border-l-8 border-[#F0910c]'>A Sustainable Future</h1>
-                  <p className='pl-6 py-5 text-white text-xl font-light'>Devising a new world will require a new relationship with the Earth and with humankind's own existence.</p>
-                  <div className='ml-6 flex flex-row h-[80px] w-[250px] border-[#b3b3b3] border-4 py-2'>
-                    <span className='flex items-center'><IoIosPlay style={{ fontSize: '48px', color: 'white' }} /></span>
+              <div className='flex flex-row mt-0 md:mt-20 absolute top-0 md:top-5 right-0 h-screen w-full z-10'>
+                <div className='flex flex-col w-full lg:w-1/2 h-[45vh] lg:h-[80vh] px-10 md:px-36 justify-center'>
+                  <h1 className='pl-2 md:pl-4 py-2 text-white text-2xl md:text-4xl lg:text-6xl font-normal border-l-8 border-[#F0910c]'>A Sustainable Future</h1>
+                  <p className='pl-4 md:pl-6 py-5 text-white text-md md:text-xl font-light'>Devising a new world will require a new relationship with the Earth and with humankind's own existence.</p>
+                  <div className='hidden ml-6 md:flex flex-row h-[80px] w-[250px] border-[#b3b3b3] border-4 py-2'>
+                    <span className='items-center'><IoIosPlay style={{ fontSize: '48px', color: 'white' }} /></span>
                     <button onClick={openVideo}>
-                      <div className='flex flex-col text-lg text-white text-left font-bold'>
+                      <div className='flex flex-col text-sm md:text-lg text-white text-left font-bold'>
                         <span>Check Out Our</span>
                         <span>Youtube Channel</span>
                       </div>
@@ -256,27 +256,29 @@ function Navbar() {
                 <Link to='/library'>
                   <button className='lg-nav-link'>Library</button>
                 </Link>
-                <Link to='/sponsors'>
+                {/* <Link to='/sponsors'>
                   <button className='lg-nav-link'>Sponsors</button>
-                </Link>
+                </Link> */}
               </div>
               <div className='flex pr-12 justify-end items-center h-[80px] mx-auto my-auto w-[20%]'>
-              <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
-                      <button className='btn-primary-test h-[50px] w-[100px] flex items-center justify-center'>
-                        <img src='/images/1ocean-logo-white.svg' alt='1Ocean Logo' className='h-[40px] w-[50px]' />
-                      </button>
-                    </a>
-                <Link to='/donate'>
-                  <button className='btn-primary-test font-normal text-[1.1rem] h-[50px] w-[100px]'>Donate</button>
-                </Link>
-                {isAuthenticated && (
-                                <button
-                                    onClick={handleSignOut}
-                                    className='ml-4 px-4 py-2 text-red-600 hover:text-red-700 font-medium'
-                                >
-                                    Sign Out
-                                </button>
-                            )}
+                <div className='flex items-center space-x-4'>
+                  <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
+                    <button className='btn-primary nav-btn-styling ml-8 lg:ml-0 flex items-center justify-center'>
+                      <img src='/images/1ocean-logo-white.svg' alt='1Ocean Logo' className='h-[40px] w-[50px]' />
+                    </button>
+                  </a>
+                  <Link to='/donate'>
+                    <button className='btn-primary nav-btn-styling ml-8 lg:ml-0 flex items-center justify-center'>Donate</button>
+                  </Link>
+                  {isAuthenticated && (
+                    <button
+                      onClick={handleSignOut}
+                      className='ml-4 px-4 py-2 text-red-600 hover:text-red-700 font-medium'
+                    >
+                      Sign Out
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           </div>

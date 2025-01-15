@@ -1,5 +1,6 @@
 // import oceanlogo from '../images/1ocean-logo-white.svg';
 import '../App.css';
+import '../index.css';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FaSquareInstagram } from 'react-icons/fa6';
 import { FaYoutube } from 'react-icons/fa6';

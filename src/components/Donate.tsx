@@ -1,25 +1,26 @@
 import React from 'react';
 import PaymentButton from './PaymentButton';
+import '../index.css';
 
 const Donate = () => {
   return (
-    <div className='donate-container'>
-      <div className='bg-half-blue-white py-10 relative flex'>
+    <div className='donate-container bg-[#FAF9F6] pt-10'>
+      <div className='bg-[#40916C] relative flex rounded-md mb-20 md:mb-40 lg:mb-0 mt-10 w-full md:w-[60%] mx-auto'>
         <div className='relative'>
-      <img className='home-picture-styling w-[90%] lg:w-1/2 h-full mx-auto' alt='charity image' src='/images/charity.svg'></img>\
-      <div className='z-20 absolute left-[11%] top-[73%] md:left-[19%] md:top-[80%] lg:left-[34%] lg:top-[80%]'>
+      <img className='donate-picture-styling w-full lg:w-1/2 h-full ml-auto rounded-md' alt='charity image' src='/images/charity.svg'></img>
+      <div className='z-20 absolute left-[15%] top-[105%] md:left-[23%] md:top-[110%] lg:left-[10%] lg:top-[40%]'>
       <PaymentButton />
       </div>
         </div>
       </div>
-    <div className='flex flex-col md:flex-row mx-auto md:mx-24 lg:mx-24'>
-      <div className='flex flex-col mt-8 max-w-lg md:w-1/2 md:mt-32 mx-auto'>
+    <div className='flex flex-col md:flex-row mx-auto md:mx-20 lg:mx-24 bg-white shadow-lg my-10 rounded-lg'>
+      <div className='flex flex-col mt-8 max-w-lg w-1/2 md:mt-32 mx-auto'>
         <h1 className='mb-4 text-center lg:text-left text-2xl md:text-4xl font-semibold'>Connect with Us About Donations</h1>
         <p className='text-center md:text-left text-base lg:text-xl'>
           <ul>
-            <li className='pb-2 text-xl md:text-2xl italic'>We'd Love to Hear From You</li>
-            <li className='pt-2'>1. Questions About Your Donation?</li>
-            <li className='pt-2'>2. Have Questions Before You Donate?</li>
+            <li className='md:text-center lg:text-left pb-2 text-xl md:text-2xl italic'>We'd Love to Hear From You</li>
+            <li className='md:text-center lg:text-left pt-2'>1. Questions About Your Donation?</li>
+            <li className='md:text-center lg:text-left pt-2'>2. Have Questions Before You Donate?</li>
           </ul>
         </p>
       </div>

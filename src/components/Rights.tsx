@@ -2,6 +2,7 @@ import React from 'react'
 import Map2 from './Map2';
 import events from '../lawData';
 import policyEvents from '../policyData';
+import '../index.css';
 
 type RightsProps = {
     setLaw: React.Dispatch<React.SetStateAction<keyof typeof events>>

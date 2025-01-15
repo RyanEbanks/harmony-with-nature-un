@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // useNavigate instead of useHistory
+import '../index.css';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');

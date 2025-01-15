@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
+import '../index.css';
 import { libraryData } from '../library-resources';
 import { TbWorld } from 'react-icons/tb';
 // import line from '../images/Rectangle 10.svg'
@@ -56,9 +57,9 @@ function Library() {
     return (
         <div className='container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='mt-[160px]'>
-                <h1 className='text-gray-800 text-6xl font-bold border-l-[6px] pl-8 border-[#004d6f]'>Library</h1>
+                <h1 className='text-center md:text-left text-gray-800 text-6xl font-bold border-l-[6px] pl-8 border-[#004d6f]'>Library</h1>
             </div>
-            <div className='flex mt-5 lg:pl-10 text-lg lg:text-xl'>
+            <div className='text-center md:text-left flex mt-5 lg:pl-10 text-lg lg:text-xl'>
                 <p>The following Library offers extensive written and audio-visual material focusing on a
                     non-anthropocentric view of the world derived from analysis, reports and research in the
                     fields of ethics, science, ecological economics, literature, politics, social sciences,
