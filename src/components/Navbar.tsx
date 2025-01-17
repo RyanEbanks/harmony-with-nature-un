@@ -206,6 +206,7 @@ function Navbar() {
               </div>
             </div>
             <div className='bg-cover bg-center h-[30vh] md:h-[80vh] md:mt-10 lg:mt-[100px]'>
+              {/* Renamed this banner to home-banner due to removing banner.mp4 forcefully based on file size on git */}
               <video className='w-full h-full object-contain md:object-none' src='/images/home-banner.mp4'
                 autoPlay
                 muted
