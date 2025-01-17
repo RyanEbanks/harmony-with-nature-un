@@ -206,7 +206,6 @@ const policyData = {
 
             <h1>37. The Vatican</h1>
 
-            <h2></h2>
             <p>Apostolic Exhortation Laudate Deum of the Holy Father Francis to all People of Good Will on the Climate Crisis. Paragraphs 3, 14, 25, 26, 62 and 64 address, among others, that human beings are part of Nature and must respect the laws of Nature. It is a document intended to follow up on his 2015 encyclical, Laudato Si, on Care for Our Common Home. This document contains an important number of references addressing, among others, that everything is interconnected, and that genuine care for our own lives and our relationships with Nature is inseparable from fraternity, justice and faithfulness to others.</p>
             <h2>6 - 27 October 2019, Rome, Italy</h2>
             <p>The Special Assembly of the Synod of Bishops for the Pan-Amazon Region convened by Pope Francis under the theme "Amazonia: New Path for the Church and for an Integral Ecology" seeks to overcome the confines and redefine the pastoral lines, adapting to contemporary lines. Final document of the Amazon Synod addresses in paragraphs 74 and 84 the rights of Nature, click here.</p>

@@ -7,7 +7,7 @@ const Donate = () => {
     <div className='donate-container bg-[#FAF9F6] pt-10'>
       <div className='bg-[#40916C] relative flex rounded-md mb-20 md:mb-40 lg:mb-0 mt-10 w-full md:w-[60%] mx-auto'>
         <div className='relative'>
-      <img className='donate-picture-styling w-full lg:w-1/2 h-full ml-auto rounded-md' alt='charity image' src='/images/charity.svg'></img>
+      <img className='donate-picture-styling w-full lg:w-1/2 h-full ml-auto rounded-md' alt='charity' src='/images/charity.svg'></img>
       <div className='z-20 absolute left-[15%] top-[105%] md:left-[23%] md:top-[110%] lg:left-[10%] lg:top-[40%]'>
       <PaymentButton />
       </div>

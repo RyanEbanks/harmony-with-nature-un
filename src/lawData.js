@@ -6,21 +6,21 @@ const events = {
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
             <h1 className='text-h1'>National Law / Federal Act</h1>
-            <p className='timeline-p'>2020 Proposal for a national regulation on Rights of Nature. <a href='#'>Click here.</a></p>
+            <p className='timeline-p'>2020 Proposal for a national regulation on Rights of Nature. <p>Click here.</p></p>
             </div>
 
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
             <h1 className='text-h1'>Local Regulations</h1>
             <p className='timeline-p'>
                 2020 On 13 October, representative Valeria López Delzar (Partido CREO-Santa Fe) introduced an ordinance on the Rights of Nature 
-                to the deliberative council of the municipality of Santa Fe. <a href='#'>Click official document.</a>
+                to the deliberative council of the municipality of Santa Fe. <p>Click official document.</p>
             </p>
             <p className='timeline-p'>
                 2020 On 26 November, the Municipality of the city of Rosario, one of the largest cities in the country, adopted a decision declaring its 
                 support to recognize the Paraná River and Wetlands as a subject of law. The petition was put forward by Dr. Aníbal Faccendini, Director 
                 of the Water Faculty of the National University of Rosario in partnership with the Water Interdisciplinary Centre of the Political Sciences 
                 and International Relations Faculty of the same University and an important number of local NGOs and academic institutions. 
-                <a href='#'>Click article.</a> <a href='#'>Click official document.</a>
+                <p>Click article.</p> <p>Click official document.</p>
             </p>
             </div>
         </div>
@@ -36,12 +36,12 @@ const events = {
             <p className='timeline-p'>
                 2020 A new legislation titled 'the Great Ocean Road and Environs Protection Act' passed on 16 June recognizes the Great Ocean Road as 
                 'one living and integrated natural entity' (section 1 (a)). The legislation also strengthens the involvement of Traditional Owners in the 
-                governance of the coast and parks. <a href='#'>Click article.</a> <a href='#'>Click official document.</a>
+                governance of the coast and parks. <p>Click article.</p> <p>Click official document.</p>
             </p>
             <p className='timeline-p'>
                 2017 The Victorian Parliament passed on 21 September, the Yarra River Protection (Wilip-gin Birrarung murron) Act 2017. The Act became 
                 law on 1 December 2017 and legally recognizes the Yarra as an indivisible living entity deserving protection. 
-                <a href='#'>Click here.</a>
+                <p>Click here.</p>
             </p>
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
@@ -49,12 +49,12 @@ const events = {
             <h1 className='text-h1'>Local Regulations</h1>
             <p className='timeline-p'>
                 2020 On 31 March, the Blue Mountains City Council of the Government of New South Wales supported a Mayoral Minute and agreed to integrate 
-                the Rights of Nature into future operations and planning. <a href='#'>Click article.</a>
+                the Rights of Nature into future operations and planning. <p>Click article.</p>
             </p>
             <p className='timeline-p'>
                 2019 On 24 November, Diane Evers, a Member of the Western Australia Parliament, introduced the Rights of Nature and Future Generations Bill 
                 2019. This is the first time that legislation aiming to recognize the rights of nature has been introduced in an Australian Parliament. 
-                <a href='#'>Click article here.</a> <a href='#'>Click Bill 2019 here.</a>
+                <p>Click article here.</p> <p>Click Bill 2019 here.</p>
             </p>
             </div>
         </div>
@@ -69,7 +69,7 @@ const events = {
             <h1 className='text-h1'>Court Decisions</h1>
             <p className='timeline-p'>
                 2019 The High Court of Bangladesh recognized the river Turag as a living entity with legal rights and held that the same would apply to all 
-                rivers in Bangladesh. <a href='#'>Click here.</a>
+                rivers in Bangladesh. <p>Click here.</p>
             </p>
             </div>
         </div>
@@ -85,7 +85,7 @@ const events = {
             <p className='timeline-p'>
                 2019 On 3 May, NGO Aadewerk for socio-ecological transition submitted a 'Voluntary Intervention Petition to Protect Trees' to the French-speaking 
                 court of first instance. Counsellors Hendrik Schoukens and Gwidje Vermeire submitted the petition on behalf of 82 protected trees and, in so 
-                doing, they joined the Climate Affair legal process. <a href='#'>Click official document.</a> <a href='#'>Click Climate Affair website.</a>
+                doing, they joined the Climate Affair legal process. <p>Click official document.</p> <p>Click Climate Affair website.</p>
             </p>
             </div>
         </div>
@@ -100,7 +100,7 @@ const events = {
             <h1 className='text-h1'>National Law / Federal Act</h1>
             <p className='timeline-p'>
                 2017 Adoption of an indefinite moratorium signed into law on 29 December to preserve the World Heritage site reef builds on earlier recognition of 
-                Nature as a subject of rights. <a href='#'>2009 Text Click here.</a> <a href='#'>2011 Text Click here.</a>
+                Nature as a subject of rights. <p>2009 Text Click here.</p> <p>2011 Text Click here.</p>
             </p>
             </div>
         </div>
