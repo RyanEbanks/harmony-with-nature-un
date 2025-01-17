@@ -133,7 +133,7 @@ function Home() {
             <p className='text-center lg:text-left text-xl font-normal mx-8 md:mx-auto lg:mx-0 leading-golden lg:leading-golden-lg'>In 2009, the United Nations established International Mother Earth Day to promote Harmony with Nature and address the urgent need for sustainable
               practices. This initiative emphasizes the importance of balancing economic, social, and environmental needs to safeguard our planet and future generations.
             </p>
-            <button className='btn-primary home-btn-styling mx-auto lg:ml-0'>Learn More</button>
+            <button disabled className='btn-primary home-btn-styling mx-auto lg:ml-0 cursor-not-allowed'>Learn More</button>
           </div>
           <img className='hidden lg:flex home-picture-styling ml-8 lg:ml-0 mb-10 lg:mb-0' alt='United Nations Hall 2009' src='/images/UN2009.jpg'></img>
         </div>
@@ -145,7 +145,7 @@ function Home() {
             <p className='text-center lg:text-left text-xl font-normal mx-8 lg:mx-0 leading-golden lg:leading-golden-lg'>The UN’s resolutions advocate for a non-anthropocentric relationship with Nature, respecting Earth as a living entity vital to human survival rather
               than a commodity. These initiatives emphasize sustainability by preserving Earth's resources and integrating the rights of Nature into global development efforts, promoting shared responsibility across cultures to protect the planet.
             </p>
-            <button className='btn-secondary home-btn-styling mx-auto lg:ml-0'>Learn More</button>
+            <button disabled className='btn-secondary home-btn-styling mx-auto lg:ml-0 cursor-not-allowed'>Learn More</button>
           </div>
         </div>
       </div>

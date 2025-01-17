@@ -5,7 +5,7 @@ import '../index.css';
 const Assemblies: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
-      <div className='w-full h-full mt-[20px] md:mt-[100px]'>
+      <div className='w-full h-full mt-[40px] lg:mt-[100px]'>
         <Map />
       </div>
       {/* Header Section */}

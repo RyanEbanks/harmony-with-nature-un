@@ -12,7 +12,7 @@ import { MdClose } from 'react-icons/md';
 function Navbar() {
   const [toggleVideo, setToggleVideo] = useState(false);
   const navigate = useNavigate();
-  const username = localStorage.getItem('username');
+  // const username = localStorage.getItem('username');
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('authToken'));
 
   const handleSignOut = () => {
@@ -30,13 +30,14 @@ function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const menuSelect = () => {
-    setToggleMenu(!toggleMenu);
+    setToggleMenu((prev) => !prev);
+    console.log('This is the current state of menu on click:', toggleMenu);
   }
 
   const menuVariants = {
-    hidden: { x: '100%' }, // Slide off the screen to the right
-    visible: { x: 0 }, // Slide into view
-    exit: { x: '100%' }, // Slide out to the right
+    hidden: { x: '100%', opacity: 0 }, // Slide off the screen to the right
+    visible: { x: 0, opacity: 1 }, // Slide into view
+    exit: { x: '100%', opacity: 0 }, // Slide out to the right
   };
   //Creating Routes where the image should appear
   const routesWithBackground = ['/', '/about', '/news', 'library', '/sponsors', '/donate'];
@@ -47,7 +48,7 @@ function Navbar() {
       {/* Navbar SM Screens */}
       <div className='lg:hidden'>
 
-        <div className='flex flex-row w-full'>
+        <div className='md:hidden flex flex-row w-full'>
           <div className='flex flex-row w-[30%]'>
             <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
               <img className='h-[70px] w-[80px] ml-[20px] py-1' alt='Affiliated Website Logo' src='/images/1ocean-logo.svg' />
@@ -65,10 +66,26 @@ function Navbar() {
           </div>
         </div>
 
+        <div className='hidden md:flex flex-row w-full mt-5'>
+          <div className='flex flex-row w-[30%] items-center justify-center'>
+            <a href='/'>
+              <img className=' h-[70px] w-[130px] py-1' alt='Main Website Logo' src='/images/hwni-logo.svg' />
+            </a>
+          </div>
+          <div className='flex flex-row w-[40%] items-center justify-center'>
+            <p className='font-semibold text-xl'>Harmony With Nature Institute</p>
+          </div>
+          <div className='flex w-[30%] my-auto items-center justify-center'>
+            <button onClick={menuSelect}>
+              <CiMenuBurger size={48} />
+            </button>
+          </div>
+        </div>
+
         <AnimatePresence>
           {toggleMenu && (
             <motion.div
-              className='absolute top-0 right-0 h-screen w-full z-20 bg-white text-2xl shadow-lg'
+              className='absolute top-0 right-0 h-screen w-full z-50 bg-white text-2xl shadow-lg'
               initial='hidden'
               animate='visible'
               exit='exit'
@@ -79,32 +96,37 @@ function Navbar() {
                 <MdClose size={24} />
               </button>
               <ul className='flex flex-col text-center mt-10 mx-auto'>
-                <Link to='/'>
-                  <button className='my-4' onClick={menuSelect}>Home</button>
+                <button className='hidden md:block my-4' onClick={menuSelect}>
+                  <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
+                    One Ocean Fund
+                  </a>
+                </button>
+                <Link to='/' onClick={menuSelect}>
+                  <button className='my-4'>Home</button>
                 </Link>
-                <Link to='/about'>
-                  <button className='my-4' onClick={menuSelect}>About</button>
+                <Link to='/about' onClick={menuSelect}>
+                  <button className='my-4'>About</button>
                 </Link>
-                <Link to='/rights-of-nature'>
-                  <button className='my-4' onClick={menuSelect}>Rights of Nature</button>
+                <Link to='/rights-of-nature' onClick={menuSelect}>
+                  <button className='my-4'>Rights of Nature</button>
                 </Link>
-                <Link to='/timeline'>
-                  <button className='my-4' onClick={menuSelect}>Timeline</button>
+                <Link to='/timeline' onClick={menuSelect}>
+                  <button className='my-4'>Timeline</button>
                 </Link>
-                <Link to='/assemblies'>
-                  <button className='my-4' onClick={menuSelect}>Assemblies</button>
+                <Link to='/assemblies' onClick={menuSelect}>
+                  <button className='my-4'>Assemblies</button>
                 </Link>
-                <Link to='/news'>
+                <Link to='/news' onClick={menuSelect}>
                   <button className='my-4' onClick={menuSelect}>News</button>
                 </Link>
-                <Link to='/library'>
-                  <button className='my-4' onClick={menuSelect}>Library</button>
+                <Link to='/library' onClick={menuSelect}>
+                  <button className='my-4'>Library</button>
                 </Link>
                 {/* <Link to='/sponsors'>
                   <button className='my-4' onClick={menuSelect}>Sponsors</button>
                 </Link> */}
-                <Link to='/donate'>
-                  <button className='my-4' onClick={menuSelect}>Donate</button>
+                <Link to='/donate' onClick={menuSelect}>
+                  <button className='my-4'>Donate</button>
                 </Link>
                 {isAuthenticated && (
                   <button
@@ -174,7 +196,7 @@ function Navbar() {
                     {isAuthenticated && (
                       <button
                         onClick={handleSignOut}
-                        className='px-4 py-2 text-red-600 hover:text-red-700 font-medium'
+                        className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
                       >
                         Sign Out
                       </button>
@@ -183,12 +205,12 @@ function Navbar() {
                 </div>
               </div>
             </div>
-            <div className='bg-cover bg-center h-[30vh] lg:h-[80vh] md:mt-[100px]'>
+            <div className='bg-cover bg-center h-[30vh] md:h-[80vh] md:mt-10 lg:mt-[100px]'>
               <video className='w-full h-full object-contain md:object-none' src='/images/new-placeholder/banner.mp4'
                 autoPlay
                 muted
                 playsInline />
-              <div className='flex flex-row mt-0 md:mt-20 absolute top-0 md:top-5 right-0 h-screen w-full z-10'>
+              <div className='flex flex-row mt-0 lg:mt-20 absolute top-0 md:top-5 right-0 h-screen w-full z-10'>
                 <div className='flex flex-col w-full lg:w-1/2 h-[45vh] lg:h-[80vh] px-10 md:px-36 justify-center'>
                   <h1 className='pl-2 md:pl-4 py-2 text-white text-2xl md:text-4xl lg:text-6xl font-normal border-l-8 border-[#F0910c]'>A Sustainable Future</h1>
                   <p className='pl-4 md:pl-6 py-5 text-white text-md md:text-xl font-light'>Devising a new world will require a new relationship with the Earth and with humankind's own existence.</p>
@@ -273,7 +295,7 @@ function Navbar() {
                   {isAuthenticated && (
                     <button
                       onClick={handleSignOut}
-                      className='ml-4 px-4 py-2 text-red-600 hover:text-red-700 font-medium'
+                      className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
                     >
                       Sign Out
                     </button>

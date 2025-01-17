@@ -36,6 +36,7 @@ import { useNavigate } from 'react-router-dom';
                 localStorage.setItem('username', data.username);
             }
             navigate('/upload');
+            window.location.reload();
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Failed to connect to verification service');
             console.error('Verification error:', err);

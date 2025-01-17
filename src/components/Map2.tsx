@@ -435,11 +435,11 @@ const Map2: React.FC<Map2Props> = ({setLaw, setPolicy}) => {
                   >
                     Law
                   </button>
-                  <button className='text-[14px] font-light px-5 rounded-full w-[106px] h-[30px] border-black border-2 hover:border-[#004d6f] hover:text-[#004d6f] mx-2'
+                  {/* <button className='text-[14px] font-light px-5 rounded-full w-[106px] h-[30px] border-black border-2 hover:border-[#004d6f] hover:text-[#004d6f] mx-2'
                     onClick={() => handlePolicyClick(selectedMarker.code as keyof typeof policyEvents)}
                   >
                     Policy
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
