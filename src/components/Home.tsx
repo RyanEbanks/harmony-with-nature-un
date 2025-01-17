@@ -11,7 +11,7 @@ function Home() {
         <div className='home-link-container overflow-hidden'>
           <a href='https://www.youtube.com/watch?v=A7OPXQA-2GI' target='_blank' rel="noopener noreferrer" className="block">
             <img 
-              src='/images/general-assembly.avif' 
+              src='/images/general-assembly.jpg' 
               alt='general-assembly' 
               className='home-video-thumbnail-container' 
             />
@@ -24,7 +24,7 @@ function Home() {
         <div className='home-link-container overflow-hidden'>
           <a href='https://www.youtube.com/watch?v=FeU4hRWg_SU' target='_blank' rel="noopener noreferrer">
             <img 
-              src='/images/camila-zarate.avif' 
+              src='/images/camila-zarate.jpg' 
               alt='camila-zarate' 
               className='home-video-thumbnail-container' 
             />
@@ -37,7 +37,7 @@ function Home() {
         <div className='home-link-container overflow-hidden'>
           <a href='https://www.youtube.com/watch?v=h3D-n1zq1bc' target='_blank' rel="noopener noreferrer">
             <img 
-              src='/images/frank-tumusiime.png' 
+              src='/images/frank-tumusiime.jpg' 
               alt='franktumusiime' 
               className='home-video-thumbnail-container' 
             />
@@ -50,7 +50,7 @@ function Home() {
         <div className='home-link-container overflow-hidden'>
           <a href='https://www.youtube.com/watch?v=VSuvB_7O59k' target='_blank' rel="noopener noreferrer">
             <img 
-              src='/images/general-assembly-nigeria.avif' 
+              src='/images/general-assembly-nigeria.jpg' 
               alt='general-assembly-nigeria' 
               className='home-video-thumbnail-container' 
             />
@@ -63,8 +63,8 @@ function Home() {
         <div className='home-link-container overflow-hidden'>
           <a href='https://www.youtube.com/watch?v=ySrmWHf1sQo' target='_blank' rel="noopener noreferrer">
             <img 
-              src='/images/manjeri-subin.avif' 
-              alt='manjeri-subin.avif' 
+              src='/images/manjeri-subin.jpg' 
+              alt='manjeri-subin.jpg' 
               className='home-video-thumbnail-container' 
             />
             <div className='home-link-container-content'>
@@ -76,7 +76,7 @@ function Home() {
         <div className='home-link-container overflow-hidden'>
           <a href='https://www.youtube.com/watch?v=KZD9oPr1_do' target='_blank' rel="noopener noreferrer">
             <img 
-              src='/images/general-assembly-spain.avif' 
+              src='/images/general-assembly-spain.jpg' 
               alt='general-assembly-spain' 
               className='home-video-thumbnail-container' 
             />
@@ -89,7 +89,7 @@ function Home() {
         <div className='home-link-container overflow-hidden'>
           <a href='https://www.youtube.com/watch?v=egvFugMiNrk' target='_blank' rel="noopener noreferrer">
             <img 
-              src='/images/marie-toussaint.avif' 
+              src='/images/marie-toussaint.jpg' 
               alt='marie-toussaint' 
               className='home-video-thumbnail-container' 
             />
@@ -102,7 +102,7 @@ function Home() {
         <div className='home-link-container overflow-hidden'>
           <a href='https://www.youtube.com/watch?v=W_uRXnnew4A' target='_blank' rel="noopener noreferrer">
             <img 
-              src='/images/cintia-balaudo.avif' 
+              src='/images/cintia-balaudo.jpg' 
               alt='cintia-balaudo' 
               className='home-video-thumbnail-container' 
             />

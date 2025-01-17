@@ -206,7 +206,7 @@ function Navbar() {
               </div>
             </div>
             <div className='bg-cover bg-center h-[30vh] md:h-[80vh] md:mt-10 lg:mt-[100px]'>
-              <video className='w-full h-full object-contain md:object-none' src='/images/new-placeholder/banner.mp4'
+              <video className='w-full h-full object-contain md:object-none' src='/images/new-placeholder/banner.gif'
                 autoPlay
                 muted
                 playsInline />
