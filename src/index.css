@@ -33,7 +33,7 @@ code {
 }
 
 .lg-nav-link {
-  @apply text-center mx-8 text-black font-semibold text-[1.1rem] h-[50px] hover:text-[#40916C] underline-offset-8;
+  @apply text-center mx-8 text-black font-semibold text-lg h-[50px] hover:text-[#40916C] underline-offset-8;
 }
 
 .lg-nav-link-2 {
@@ -54,6 +54,14 @@ code {
 
 .lg-nav-content {
   @apply flex flex-row items-center;
+}
+
+.video-banner-container {
+  @apply bg-cover bg-center h-[30vh] md:h-[80vh] md:mt-10 lg:mt-[100px];
+}
+
+.video-banner-content {
+  @apply flex flex-row mt-0 lg:mt-20 absolute top-0 md:top-5 right-0 h-screen w-full z-10
 }
 
 /* Home Button  */
@@ -165,4 +173,22 @@ code {
 .fancy:hover .bottom-key-2 {
   right: 0;
   width: 0;
+}
+
+
+/* Handling Windows Default scale at 125% */
+@media (-webkit-device-pixel-ratio: 1.25) {
+  .navigation-scale-resizer {
+    zoom: 0.85;
+  }
+
+  @media (min-width: 1280px) {
+  .video-banner-container {
+    margin-top: 5rem;
+  }
+
+    .video-banner-content {
+      top: -2rem;
+    }
+  }
 }

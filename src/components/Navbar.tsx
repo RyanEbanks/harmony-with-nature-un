@@ -41,7 +41,7 @@ function Navbar() {
   const showBackground = routesWithBackground.includes(location.pathname);
 
   return (
-    <div>
+    <div className='navigation-container'>
       {/* Navbar SM Screens */}
       <div className='lg:hidden'>
 
@@ -145,7 +145,7 @@ function Navbar() {
       {showBackground ? (
         <div>
           <div>
-            <div className='lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
+            <div className='navigation-scale-resizer lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
               <div className='lg-nav-content-container'>
                 <div className='lg-nav-img-container w-[20%] flex pl-12 items-center my-auto'>
@@ -201,7 +201,7 @@ function Navbar() {
                 </div>
               </div>
             </div>
-            <div className='bg-cover bg-center h-[30vh] md:h-[80vh] md:mt-10 lg:mt-[100px]'>
+            <div className='video-banner-container'>
               {/* Renamed this banner to home-banner due to removing banner.mp4 forcefully based on file size on git */}
               {/* <video className='w-full h-full object-contain md:object-none' src='/images/home-banner.mp4'
                 autoPlay
@@ -213,7 +213,7 @@ function Navbar() {
                 playsInline>
                   <source src="https://hwni-videos.s3.us-east-2.amazonaws.com/home-banner.mp4" type="video/mp4" />
                 </video>
-              <div className='flex flex-row mt-0 lg:mt-20 absolute top-0 md:top-5 right-0 h-screen w-full z-10'>
+              <div className='video-banner-content'>
                 <div className='flex flex-col w-full lg:w-1/2 h-[45vh] lg:h-[80vh] px-10 md:px-36 justify-center'>
                   <h1 className='pl-2 md:pl-4 py-2 text-white text-2xl md:text-4xl lg:text-6xl font-normal border-l-8 border-[#F0910c]'>A Sustainable Future</h1>
                   <p className='pl-4 md:pl-6 py-5 text-white text-md md:text-xl font-light'>Devising a new world will require a new relationship with the Earth and with humankind's own existence.</p>
@@ -251,7 +251,7 @@ function Navbar() {
         </div>
       ) : (
         <div>
-          <div className='lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
+          <div className='navigation-scale-resizer lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
             {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
             <div className='lg-nav-content-container'>
               <div className='lg-nav-img-container w-[20%] flex pl-12 items-center my-auto'>
