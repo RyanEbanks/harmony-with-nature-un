@@ -1,8 +1,38 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PaymentButton from './PaymentButton';
 import '../index.css';
+import emailjs from '@emailjs/browser';
 
 const Donate = () => {
+  const form = useRef<HTMLFormElement>(null);
+  
+    const sendEmail = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if(form.current) {
+          // Add this information to an environment file for actual production
+        emailjs
+            .sendForm('service_du8kfd3', 'template_en0h9fs', form.current, {
+                publicKey: 'NhjZ_RQDzZs44eENb',
+            })
+            .then(
+                () => {
+                    console.log('Message sent!');
+                    form.current?.reset();
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                },
+            );
+          }
+    };
+
+    // const handleNumberInput = (e) => {
+    //     const value = e.target.value;
+    //     // Replace any non-digit characters and limit to 10 digits
+    //     e.target.value = value.replace(/\D/g, '').slice(0, 10);
+    // };
+
   return (
     <div className='donate-container bg-[#FAF9F6] pt-10'>
       <div className='bg-[#40916C] relative flex rounded-md mb-20 md:mb-40 lg:mb-0 mt-10 w-full md:w-[60%] mx-auto'>
@@ -26,75 +56,65 @@ const Donate = () => {
       </div>
       <div className='flex flex-col mt-8 md:items-center md:justify-center md:p-12 md:w-1/2 mx-auto'>
         <div className='mx-auto w-full max-w-lg md:max-w-[550px]'>
-          <form>
-            <div className='mb-5'>
-              <label
-                htmlFor='name'
-                className='mb-3 block text-base font-medium'
-              >
-                Full Name
-              </label>
-              <input
-                type='text'
-                name='name'
-                id='name'
-                placeholder='Full Name'
-                className='w-full border border-[#e0e0e0] text-[#6B7280] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md'
-              />
-            </div>
-            <div className='mb-5'>
-              <label
-                htmlFor='email'
-                className='mb-3 block text-base font-medium'
-              >
-                Email
-              </label>
-              <input
-                type='email'
-                name='email'
-                id='email'
-                placeholder='example@example.com'
-                className='w-full border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
-              />
-            </div>
-            <div className='mb-5'>
-              <label
-                htmlFor='subject'
-                className='mb-3 block text-base font-medium'
-              >
-                Subject
-              </label>
-              <input
-                type='text'
-                name='subject'
-                id='subject'
-                placeholder='Enter your subject'
-                className='w-full border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
-              />
-            </div>
-            <div className='mb-5'>
-              <label
-                htmlFor='message'
-                className='mb-3 block text-base font-medium'
-              >
-                Message
-              </label>
-              <textarea
-                rows={4}
-                name='message'
-                id='message'
-                placeholder='Type your message'
-                className='w-full resize-none border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
-              ></textarea>
-            </div>
-            <div className='mb-8'>
-              <button
-                className='btn-primary py-3 px-8 text-base font-semibold'
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+        <form ref={form} onSubmit={sendEmail}>
+              <div className="mb-5">
+                <label htmlFor="name" className="mb-3 block text-base font-medium">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Full Name"
+                  className="w-full border border-[#e0e0e0] text-[#6B7280] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md"
+                />
+              </div>
+
+              <div className="mb-5">
+                <label htmlFor="email" className="mb-3 block text-base font-medium">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="example@example.com"
+                  className="w-full border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                />
+              </div>
+
+              <div className="mb-5">
+                <label htmlFor="subject" className="mb-3 block text-base font-medium">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  name="subject"
+                  id="subject"
+                  placeholder="Enter your subject"
+                  className="w-full border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                />
+              </div>
+
+              <div className="mb-5">
+                <label htmlFor="message" className="mb-3 block text-base font-medium">
+                  Message
+                </label>
+                <textarea
+                  rows={4}
+                  name="message"
+                  id="message"
+                  placeholder="Type your message"
+                  className="w-full resize-none border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                ></textarea>
+              </div>
+
+              <div className="mb-8">
+                <button className="btn-primary py-3 px-8 text-base font-semibold" type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
         </div>
       </div>
     </div>
