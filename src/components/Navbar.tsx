@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-// import logo from '../images/hwni-logo.svg';
-// import oceanlogo from '../images/1ocean-logo.svg';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../App.css'
 import { CiMenuBurger } from 'react-icons/ci';
-import { motion, AnimatePresence } from 'motion/react'
-// import Modal from './Modal';
+import { motion, AnimatePresence } from 'motion/react';
 import { IoIosPlay } from 'react-icons/io';
 import { MdClose } from 'react-icons/md';
 
@@ -147,7 +144,6 @@ function Navbar() {
       {/* Navbar LG Screens */}
       {showBackground ? (
         <div>
-          {/* <div className='bg-cover bg-center h-[30vh] lg:h-[60vh]' style={{ backgroundImage: 'url('/images/new-placeholder/banner.mp4')' }}> */}
           <div>
             <div className='lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
@@ -207,10 +203,16 @@ function Navbar() {
             </div>
             <div className='bg-cover bg-center h-[30vh] md:h-[80vh] md:mt-10 lg:mt-[100px]'>
               {/* Renamed this banner to home-banner due to removing banner.mp4 forcefully based on file size on git */}
-              <video className='w-full h-full object-contain md:object-none' src='/images/home-banner.mp4'
+              {/* <video className='w-full h-full object-contain md:object-none' src='/images/home-banner.mp4'
                 autoPlay
                 muted
-                playsInline />
+                playsInline /> */}
+              <video className='w-full h-full object-contain md:object-none' 
+                autoPlay
+                muted
+                playsInline>
+                  <source src="https://hwni-videos.s3.us-east-2.amazonaws.com/home-banner.mp4" type="video/mp4" />
+                </video>
               <div className='flex flex-row mt-0 lg:mt-20 absolute top-0 md:top-5 right-0 h-screen w-full z-10'>
                 <div className='flex flex-col w-full lg:w-1/2 h-[45vh] lg:h-[80vh] px-10 md:px-36 justify-center'>
                   <h1 className='pl-2 md:pl-4 py-2 text-white text-2xl md:text-4xl lg:text-6xl font-normal border-l-8 border-[#F0910c]'>A Sustainable Future</h1>
