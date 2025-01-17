@@ -9,7 +9,7 @@ function Home() {
     <div className='home-container'>
       <div className='pl-[50px] md:pl-[210px] py-10 flex overflow-x-scroll gap-4 bg-[#FAF9F6]'>
         <div className='home-link-container overflow-hidden'>
-          <a href='https://www.youtube.com/watch?v=A7OPXQA-2GI' target='_blank' rel="noopener noreferrer" className="block">
+          <a href='https://www.youtube.com/watch?v=A7OPXQA-2GI' target='_blank' rel='noopener noreferrer' className='block'>
             <img 
               src='/images/general-assembly.jpg' 
               alt='general-assembly' 
@@ -22,7 +22,7 @@ function Home() {
           </a>
         </div>
         <div className='home-link-container overflow-hidden'>
-          <a href='https://www.youtube.com/watch?v=FeU4hRWg_SU' target='_blank' rel="noopener noreferrer">
+          <a href='https://www.youtube.com/watch?v=FeU4hRWg_SU' target='_blank' rel='noopener noreferrer'>
             <img 
               src='/images/camila-zarate.jpg' 
               alt='camila-zarate' 
@@ -35,7 +35,7 @@ function Home() {
           </a>
         </div>
         <div className='home-link-container overflow-hidden'>
-          <a href='https://www.youtube.com/watch?v=h3D-n1zq1bc' target='_blank' rel="noopener noreferrer">
+          <a href='https://www.youtube.com/watch?v=h3D-n1zq1bc' target='_blank' rel='noopener noreferrer'>
             <img 
               src='/images/frank-tumusiime.jpg' 
               alt='franktumusiime' 
@@ -48,7 +48,7 @@ function Home() {
           </a>
         </div>
         <div className='home-link-container overflow-hidden'>
-          <a href='https://www.youtube.com/watch?v=VSuvB_7O59k' target='_blank' rel="noopener noreferrer">
+          <a href='https://www.youtube.com/watch?v=VSuvB_7O59k' target='_blank' rel='noopener noreferrer'>
             <img 
               src='/images/general-assembly-nigeria.jpg' 
               alt='general-assembly-nigeria' 
@@ -61,7 +61,7 @@ function Home() {
           </a>
         </div>
         <div className='home-link-container overflow-hidden'>
-          <a href='https://www.youtube.com/watch?v=ySrmWHf1sQo' target='_blank' rel="noopener noreferrer">
+          <a href='https://www.youtube.com/watch?v=ySrmWHf1sQo' target='_blank' rel='noopener noreferrer'>
             <img 
               src='/images/manjeri-subin.jpg' 
               alt='manjeri-subin.jpg' 
@@ -74,7 +74,7 @@ function Home() {
           </a>
         </div>
         <div className='home-link-container overflow-hidden'>
-          <a href='https://www.youtube.com/watch?v=KZD9oPr1_do' target='_blank' rel="noopener noreferrer">
+          <a href='https://www.youtube.com/watch?v=KZD9oPr1_do' target='_blank' rel='noopener noreferrer'>
             <img 
               src='/images/general-assembly-spain.jpg' 
               alt='general-assembly-spain' 
@@ -87,7 +87,7 @@ function Home() {
           </a>
         </div>
         <div className='home-link-container overflow-hidden'>
-          <a href='https://www.youtube.com/watch?v=egvFugMiNrk' target='_blank' rel="noopener noreferrer">
+          <a href='https://www.youtube.com/watch?v=egvFugMiNrk' target='_blank' rel='noopener noreferrer'>
             <img 
               src='/images/marie-toussaint.jpg' 
               alt='marie-toussaint' 
@@ -100,7 +100,7 @@ function Home() {
           </a>
         </div>
         <div className='home-link-container overflow-hidden'>
-          <a href='https://www.youtube.com/watch?v=W_uRXnnew4A' target='_blank' rel="noopener noreferrer">
+          <a href='https://www.youtube.com/watch?v=W_uRXnnew4A' target='_blank' rel='noopener noreferrer'>
             <img 
               src='/images/cintia-balaudo.jpg' 
               alt='cintia-balaudo' 

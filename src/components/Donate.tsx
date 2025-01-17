@@ -57,60 +57,60 @@ const Donate = () => {
       <div className='flex flex-col mt-8 md:items-center md:justify-center md:p-12 md:w-1/2 mx-auto'>
         <div className='mx-auto w-full max-w-lg md:max-w-[550px]'>
         <form ref={form} onSubmit={sendEmail}>
-              <div className="mb-5">
-                <label htmlFor="name" className="mb-3 block text-base font-medium">
+              <div className='mb-5'>
+                <label htmlFor='name' className='mb-3 block text-base font-medium'>
                   Full Name
                 </label>
                 <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Full Name"
-                  className="w-full border border-[#e0e0e0] text-[#6B7280] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  type='text'
+                  name='name'
+                  id='name'
+                  placeholder='Full Name'
+                  className='w-full border border-[#e0e0e0] text-[#6B7280] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md'
                 />
               </div>
 
-              <div className="mb-5">
-                <label htmlFor="email" className="mb-3 block text-base font-medium">
+              <div className='mb-5'>
+                <label htmlFor='email' className='mb-3 block text-base font-medium'>
                   Email
                 </label>
                 <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="example@example.com"
-                  className="w-full border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  type='email'
+                  name='email'
+                  id='email'
+                  placeholder='example@example.com'
+                  className='w-full border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
                 />
               </div>
 
-              <div className="mb-5">
-                <label htmlFor="subject" className="mb-3 block text-base font-medium">
+              <div className='mb-5'>
+                <label htmlFor='subject' className='mb-3 block text-base font-medium'>
                   Subject
                 </label>
                 <input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  placeholder="Enter your subject"
-                  className="w-full border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  type='text'
+                  name='subject'
+                  id='subject'
+                  placeholder='Enter your subject'
+                  className='w-full border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
                 />
               </div>
 
-              <div className="mb-5">
-                <label htmlFor="message" className="mb-3 block text-base font-medium">
+              <div className='mb-5'>
+                <label htmlFor='message' className='mb-3 block text-base font-medium'>
                   Message
                 </label>
                 <textarea
                   rows={4}
-                  name="message"
-                  id="message"
-                  placeholder="Type your message"
-                  className="w-full resize-none border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  name='message'
+                  id='message'
+                  placeholder='Type your message'
+                  className='w-full resize-none border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
                 ></textarea>
               </div>
 
-              <div className="mb-8">
-                <button className="btn-primary py-3 px-8 text-base font-semibold" type="submit">
+              <div className='mb-8'>
+                <button className='btn-primary py-3 px-8 text-base font-semibold' type='submit'>
                   Submit
                 </button>
               </div>

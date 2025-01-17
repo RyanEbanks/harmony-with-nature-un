@@ -1,7 +1,7 @@
 const events = {
     AR: (
         <div id='AR' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
                 <h1 className='year-h1'>Argentina</h1>
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
@@ -27,7 +27,7 @@ const events = {
     ),
     AU: (
         <div id='AU' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
                 <h1 className='year-h1'>Australia</h1>
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
@@ -61,7 +61,7 @@ const events = {
     ),
     BD: (
         <div id='BD' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
                 <h1 className='year-h1'>Bangladesh</h1>
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
@@ -76,7 +76,7 @@ const events = {
     ),
     BZ: (
         <div id='BZ' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
                 <h1 className='year-h1'>Belgium</h1>
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
@@ -92,7 +92,7 @@ const events = {
     ),
     BE: (
         <div id='BE' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
                 <h1 className='year-h1'>Belize</h1>
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
@@ -107,7 +107,7 @@ const events = {
     ),
     BO: (
         <div id='BO' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Bolivia</h1>
                 <h2 className='month-h1'>National Law / Federal Act</h2>
@@ -139,7 +139,7 @@ const events = {
     ),
     BR: (
             <div id='BR' className='my-[80px] lg:my-[120px]'>
-                <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+                <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Brazil</h1>
                 </div>
@@ -202,7 +202,7 @@ const events = {
     ),
     CA: (
         <div id='CA' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
                 <h1 className='text-4xl font-bold mb-8'>Canada</h1>
             </div>
                 <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
@@ -233,7 +233,7 @@ const events = {
     ),
     CL: (
         <div id='CL' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
             <h1 className='text-4xl font-bold mb-8'>Chile</h1>
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
@@ -245,7 +245,7 @@ const events = {
     ),
     CO: (
         <div id='CO' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
                 <h1 className='text-4xl font-bold mb-8'>Colombia</h1>
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
@@ -296,7 +296,7 @@ const events = {
     ),
     CR: (
         <div id='CR' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Costa Rica</h1>
             </div>
@@ -309,7 +309,7 @@ const events = {
     ),
     EC: (
         <div id='EC' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Ecuador</h1>
             </div>
@@ -387,7 +387,7 @@ const events = {
     ),
     SV: (
         <div id='SV' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>El Salvador</h1>
             </div>
@@ -404,7 +404,7 @@ const events = {
     ),
     FR: (
         <div id='FR' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>France</h1>
             </div>
@@ -428,7 +428,7 @@ const events = {
     ),
     GT: (
             <div id='GT' className='my-[80px] lg:my-[120px]'>
-                <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+                <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Guatemala</h1>
                 </div>
@@ -441,7 +441,7 @@ const events = {
     ),
     IN: (
         <div id='IN' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>16. India</h1>
             </div>
@@ -475,7 +475,7 @@ const events = {
     ),
     MX: (
         <div id='MX' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Mexico</h1>
             </div>
@@ -526,7 +526,7 @@ const events = {
     ),
     NL: (
         <div id='NL' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Netherlands</h1>
             </div>
@@ -541,7 +541,7 @@ const events = {
     ),
     NZ: (
         <div id='NZ' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>New Zealand</h1>
             </div>
@@ -564,7 +564,7 @@ const events = {
     ),
     NG: (
         <div id='NG' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Nigeria</h1>
             </div>
@@ -583,7 +583,7 @@ const events = {
     ),
     PK: (
         <div id='PK' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Pakistan</h1>
             </div>
@@ -598,7 +598,7 @@ const events = {
     ),
     PA: (
         <div id='PA' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Panama</h1>
             </div>
@@ -615,7 +615,7 @@ const events = {
     ),
     PE: (
         <div id='PE' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Peru</h1>
             </div>
@@ -642,7 +642,7 @@ const events = {
     ),
     PT: (
         <div id='PT' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Portugal</h1>
             </div>
@@ -655,7 +655,7 @@ const events = {
     ),
     ZA: (
         <div id='ZA' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>25. South Africa</h1>
             </div>
@@ -670,7 +670,7 @@ const events = {
     ),
     ES: (
         <div id='ES' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Spain</h1>
             </div>
@@ -693,7 +693,7 @@ const events = {
     ),
     CH: (
         <div id='CH' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Switzerland</h1>
             </div>
@@ -706,7 +706,7 @@ const events = {
     ),
     UG: (
         <div id='UG' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Uganda</h1>
             </div>
@@ -725,7 +725,7 @@ const events = {
     ),
     GB: (
         <div id='GB' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>United Kingdom</h1>
             </div>
@@ -740,7 +740,7 @@ const events = {
     ),
     US: (
         <div id='US' className='my-[80px] lg:my-[120px]'>
-            <div className="flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]">
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>United States</h1>
             </div>

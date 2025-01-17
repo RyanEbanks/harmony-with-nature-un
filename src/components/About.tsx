@@ -36,8 +36,8 @@ function About() {
             {/* Quote Section */}
             <div className='mt-16 max-w-4xl mx-auto'>
               <blockquote className='text-2xl md:text-3xl font-light italic text-center text-gray-600'>
-                "Our team is equipped with the expertise and resources necessary to provide tailored support
-                and effective solutions for delegations."
+                'Our team is equipped with the expertise and resources necessary to provide tailored support
+                and effective solutions for delegations.'
                 <footer className='mt-4 text-lg md:text-xl text-[#40916C] font-normal'>
                   — Kevin Hill
                 </footer>
@@ -48,15 +48,15 @@ function About() {
 
         <div className='w-full lg:w-[90%] lg:mx-auto my-10'>
           {/* Services Section */}
-      <div className="bg-gray-50 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
+      <div className='bg-gray-50 py-16 md:py-24'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='grid md:grid-cols-2 gap-12'>
             {/* Approach */}
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-center md:text-left text-2xl md:text-3xl font-light mb-6 border-b-4 border-[#40916C] pb-2">
+            <div className='bg-white p-8 rounded-lg shadow-lg'>
+              <h2 className='text-center md:text-left text-2xl md:text-3xl font-light mb-6 border-b-4 border-[#40916C] pb-2'>
                 Our Approach
               </h2>
-              <p className="text-center md:text-left text-lg font-light leading-relaxed">
+              <p className='text-center md:text-left text-lg font-light leading-relaxed'>
                 This special project of 1 Ocean Fund seeks to help remove this barrier.
                 We will make available our expertise to help developing country
                 government delegations to better understand the concepts surrounding
@@ -67,11 +67,11 @@ function About() {
             </div>
 
             {/* Services */}
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-center md:text-left text-2xl md:text-3xl font-light mb-6 border-b-4 border-[#40916C] pb-2">
+            <div className='bg-white p-8 rounded-lg shadow-lg'>
+              <h2 className='text-center md:text-left text-2xl md:text-3xl font-light mb-6 border-b-4 border-[#40916C] pb-2'>
                 Our Services
               </h2>
-              <p className="text-center md:text-left text-lg font-light leading-relaxed">
+              <p className='text-center md:text-left text-lg font-light leading-relaxed'>
                 We will provide personalized consultations with small delegations to
                 explain the institutional and policy framework that currently informs
                 the Rights of Nature within the context of the United Nations.

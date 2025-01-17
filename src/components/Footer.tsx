@@ -5,7 +5,7 @@ import '../index.css';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FaSquareInstagram } from 'react-icons/fa6';
 import { FaYoutube } from 'react-icons/fa6';
-import { FaBluesky } from "react-icons/fa6";
+import { FaBluesky } from 'react-icons/fa6';
 
 
 function Footer() {
@@ -62,7 +62,7 @@ function Footer() {
             className='inline-block font-medium bg-[#004d6f] text-white hover:bg-[#2C88B0] py-3.5 px-6 ml-2 mt-5 lg:mt-0'>Sign Up</button>
           </div> */}
            <iframe 
-          src="https://cdn.forms-content-1.sg-form.com/0c670aa5-d442-11ef-8760-06925f2fee14"
+          src='https://cdn.forms-content-1.sg-form.com/0c670aa5-d442-11ef-8760-06925f2fee14'
           className='w-full h-[56.25vw] xl:h-[600px] xl:w-[550px] border-0'
           allowFullScreen
           />

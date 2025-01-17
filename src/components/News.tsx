@@ -68,23 +68,25 @@ const News: React.FC = () => {
     };
 
     if (loading) {
-        return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+        return <div className='min-h-screen flex items-center justify-center'>Loading...</div>;
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-                <h1 className="text-4xl font-bold text-gray-900 mb-8">Latest News</h1>
+        <div className='min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
+            <div className='max-w-7xl mx-auto'>
+            <h1 className='text-4xl md:text-6xl font-light mb-8'>
+                        <span className='border-l-8 border-[#40916C] pl-6'>Latest News</span>
+                    </h1>
                 {error ? (
-                    <div className="text-center text-red-600">{error}</div>
+                    <div className='text-center text-red-600'>{error}</div>
                 ) : posts.length === 0 ? (
-                    <div className="text-center text-gray-600">No posts available</div>
+                    <div className='text-center text-gray-600'>No posts available</div>
                 ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                         {posts.map((post) => (
                             <div 
                                 key={post.id} 
-                                className="bg-white rounded-lg shadow-lg overflow-hidden relative"
+                                className='bg-white rounded-lg shadow-lg overflow-hidden relative'
                             >
                                 {isAuthenticated && (
                                     <button
@@ -92,24 +94,24 @@ const News: React.FC = () => {
                                             e.stopPropagation(); // Prevent navigation
                                             handleDelete(post.id);
                                         }}
-                                        className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors duration-200 z-10"
-                                        aria-label="Delete post"
+                                        className='absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors duration-200 z-10'
+                                        aria-label='Delete post'
                                     >
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                        <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
                                         </svg>
                                     </button>
                                 )}
                                 <div 
                                     onClick={() => handlePostClick(post.id)}
-                                    className="cursor-pointer transform transition duration-200 hover:scale-105"
+                                    className='cursor-pointer transform transition duration-200 hover:scale-105'
                                 >
                                     {post.image && (
-                                        <div className="w-full h-48 relative">
+                                        <div className='w-full h-48 relative'>
                                             <img 
                                                 src={post.image.startsWith('http') ? post.image : `http://localhost:5000${post.image}`}
                                                 alt={post.title}
-                                                className="w-full h-full object-cover"
+                                                className='w-full h-full object-cover'
                                                 onError={(e) => {
                                                     console.error('Image failed to load:', post.image);
                                                     (e.target as HTMLImageElement).style.display = 'none';
@@ -117,18 +119,18 @@ const News: React.FC = () => {
                                             />
                                         </div>
                                     )}
-                                    <div className="p-6">
-                                        <span className="text-sm font-medium text-green-600">
+                                    <div className='p-6'>
+                                        <span className='text-sm font-medium text-green-600'>
                                             {post.category}
                                         </span>
-                                        <h2 className="mt-2 text-xl font-semibold text-gray-900">
+                                        <h2 className='mt-2 text-xl font-semibold text-gray-900'>
                                             {post.title}
                                         </h2>
-                                        <p className="mt-3 text-gray-600 line-clamp-3">
+                                        <p className='mt-3 text-gray-600 line-clamp-3'>
                                             {post.displayText}
                                         </p>
-                                        <div className="mt-4 text-sm text-gray-500 flex flex-row">
-                                            <div className="mr-2">
+                                        <div className='mt-4 text-sm text-gray-500 flex flex-row'>
+                                            <div className='mr-2'>
                                             {new Date(post.createdAt).toLocaleDateString()}
                                             </div>
                                             <div>

@@ -5,7 +5,7 @@ const policyData = {
             <h2>July 2020</h2>
             <p>A group of children represented by their parents and the NGOs the Paraná Ecological Forum and the Civil Association for Environmental Justice (AJAM) filed a protection action, a Collective Environmental Appeal, before the Supreme Court of Justice, to preserve the integrity of the wetlands of the Paraná Delta, and on behalf of future generations. Various constitutional, legislative and comparative legal precedents, from Bolivia, Colombia, Ecuador, India and New Zealand, were cited to support the petition, stating that “the Paraná Delta lives, breathes, develops, pulses, feels. Our petition goes beyond the demand of the right to live in a healthy environment, it goes beyond the right to a healthy environment of the citizens who inhabit these territories, it goes beyond the ailments that affect us in our environment, our life, our health, the Delta has its own life and it is succumbing. It deserves protection and the recognition of rights.” Click document.
                 2019, Province of Santa Fé</p>
-            <p>In preparation for the upcoming debate regarding the reform of the Constitution of the Province of Santa Fé, the public document titled "Contributions to the Reform of the Constitution of the Province of Santa Fé on Environmental Matters" contains proposals to include the rights of Nature in the Province's constitution. Click here.</p>
+            <p>In preparation for the upcoming debate regarding the reform of the Constitution of the Province of Santa Fé, the public document titled 'Contributions to the Reform of the Constitution of the Province of Santa Fé on Environmental Matters' contains proposals to include the rights of Nature in the Province's constitution. Click here.</p>
         </div>
     ),
 
@@ -148,14 +148,14 @@ const policyData = {
             <h2>2020-present, Vers Un Parlement de Loire (Towards a Parliament for the Loire)</h2>
             <p>An initiative led by a collective of 10 organizations representing a cross-section of political, cultural and scientific fields. In 2023, this collective wrote the Loire Manifesto, which aims to pursue the recognition of the legal personality for the Loire as a living entity. Click here.</p>
             <h2>26 May 2021, University of Toulon</h2>
-            <p>The University of Toulon, in support and partnership with the UN Harmony with Nature Programme, launched the International Proclamation of the "Charter on the Law of the Living". The objective of the Charter is to inspire reforms and incorporate the legal personhood of animals into legal systems worldwide. Click here.</p>
+            <p>The University of Toulon, in support and partnership with the UN Harmony with Nature Programme, launched the International Proclamation of the 'Charter on the Law of the Living'. The objective of the Charter is to inspire reforms and incorporate the legal personhood of animals into legal systems worldwide. Click here.</p>
             <h2>19 October 2019, Loire Region</h2>
             <p>A number of regional partners of the Loire region, under the leadership of POLAU-pole arts & urbanism jointly with writer and legal expert Camille de Toledo, started a number of debates to create the first parliament for a nonhuman entity, the Loire River, in which the fauna, flora, the different organic and inorganic elements of the river will be represented. The debates will conclude in the fall of 2020. The initiative draws inspiration from the legal personhood granted to the Whanganui River in New Zealand and the Atrato River in Colombia. Click here.</p>
 
             <h1>45. University of Toulon (France)</h1>
 
             <h2>26 May 2021, Toulon, France</h2>
-            <p>"The Charter on the Law of the Living" to be adopted on 26 May 2021 is part of a trilogy formed by "The Declaration of Toulon" adopted on 29 March 2019 and "The Declaration of Cambridge on Consciousness" adopted on 7 July 2012 which affirm that animal possess the neurological substrates that generate consciousness and therefore should be recognized as subject of rights. Click "The Charter on the Law of the Living", "The Declaration of Toulon" and "The Declaration of Cambridge on Consciousness".</p>
+            <p>'The Charter on the Law of the Living' to be adopted on 26 May 2021 is part of a trilogy formed by 'The Declaration of Toulon' adopted on 29 March 2019 and 'The Declaration of Cambridge on Consciousness' adopted on 7 July 2012 which affirm that animal possess the neurological substrates that generate consciousness and therefore should be recognized as subject of rights. Click 'The Charter on the Law of the Living', 'The Declaration of Toulon' and 'The Declaration of Cambridge on Consciousness'.</p>
 
             <h1>32. The Chevreul-Champavier College</h1>
 
@@ -169,7 +169,7 @@ const policyData = {
             <h1>16. G77 + China</h1>
 
             <h2>14-15 June 2014, Santa Cruz de la Sierra, Bolivia</h2>
-            <p>At the Commemorative Summit on the 50th Anniversary of the Group of 77, Heads of State and Governments adopted the Declaration of Santa Cruz de la Sierra "Towards a New World Order to Live Well". Relevant paragraphs on Harmony with Nature and Rights of Nature have been highlighted in the document (paras. 7, 14, 30, 31, 51, 101, 104, 156, 210, 211)</p>
+            <p>At the Commemorative Summit on the 50th Anniversary of the Group of 77, Heads of State and Governments adopted the Declaration of Santa Cruz de la Sierra 'Towards a New World Order to Live Well'. Relevant paragraphs on Harmony with Nature and Rights of Nature have been highlighted in the document (paras. 7, 14, 30, 31, 51, 101, 104, 156, 210, 211)</p>
         </div>
     ),
 
@@ -178,11 +178,11 @@ const policyData = {
             <h1>17. Germany</h1>
 
             <h2>Autumn 2023, Earth Assembly Germany</h2>
-            <p>The process of forming the Assembly began in the autumn of 2023 as a result of the participation at the 12th Interactive Dialogue of the General Assembly on Harmony with Nature held on 24 April 2023 of civil society organization "Rights of Nature-Das Volksbegehren Bayern" in close collaboration with scholars from the University of Kassel. An important number of universities and institutions are further collaborating in this endavour. The following activities have been held since: In November 2023, the Rights of Nature Network at the Federal Agency for Environment Protection including campaigns to reform the German national and Bavarian constitutions. Click here. In January 2024, a Conference "The Magic Rights" was held at the Max Planck Institute for Social Anthropology. Click here. In February 2024, the Global Assembly, Heinrich Böll Stiftung held a Symposium on the Rights of Nature. Click here.</p>
+            <p>The process of forming the Assembly began in the autumn of 2023 as a result of the participation at the 12th Interactive Dialogue of the General Assembly on Harmony with Nature held on 24 April 2023 of civil society organization 'Rights of Nature-Das Volksbegehren Bayern' in close collaboration with scholars from the University of Kassel. An important number of universities and institutions are further collaborating in this endavour. The following activities have been held since: In November 2023, the Rights of Nature Network at the Federal Agency for Environment Protection including campaigns to reform the German national and Bavarian constitutions. Click here. In January 2024, a Conference 'The Magic Rights' was held at the Max Planck Institute for Social Anthropology. Click here. In February 2024, the Global Assembly, Heinrich Böll Stiftung held a Symposium on the Rights of Nature. Click here.</p>
             <h1>47. World Council of Churches (WCC)</h1>
 
             <h2>24 June 2019, Wuppertal, Germany</h2>
-            <p>The Conference Kairos for Creation - Confessing Hope for the Earth - The Wuppertal Call, ahead of the forthcoming 11th Assembly of the WCC in 2021, among the recommendations adopted is to declare a "Decade for the Healing of Creation" and among the goals is "To promote UN processes to create a legal framework for a binding "Universal Charter of the Rights of Mother Earth" (Cochabamba 2010), an Earth International Jurisprudence System, to explore the possibilities of a UN Council for the Rights of Nature as well as the recognition of ecocide as a criminal offence in the International Court of Justice. Click here.</p>
+            <p>The Conference Kairos for Creation - Confessing Hope for the Earth - The Wuppertal Call, ahead of the forthcoming 11th Assembly of the WCC in 2021, among the recommendations adopted is to declare a 'Decade for the Healing of Creation' and among the goals is 'To promote UN processes to create a legal framework for a binding 'Universal Charter of the Rights of Mother Earth' (Cochabamba 2010), an Earth International Jurisprudence System, to explore the possibilities of a UN Council for the Rights of Nature as well as the recognition of ecocide as a criminal offence in the International Court of Justice. Click here.</p>
         </div>
     ),
 
@@ -191,7 +191,7 @@ const policyData = {
             <h1>19. Hungary</h1>
 
             <h2>24 April 2018, Budapest</h2>
-            <p>The Ombudsman for Future Generations, together with the Public Law Section of the Hungarian Academy of Sciences organized a workshop titled "New opportunities for legal definition of Lake Balaton in the light of the legal entity of Whanganui River in New Zealand”. Click here.</p>
+            <p>The Ombudsman for Future Generations, together with the Public Law Section of the Hungarian Academy of Sciences organized a workshop titled 'New opportunities for legal definition of Lake Balaton in the light of the legal entity of Whanganui River in New Zealand”. Click here.</p>
         </div>
     ),
 
@@ -200,7 +200,7 @@ const policyData = {
             <h1>23. Italy</h1>
 
             <h2>1 July 2019, Acri</h2>
-            <p>After having been the first Italian city to officially declare a "Climate Emergency" earlier that same year, the city of Acri issued a deliberation to morally support the city of Toledo (Ohio, USA) in their effort to adopt the "Lake Erie Bill of Rights". The same act also acknowledged the need for an "environmental revolution" which entails the conscious participation of every single citizen. Click official document.
+            <p>After having been the first Italian city to officially declare a 'Climate Emergency' earlier that same year, the city of Acri issued a deliberation to morally support the city of Toledo (Ohio, USA) in their effort to adopt the 'Lake Erie Bill of Rights'. The same act also acknowledged the need for an 'environmental revolution' which entails the conscious participation of every single citizen. Click official document.
                 9 July 2018, Civita Castellana</p>
             <p>The Town Council of Civita Castellana became the first in Europe to declare their municipality a Nature's Rights Zone. Click announcement. Click video.</p>
 
@@ -208,7 +208,7 @@ const policyData = {
 
             <p>Apostolic Exhortation Laudate Deum of the Holy Father Francis to all People of Good Will on the Climate Crisis. Paragraphs 3, 14, 25, 26, 62 and 64 address, among others, that human beings are part of Nature and must respect the laws of Nature. It is a document intended to follow up on his 2015 encyclical, Laudato Si, on Care for Our Common Home. This document contains an important number of references addressing, among others, that everything is interconnected, and that genuine care for our own lives and our relationships with Nature is inseparable from fraternity, justice and faithfulness to others.</p>
             <h2>6 - 27 October 2019, Rome, Italy</h2>
-            <p>The Special Assembly of the Synod of Bishops for the Pan-Amazon Region convened by Pope Francis under the theme "Amazonia: New Path for the Church and for an Integral Ecology" seeks to overcome the confines and redefine the pastoral lines, adapting to contemporary lines. Final document of the Amazon Synod addresses in paragraphs 74 and 84 the rights of Nature, click here.</p>
+            <p>The Special Assembly of the Synod of Bishops for the Pan-Amazon Region convened by Pope Francis under the theme 'Amazonia: New Path for the Church and for an Integral Ecology' seeks to overcome the confines and redefine the pastoral lines, adapting to contemporary lines. Final document of the Amazon Synod addresses in paragraphs 74 and 84 the rights of Nature, click here.</p>
 
             <h1>10. Ecological Law and Governance Association (ELGA)</h1>
 
@@ -302,12 +302,12 @@ const policyData = {
             <h1>34. The Kingdom of the Netherlands</h1>
 
             <h2>2021  The Green Party</h2>
-            <p>On 23 January, the Green Party adopted its Election Programme "Verkiezingsprogramma Groenlinks 2021" which recognizes the Rights of Nature and states that Nature has own intrinsic value, deserves a voice and a place of her own at the negotiating table, for instance, through legal personality. Click official document (available in Dutch only, see page 20, paragraph 2).</p>
+            <p>On 23 January, the Green Party adopted its Election Programme 'Verkiezingsprogramma Groenlinks 2021' which recognizes the Rights of Nature and states that Nature has own intrinsic value, deserves a voice and a place of her own at the negotiating table, for instance, through legal personality. Click official document (available in Dutch only, see page 20, paragraph 2).</p>
             <h2>2018  The Hague</h2>
             <p>The Hague Principles for a Universal Declaration of Responsibilities for Human Rights and Earth Trusteeship. Click here.</p>
             <p>Members of the Dutch Parliament received a petition to advocate, among others, for the right to wilderness. Click here.</p>
             <h2>2017  Aruba</h2>
-            <p>The statutes of the political party RAIZ promote the rights of Nature, including the legal status of natural entities and the concept of "Biba Bon/Biba Contento" (Sumak Kawsay). Click here (available only in Dutch).</p>
+            <p>The statutes of the political party RAIZ promote the rights of Nature, including the legal status of natural entities and the concept of 'Biba Bon/Biba Contento' (Sumak Kawsay). Click here (available only in Dutch).</p>
         </div>
     ),
 
@@ -348,11 +348,11 @@ const policyData = {
             <h2>11-19 June 2020, Marseille, France</h2>
             <p>A group of French lawyers supporting the French International Union for the Conservation of Nature (IUCN) committee have drafted a Rights of Nature motion to be considered by the IUCN 2020 General Congress Assembly. Click here (only available in French).</p>
             <h2>4-7 September 2017, Santiago, Chile</h2>
-            <p>At the II Inter-American Congress on the Environmental Rule of Law, debate focused on "Environmental Rule of Law Trends from the Americas: Polluiton Free, Peaceful and Inclusive Societies for Sustainable Development". The report on the congress concluded that the General Secretariat of the Organization of American States, UN Environment and IUCN World Commission on Environmental Law (WCEL), along with key partners, are working to support Member States in developing and strengthening their enabling legal - institutional frameworks for the rights embodied in the World Declaration on the Environmental Rule of Law which recognizes the rights of Nature in principle 2 (See Congress below held in Rio de Janeiro, Brazil in 2016). For report Click here.</p>
+            <p>At the II Inter-American Congress on the Environmental Rule of Law, debate focused on 'Environmental Rule of Law Trends from the Americas: Polluiton Free, Peaceful and Inclusive Societies for Sustainable Development'. The report on the congress concluded that the General Secretariat of the Organization of American States, UN Environment and IUCN World Commission on Environmental Law (WCEL), along with key partners, are working to support Member States in developing and strengthening their enabling legal - institutional frameworks for the rights embodied in the World Declaration on the Environmental Rule of Law which recognizes the rights of Nature in principle 2 (See Congress below held in Rio de Janeiro, Brazil in 2016). For report Click here.</p>
             <h2>1-10 September 2016, Hawaii, United States of America</h2>
             <p>At the IUCN World Conservation Congress two resolutions addressing rights of nature were adopted. Resolution on Crimes against the Environment (Res. 078) and Resolution on Humanity's right to a healthy environment (Res.089).
-                Resolution 078 notes "that the Earth Charter calls for a sustainable global society founded on respect for nature, universal human rights, economic justice, and a culture of peace, and that IUCN Resolution 5.100 Incorporation of the Rights of Nature as the organizational focal point in IUCN's decision making (Jeju, 2012), calls for consideration of the Rights of Nature as a "fundamental and absolute key element" in all areas of IUCN intervention and decision making, and invites development of a Universal Declaration of the Rights of Nature. Full text available in French and Spanish.
-                Resolution 089 invites "States and all stakeholders in the international community to support the adoption of international and regional declarations and conventions that contribute to the recognition of the rights of humanity and all living beings to the environment and the rights of nature". Full text available in French and Spanish.
+                Resolution 078 notes 'that the Earth Charter calls for a sustainable global society founded on respect for nature, universal human rights, economic justice, and a culture of peace, and that IUCN Resolution 5.100 Incorporation of the Rights of Nature as the organizational focal point in IUCN's decision making (Jeju, 2012), calls for consideration of the Rights of Nature as a 'fundamental and absolute key element' in all areas of IUCN intervention and decision making, and invites development of a Universal Declaration of the Rights of Nature. Full text available in French and Spanish.
+                Resolution 089 invites 'States and all stakeholders in the international community to support the adoption of international and regional declarations and conventions that contribute to the recognition of the rights of humanity and all living beings to the environment and the rights of nature'. Full text available in French and Spanish.
                 The rights of nature are also an integral part of the IUCN Programme 2017~2020 (see pages 15, 26 & 35).</p>
             <h2>20-24 June 2016, Oslo, Norway</h2>
             <p>At the IUCN Academy of Environmental Law Colloquium, the IUCN WCEL Ethics Speciality Group adopted the Oslo Manifesto for Ecological Governance which addresses the urgency to adopt a non-anthropocentric or Earth-centered worldview. Click here.</p>
@@ -364,7 +364,7 @@ const policyData = {
             <h1>21. International Federation of Social Workers (IFSW)</h1>
 
             <h2>25 May 2022, IFSW General Meeting held online</h2>
-            <p>IFSW adopted the policy paper "The Role of Social Workers in Advancing a New Eco-Social World" which calls for extending the existing UN Human Rights Declaration to a Holistic Rights Framework to encompass social human rights, cultural rights, ecosystem rights, and the broader rights of nature to ensure that the global crises of climate change, pandemics, and conflict are addressed and that a new eco-social world can flourish. See official document.</p>
+            <p>IFSW adopted the policy paper 'The Role of Social Workers in Advancing a New Eco-Social World' which calls for extending the existing UN Human Rights Declaration to a Holistic Rights Framework to encompass social human rights, cultural rights, ecosystem rights, and the broader rights of nature to ensure that the global crises of climate change, pandemics, and conflict are addressed and that a new eco-social world can flourish. See official document.</p>
 
             <h1>20. International Federation for Human Rights</h1>
 
@@ -402,9 +402,9 @@ const policyData = {
             <h1>44. United States of America</h1>
 
             <h2>4 June 2020, Washington DC</h2>
-            <p>The Democratic National Committtee (DNC) Council on Environment and Climate Crisis, in its Environmental and Climate Policy Recommendations for the 2020 Democratic Party Platform, regarding Biodiversity and Nature, calls to "Establish a commission similar to the President's Council on Sustainable Development, to explore incorporating Rights of Nature principles into U.S. law". Policy recommendation on page 11.</p>
+            <p>The Democratic National Committtee (DNC) Council on Environment and Climate Crisis, in its Environmental and Climate Policy Recommendations for the 2020 Democratic Party Platform, regarding Biodiversity and Nature, calls to 'Establish a commission similar to the President's Council on Sustainable Development, to explore incorporating Rights of Nature principles into U.S. law'. Policy recommendation on page 11.</p>
             <h2>3 January 2020, Florida</h2>
-            <p>Various counties try to advance a ballot vote on river rights during the November 2020 presidential election. A committee in Orange County aims at granting rights to the Wekiva River and Econlockhatchee River. Petitioners in Alachua County attempt to pass the Santa Fe Bill of Rights. Citizens of Lee County strive to adopte the Caloosahatchee Bill of Rights. All drafts include the "rights to naturally exist, flourish, regenerate, evolve, rehydrate and restoration". Click official documents Wekiva River, Econlockhatchee River, Santa Fe Bill of Rights and, Caloosahatchee Bill of Rights.</p>
+            <p>Various counties try to advance a ballot vote on river rights during the November 2020 presidential election. A committee in Orange County aims at granting rights to the Wekiva River and Econlockhatchee River. Petitioners in Alachua County attempt to pass the Santa Fe Bill of Rights. Citizens of Lee County strive to adopte the Caloosahatchee Bill of Rights. All drafts include the 'rights to naturally exist, flourish, regenerate, evolve, rehydrate and restoration'. Click official documents Wekiva River, Econlockhatchee River, Santa Fe Bill of Rights and, Caloosahatchee Bill of Rights.</p>
             <h2>16 October 2019, Florida</h2>
             <p>The Florida Democratic Party adopted rights of nature into platform. Click article.</p>
 
