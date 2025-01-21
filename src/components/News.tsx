@@ -11,7 +11,11 @@ interface Post {
     createdAt: string;
 }
 
-const News: React.FC = () => {
+interface NewsProps {
+    url: string | undefined; // Define the type for the url prop
+}
+
+const News: React.FC<NewsProps> = ({ url }) => {
     const navigate = useNavigate();
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
@@ -25,7 +29,7 @@ const News: React.FC = () => {
 
     const fetchPosts = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/posts', {
+            const response = await fetch(`${url}/api/posts`, {
                 credentials: 'include'
             });
             const data = await response.json();
@@ -47,7 +51,7 @@ const News: React.FC = () => {
         if (!window.confirm('Are you sure you want to delete this post?')) return;
 
         try {
-            const response = await fetch(`http://localhost:5000/api/posts/${Number(postId)}`, {
+            const response = await fetch(`${url}/api/posts/${Number(postId)}`, {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {
@@ -74,9 +78,9 @@ const News: React.FC = () => {
     return (
         <div className='min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
             <div className='max-w-7xl mx-auto'>
-            <h1 className='text-4xl md:text-6xl font-light mb-8'>
-                        <span className='border-l-8 border-[#40916C] pl-6'>Latest News</span>
-                    </h1>
+                <h1 className='text-4xl md:text-6xl font-light mb-20'>
+                    <span className='border-l-8 border-[#40916C] pl-6'>Latest News</span>
+                </h1>
                 {error ? (
                     <div className='text-center text-red-600'>{error}</div>
                 ) : posts.length === 0 ? (
@@ -84,8 +88,8 @@ const News: React.FC = () => {
                 ) : (
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                         {posts.map((post) => (
-                            <div 
-                                key={post.id} 
+                            <div
+                                key={post.id}
                                 className='bg-white rounded-lg shadow-lg overflow-hidden relative'
                             >
                                 {isAuthenticated && (
@@ -102,14 +106,14 @@ const News: React.FC = () => {
                                         </svg>
                                     </button>
                                 )}
-                                <div 
+                                <div
                                     onClick={() => handlePostClick(post.id)}
                                     className='cursor-pointer transform transition duration-200 hover:scale-105'
                                 >
                                     {post.image && (
                                         <div className='w-full h-48 relative'>
-                                            <img 
-                                                src={post.image.startsWith('http') ? post.image : `http://localhost:5000${post.image}`}
+                                            <img
+                                                src={post.image.startsWith('http') ? post.image : `${url}${post.image}`}
                                                 alt={post.title}
                                                 className='w-full h-full object-cover'
                                                 onError={(e) => {
@@ -131,10 +135,14 @@ const News: React.FC = () => {
                                         </p>
                                         <div className='mt-4 text-sm text-gray-500 flex flex-row'>
                                             <div className='mr-2'>
-                                            {new Date(post.createdAt).toLocaleDateString()}
+                                                {new Date(post.createdAt).toLocaleDateString('en-US', {
+                                                    month: 'short',  // Full month name
+                                                    day: 'numeric', // Numeric day
+                                                    year: 'numeric' // Full year
+                                                })}
                                             </div>
                                             <div>
-                                            By {post.author}
+                                                By {post.author}
                                             </div>
                                         </div>
                                     </div>

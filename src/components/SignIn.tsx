@@ -3,7 +3,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // useNavigate instead of useHistory
 import '../index.css';
 
-const SignIn = () => {
+interface SignInProps {
+  url: string | undefined; // Define the type for the url prop
+}
+
+const SignIn: React.FC<SignInProps> = ({url}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errMessage, setErrMessage] = useState('');
@@ -12,7 +16,20 @@ const SignIn = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-        await axios.post('http://localhost:5000/api/login/initiate', { email, password });
+      axios.post(`${url}/api/login/initiate`, {
+        email,
+        password
+    }, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => {
+        console.log(response.data);
+    })
+    .catch(error => {
+        console.log(error.message);
+    });
         localStorage.setItem('tempEmail', email);
         navigate('/two-factor-authentication');
     } catch (error) {

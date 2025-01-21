@@ -22,6 +22,7 @@ import TwoFactor from './components/TwoFactor';
 import PostDetail from './components/PostDetail';
 
 const App: React.FC = () => {
+  const url = process.env.REACT_APP_API_URL;
   const [law, setLaw] = useState<keyof typeof events>('US');
   const [policy, setPolicy] = useState<keyof typeof policyEvents>('General');
 
@@ -36,16 +37,16 @@ const App: React.FC = () => {
             <Route path='/rights-of-nature' element={<Rights setLaw={setLaw} setPolicy={setPolicy} />} />
             <Route path='/timeline' element={<Timeline />} />
             <Route path='/assemblies' element={<Assemblies />} />
-            <Route path='/news' element={<News />} />
-            <Route path='/news/:id' element={<PostDetail />} />
+            <Route path='/news' element={<News url={url}/>} />
+            <Route path='/news/:id' element={<PostDetail url={url} />} />
             <Route path='/library' element={<Library />} />
             {/* <Route path='/sponsors' element={<Sponsors />} /> */}
             <Route path='/donate' element={<Donate />} />
             <Route path='/law' element={<Law law={law} />} />
             <Route path='/policy' element={<Policy policy={policy} />} />
-            <Route path='/login' element={<SignIn />} />
-            <Route path='/upload' element={<Posts />} />
-            <Route path='/two-factor-authentication' element={<TwoFactor />} />
+            <Route path='/login' element={<SignIn url={url}/>} />
+            <Route path='/upload' element={<Posts url={url}/>} />
+            <Route path='/two-factor-authentication' element={<TwoFactor url={url}/>} />
           </Routes>
         </div>
         <Footer />

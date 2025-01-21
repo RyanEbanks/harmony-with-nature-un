@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-    const TwoFactor: React.FC = () => {
+interface TwoFactorProps {
+    url: string | undefined; // Define the type for the url prop
+  }
+    const TwoFactor: React.FC<TwoFactorProps> = ({url}) => {
       const [code, setCode] = useState('');
       const [error, setError] = useState('');
       const navigate = useNavigate();
@@ -13,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
         try {
             const email = localStorage.getItem('tempEmail');
             
-            const response = await fetch('http://localhost:5000/api/login/verify', {
+            const response = await fetch(`${url}/api/login/verify`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

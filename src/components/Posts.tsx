@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Posts: React.FC = () => {
+interface PostsProps {
+    url: string | undefined; // Define the type for the url prop
+  }
+
+const Posts: React.FC<PostsProps> = ({url}) => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -75,7 +79,7 @@ const Posts: React.FC = () => {
                 image: image?.name
             });
     
-            const response = await fetch('http://localhost:5000/api/posts', {
+            const response = await fetch(`${url}/api/posts`, {
                 method: 'POST',
                 credentials: 'include',
                 body: formData,

@@ -12,7 +12,11 @@ interface Post {
     createdAt: string;
 }
 
-const PostDetail: React.FC = () => {
+interface PostDetailProps {
+    url: string | undefined; // Define the type for the url prop
+}
+
+const PostDetail: React.FC<PostDetailProps> = ({ url }) => {
     const [post, setPost] = useState<Post | null>(null);
     const [loading, setLoading] = useState(true);
     const { id } = useParams<{ id: string }>();
@@ -21,9 +25,9 @@ const PostDetail: React.FC = () => {
         const fetchPost = async () => {
             try {
                 console.log('Fetching post with ID:', id);
-                
+
                 // Fix the URL construction
-                const response = await fetch(`http://localhost:5000/api/posts/${id}`, {
+                const response = await fetch(`${url}/api/posts/${id}`, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
@@ -31,9 +35,9 @@ const PostDetail: React.FC = () => {
                     },
                     credentials: 'include'
                 });
-    
+
                 console.log('Response status:', response.status);
-    
+
                 if (!response.ok) {
                     if (response.status === 404) {
                         throw new Error('Post not found');
@@ -41,7 +45,7 @@ const PostDetail: React.FC = () => {
                     const errorData = await response.json();
                     throw new Error(errorData.error || 'Failed to fetch post');
                 }
-    
+
                 const data = await response.json();
                 console.log('Fetched post data:', data);
                 setPost(data);
@@ -52,7 +56,7 @@ const PostDetail: React.FC = () => {
                 setLoading(false);
             }
         };
-    
+
         if (id) {
             fetchPost();
         }
@@ -67,22 +71,28 @@ const PostDetail: React.FC = () => {
     }
 
     return (
-        <div className='min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 mt-20'>
-            <article className='max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden'>
-                {post?.image && (
-                    <img 
-                        src={post.image} 
+        <div className='flex items-center min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 mt-20'>
+            <article className='flex items-center flex-col lg:flex-row max-w-[80%] mx-auto bg-white rounded-md shadow-md overflow-hidden'>
+               <div className=''>
+               {post?.image && (
+                    <img
+                        src={post.image}
                         alt={post.title}
-                        className='w-full h-96 object-cover'
+                        className='w-full lg:h-96 object-fit'
                     />
                 )}
+               </div>
                 <div className='p-8'>
                     <div className='mb-8'>
                         <span className='text-sm font-medium text-green-600'>
                             By {post?.author}
                         </span>
                         <time className='mt-2 block text-sm text-gray-500'>
-                            {new Date(post?.createdAt || '').toLocaleDateString()}
+                            {new Date(post?.createdAt || '').toLocaleDateString('en-US', {
+                                month: 'short',  // Full month name
+                                day: 'numeric', // Numeric day
+                                year: 'numeric' // Full year
+                            })}
                         </time>
                         <h1 className='mt-2 text-4xl font-bold text-gray-900'>
                             {post?.title}
@@ -105,5 +115,5 @@ const PostDetail: React.FC = () => {
     );
 };
 
-export default PostDetail; 
+export default PostDetail;
 
