@@ -115,7 +115,7 @@ const News: React.FC<NewsProps> = ({ url }) => {
                                             <img
                                                 src={post.image.startsWith('http') ? post.image : `${url}${post.image}`}
                                                 alt={post.title}
-                                                className='w-full h-full object-cover'
+                                                className='w-full h-full object-fill'
                                                 onError={(e) => {
                                                     console.error('Image failed to load:', post.image);
                                                     (e.target as HTMLImageElement).style.display = 'none';

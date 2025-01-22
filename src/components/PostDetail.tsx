@@ -78,7 +78,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ url }) => {
                     <img
                         src={post.image}
                         alt={post.title}
-                        className='w-full lg:h-96 object-fit'
+                        className='w-full lg:h-96 object-fill'
                     />
                 )}
                </div>
