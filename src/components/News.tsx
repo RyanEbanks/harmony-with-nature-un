@@ -108,7 +108,7 @@ const News: React.FC<NewsProps> = ({ url }) => {
                                 )}
                                 <div
                                     onClick={() => handlePostClick(post.id)}
-                                    className='cursor-pointer transform transition duration-200 hover:scale-105'
+                                    className='cursor-pointer transform transition duration-200 hover:scale-102'
                                 >
                                     {post.image && (
                                         <div className='w-full h-48 relative'>
