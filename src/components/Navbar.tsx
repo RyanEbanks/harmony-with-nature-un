@@ -148,12 +148,15 @@ function Navbar() {
             <div className='navigation-scale-resizer lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
               <div className='lg-nav-content-container'>
-                <div className='lg-nav-img-container w-[20%] flex pl-12 items-center my-auto'>
+                <div className='lg-nav-img-container w-[20%] flex justify-center items-center my-auto space-x-4'>
+                  <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
+                    <img src='/images/1ocean-logo.svg' alt='1Ocean Logo' className='mr-4 h-[100px] w-[100px]' />
+                  </a>
                   <a href='/'>
-                    <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
+                    <img className='ml-4 h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
                   </a>
                 </div>
-                <div className='lg-nav-content justify-center w-[80%] h-[80px] my-auto'>
+                <div className='lg-nav-content justify-center w-[60%] h-[80px] my-auto'>
                   <Link to='/'>
                     <button className='lg-nav-link'>Home</button>
                   </Link>
@@ -179,25 +182,20 @@ function Navbar() {
                     <button className='lg-nav-link'>Sponsors</button>
                   </Link> */}
                 </div>
-                <div className='flex pr-12 justify-end items-center h-[80px] mx-auto my-auto w-[20%]'>
-                  <div className='flex items-center space-x-4'>
-                    <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
-                      <button className='btn-primary nav-btn-styling ml-8 lg:ml-0 flex items-center justify-center'>
-                        <img src='/images/1ocean-logo-white.svg' alt='1Ocean Logo' className='h-[40px] w-[50px]' />
-                      </button>
-                    </a>
-                    <Link to='/donate'>
-                      <button className='btn-primary nav-btn-styling ml-8 lg:ml-0'>Donate</button>
-                    </Link>
-                    {isAuthenticated && (
-                      <button
-                        onClick={handleSignOut}
-                        className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
-                      >
-                        Sign Out
-                      </button>
-                    )}
-                  </div>
+                <div className='flex justify-center items-center h-[80px] mx-auto my-auto w-[20%]'>
+                  {/* <div className='flex items-center space-x-4'> */}
+                  <Link to='/donate'>
+                    <button className='btn-primary nav-btn-styling ml-8 lg:ml-0'>Donate</button>
+                  </Link>
+                  {isAuthenticated && (
+                    <button
+                      onClick={handleSignOut}
+                      className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
+                    >
+                      Sign Out
+                    </button>
+                  )}
+                  {/* </div> */}
                 </div>
               </div>
             </div>
@@ -207,12 +205,12 @@ function Navbar() {
                 autoPlay
                 muted
                 playsInline /> */}
-              <video className='w-full h-full object-contain md:object-none' 
+              <video className='w-full h-full object-contain md:object-none'
                 autoPlay
                 muted
                 playsInline>
-                  <source src="https://hwni-videos.s3.us-east-2.amazonaws.com/home-banner.mp4" type="video/mp4" />
-                </video>
+                <source src="https://hwni-videos.s3.us-east-2.amazonaws.com/home-banner.mp4" type="video/mp4" />
+              </video>
               <div className='video-banner-content'>
                 <div className='flex flex-col w-full lg:w-1/2 h-[45vh] lg:h-[80vh] px-10 md:px-36 justify-center'>
                   <h1 className='pl-2 md:pl-4 py-2 text-white text-2xl md:text-4xl lg:text-6xl font-normal border-l-8 border-[#F0910c]'>A Sustainable Future</h1>
@@ -254,12 +252,15 @@ function Navbar() {
           <div className='navigation-scale-resizer lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
             {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
             <div className='lg-nav-content-container'>
-              <div className='lg-nav-img-container w-[20%] flex pl-12 items-center my-auto'>
+              <div className='lg-nav-img-container w-[20%] flex justify-center items-center my-auto space-x-4'>
+                <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
+                  <img src='/images/1ocean-logo.svg' alt='1Ocean Logo' className='mr-4 h-[100px] w-[100px]' />
+                </a>
                 <a href='/'>
-                  <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
+                  <img className='ml-4 h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
                 </a>
               </div>
-              <div className='lg-nav-content justify-center w-[80%] h-[80px] my-auto'>
+              <div className='lg-nav-content justify-center w-[60%] h-[80px] my-auto'>
                 <Link to='/'>
                   <button className='lg-nav-link'>Home</button>
                 </Link>
@@ -282,28 +283,23 @@ function Navbar() {
                   <button className='lg-nav-link'>Library</button>
                 </Link>
                 {/* <Link to='/sponsors'>
-                  <button className='lg-nav-link'>Sponsors</button>
-                </Link> */}
+                    <button className='lg-nav-link'>Sponsors</button>
+                  </Link> */}
               </div>
-              <div className='flex pr-12 justify-end items-center h-[80px] mx-auto my-auto w-[20%]'>
-                <div className='flex items-center space-x-4'>
-                  <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
-                    <button className='btn-primary nav-btn-styling ml-8 lg:ml-0 flex items-center justify-center'>
-                      <img src='/images/1ocean-logo-white.svg' alt='1Ocean Logo' className='h-[40px] w-[50px]' />
-                    </button>
-                  </a>
-                  <Link to='/donate'>
-                    <button className='btn-primary nav-btn-styling ml-8 lg:ml-0 flex items-center justify-center'>Donate</button>
-                  </Link>
-                  {isAuthenticated && (
-                    <button
-                      onClick={handleSignOut}
-                      className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
-                    >
-                      Sign Out
-                    </button>
-                  )}
-                </div>
+              <div className='flex justify-center items-center h-[80px] mx-auto my-auto w-[20%]'>
+                {/* <div className='flex items-center space-x-4'> */}
+                <Link to='/donate'>
+                  <button className='btn-primary nav-btn-styling ml-8 lg:ml-0'>Donate</button>
+                </Link>
+                {isAuthenticated && (
+                  <button
+                    onClick={handleSignOut}
+                    className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
+                  >
+                    Sign Out
+                  </button>
+                )}
+                {/* </div> */}
               </div>
             </div>
           </div>
