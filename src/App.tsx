@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
 import Library from './components/Library';
-import Sponsors from './components/Sponsors';
+// import Sponsors from './components/Sponsors';
 import Timeline from './components/Timeline';
 import Donate from './components/Donate';
 import News from './components/News';

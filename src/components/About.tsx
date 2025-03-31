@@ -1,7 +1,3 @@
-import React, { useState } from 'react';
-// import picture1 from '/images/hwni-logo.svg';
-// import kevin from '../images/Kevin-Hill.jpg';
-// import julio from '../images/Julio-Orellana.jpg';
 import '../App.css';
 import '../index.css';
 
@@ -91,7 +87,7 @@ function About() {
           </div>
           <div className='flex flex-col lg:flex-row mx-auto w-[90%] mb-20'>
             <div className='flex flex-col md:flex-row items-center about-img-div-styling'>
-              <img className='about-img' alt='A picture of Kevin Hill' src='/images/Kevin-Hill.jpg'></img>
+              <img className='about-img' alt='Kevin Hill' src='/images/Kevin-Hill.jpg'></img>
               <div className='tertiary-child-content'>
                 <h1 className='about-primary-h1-styling'>Kevin Hill</h1>
                 <h3 className='about-secondary-h3-styling'>Fund Administrator</h3>
@@ -103,7 +99,7 @@ function About() {
               </div>
             </div>
             <div className='flex flex-col md:flex-row items-center about-img-div-styling'>
-              <img className='about-img' alt='A picture of Julio Orellana' src='/images/Julio-Orellana.jpg'></img>
+              <img className='about-img' alt='Julio Orellana' src='/images/Julio-Orellana.jpg'></img>
               <div className='tertiary-child-content'>
                 <h1 className='about-primary-h1-styling'>Julio Orellana</h1>
                 <h3 className='about-secondary-h3-styling'>Legal Research Associate</h3>

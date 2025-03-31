@@ -1,5 +1,4 @@
 // import oceanlogo from '../images/1ocean-logo-white.svg';
-import { useState } from 'react';
 import '../App.css';
 import '../index.css';
 import { FaFacebookSquare } from 'react-icons/fa';
@@ -15,7 +14,7 @@ function Footer() {
         {/* Logo & Links Section */}
         <div className='lg:w-1/4'>
         <a  href='/' rel='noopener noreferrer'>
-          <img className='h-[150px] w-[150px] mx-auto' src='/images/hwni-white-logo.svg' />
+          <img className='h-[150px] w-[150px] mx-auto' src='/images/hwni-white-logo.svg' alt='hwni logo' />
         </a>
           {/* Social Media Links */}
           <div className='flex flex-row mx-auto justify-center py-5'>
@@ -34,11 +33,11 @@ function Footer() {
             </div>
             <div className='flex flex-col py-5 mx-auto xl:mx-0 w-1/2 xl:w-1/3'>
               <a className='footer-a' href='/donate' rel='noopener noreferrer'>Donate</a>
-              <a className='footer-a'>Privacy Policy</a>
+              <p className='footer-a'>Privacy Policy</p>
             </div>
             <div className='flex flex-col py-5 mx-auto xl:mx-0 w-1/2 xl:w-1/3'>
-              <a className='footer-a'>Terms & Conditions</a>
-              <a className='footer-a'>Disclaimer</a>
+              <p className='footer-a'>Terms & Conditions</p>
+              <p className='footer-a'>Disclaimer</p>
             </div>
           </div>
         </div>
@@ -62,6 +61,7 @@ function Footer() {
             className='inline-block font-medium bg-[#004d6f] text-white hover:bg-[#2C88B0] py-3.5 px-6 ml-2 mt-5 lg:mt-0'>Sign Up</button>
           </div> */}
            <iframe 
+           title='subscribe'
           src='https://cdn.forms-content-1.sg-form.com/0c670aa5-d442-11ef-8760-06925f2fee14'
           className='w-full h-[56.25vw] xl:h-[600px] xl:w-[550px] border-0'
           allowFullScreen

@@ -3,13 +3,8 @@ import ReactMapGL from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MdClose } from 'react-icons/md';
 import { Marker } from 'react-map-gl'; // Ensure Marker is imported
-import events from '../lawData';
-import policyEvents from '../policyData';
-import { useNavigate } from 'react-router-dom';
-
 
 const Map: React.FC = () => {
-  const navigate = useNavigate();
   const [viewport, setViewport] = useState({
     latitude: 37.0902, // Center over the continental U.S.
     longitude: -95.7129,
@@ -360,6 +355,7 @@ const Map: React.FC = () => {
           >
             <div style={{ cursor: 'pointer', width: '50px', height: '50px' }}>
               <img src={markerData.image}
+              alt='marker'
                 // onClick={() => handleMarkerClick(markerData)}
               />
             </div>

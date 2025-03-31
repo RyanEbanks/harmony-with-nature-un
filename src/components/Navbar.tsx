@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import '../App.css'
+import '../App.css';
+import '../index.css';
 import { CiMenuBurger } from 'react-icons/ci';
 import { motion, AnimatePresence } from 'motion/react';
 import { IoIosPlay } from 'react-icons/io';
