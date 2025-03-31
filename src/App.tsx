@@ -20,6 +20,7 @@ import policyEvents from './policyData';
 import './App.css';
 import TwoFactor from './components/TwoFactor';
 import PostDetail from './components/PostDetail';
+import NotFound from './components/NotFound';
 
 const App: React.FC = () => {
   const url = process.env.REACT_APP_API_URL;
@@ -47,6 +48,7 @@ const App: React.FC = () => {
             <Route path='/login' element={<SignIn url={url}/>} />
             <Route path='/upload' element={<Posts url={url}/>} />
             <Route path='/two-factor-authentication' element={<TwoFactor url={url}/>} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </div>
         <Footer />
