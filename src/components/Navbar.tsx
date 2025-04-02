@@ -186,7 +186,10 @@ function Navbar() {
                 <div className='flex justify-center items-center h-[80px] mx-auto my-auto w-[20%]'>
                   {/* <div className='flex items-center space-x-4'> */}
                   <Link to='/donate'>
-                    <button className='btn-primary nav-btn-styling ml-8 lg:ml-0'>Donate</button>
+                    <button className='flex flex-row justify-center items-center btn-primary nav-btn-styling ml-8 lg:ml-0'>
+                    <img src="/images/heart_icon.svg" alt="heart" className='mr-1'/>
+                    <p>Donate</p>
+                    </button>
                   </Link>
                   {isAuthenticated && (
                     <button
@@ -216,7 +219,7 @@ function Navbar() {
                 <div className='flex flex-col w-full lg:w-1/2 h-[45vh] lg:h-[80vh] px-10 md:px-36 justify-center'>
                   <h1 className='pl-2 md:pl-4 py-2 text-white text-2xl md:text-4xl lg:text-6xl font-normal border-l-8 border-[#F0910c]'>A Sustainable Future</h1>
                   <p className='pl-4 md:pl-6 py-5 text-white text-md md:text-xl font-light'>Devising a new world will require a new relationship with the Earth and with humankind's own existence.</p>
-                  <div className='hidden ml-6 md:flex flex-row h-[80px] w-[250px] border-[#b3b3b3] hover:border-[#F0910c] border-4 py-2'>
+                  <div className='hidden ml-6 md:flex flex-row h-[80px] w-[250px] border-[#b3b3b3] hover:border-[#F0910c] border-4 py-2 rounded-[4px]'>
                     <span className='items-center'><IoIosPlay style={{ fontSize: '48px', color: 'white' }} /></span>
                     <button onClick={openVideo}>
                       <div className='flex flex-col text-sm md:text-lg text-white text-left font-bold'>

@@ -17,11 +17,11 @@ code {
 
 /* Button Classes */
 .btn-primary {
-  @apply bg-[#40916C] rounded-full border-0 hover:bg-[#549c7c] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
+  @apply bg-[#40916C] hover:bg-[#52A77E] transition-all duration-300 ease-in-out rounded-[4px] border-0 text-white outline-none;
 }
 
 .btn-secondary {
-  @apply bg-[#F0910c] rounded-full border-0 hover:bg-[#f0910c80] hover:text-[rgba(255,255,255,0.9)] text-white outline-none;
+  @apply bg-[#F0910c] hover:bg-[#F4A623] transition-all duration-300 ease-in-out rounded-[4px] border-0 text-white outline-none;
 }
 
 .btn-primary-test {
@@ -67,6 +67,24 @@ code {
 }
 
 /* Home Button  */
+.thumbnail-parent-container {
+  @apply flex flex-col bg-[#FAF9F6] relative;
+}
+.scrollbar-container::-webkit-scrollbar {
+ display: none;
+}
+
+.button-scroll {
+  @apply flex flex-row justify-between top-[40%] absolute z-10 w-[95vw] max-w-[1920px] overflow-hidden left-[2.5%];
+}
+
+.home-video-container {
+  @apply pl-[50px] md:pl-[50px] py-10 flex overflow-x-auto gap-4 scrollbar-container;
+}
+
+.mask-gradient {
+  mask-image: linear-gradient(90deg, transparent, #FAF9F6, #FAF9F6, transparent);
+}
 .home-btn-styling {
   @apply font-normal text-[1.1rem] h-[50px] w-[150px] mt-5 mr-[20px];
 }
@@ -151,7 +169,7 @@ code {
 
 
 .footer-icons {
-  @apply flex justify-center items-center bg-[#004d6f] hover:bg-[#2C88B0] h-10 w-10 rounded-lg mx-2 md:mx-5 lg:mx-[5px] no-underline;
+  @apply flex justify-center items-center bg-[#004d6f] hover:bg-[#2C88B0] h-10 w-10 rounded-[4px] mx-2 md:mx-5 lg:mx-[5px] no-underline;
 }
 
 /* Button Styling for Donation  */
