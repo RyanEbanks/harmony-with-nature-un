@@ -1,5 +1,5 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFireStore } from 'firebase/firestore';
 import 'firebase/auth';
 
 // Initialize firebase
@@ -14,7 +14,7 @@ const firebaseConfig = {
   };
 
   // Initialize Firebase
- firebase.initializeApp(firebaseConfig);
- firebase.firestore().settings({ timestampsInSnapshots: true });
+ const app = initializeApp(firebaseConfig);
 
- export default firebase;
+ // Initialize Cloud Firestore and get a reference to the service
+ export const db = getFireStore(app);

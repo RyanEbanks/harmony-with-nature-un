@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // useNavigate instead of useHistory
 import '../index.css';
+import { db } from '../config/fbConfig';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 interface SignInProps {
   url: string | undefined; // Define the type for the url prop
 }
 
-const SignIn: React.FC<SignInProps> = ({url}) => {
+const SignIn: React.FC<SignInProps> = ({ url }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errMessage, setErrMessage] = useState('');
@@ -16,27 +18,38 @@ const SignIn: React.FC<SignInProps> = ({url}) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      axios.post(`${url}/api/login/initiate`, {
-        email,
-        password
-    }, {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-    .then(response => {
-        console.log(response.data);
-    })
-    .catch(error => {
-        console.log(error.message);
-    });
+      const userCollection = collection(db, 'user'); //Grabbing user collection from firebase using firebaseconfig
+      const searchCollection = query(
+        userCollection,
+        where('email', '==', email),
+        where('password', '==', password)
+      );
+
+      const querySnapShot = await getDocs(searchCollection);
+
+      if (!querySnapShot.empty) {
+        console.log('User found: ', querySnapShot.docs[0].data());
+
+        // Call Firebase Function to send the 2FA code
+        await axios.post('https://us-central1-YOUR_PROJECT_ID.cloudfunctions.net/sendTwoFactorCode', { email });
+
+
+        // Get 2FA now
         localStorage.setItem('tempEmail', email);
         navigate('/two-factor-authentication');
+
+
+      } else {
+        setErrMessage('No Matching User Found');
+        console.log('Invalid Credentials');
+      }
+
+
     } catch (error) {
-        setErrMessage('Invalid credentials');
-        console.error(error);
+      console.error('Error signing in: ', Error);
+      setErrMessage('Invalid Credentials');
     }
-};
+  };
 
   // Update state on input change
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
