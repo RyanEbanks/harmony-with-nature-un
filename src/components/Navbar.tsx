@@ -253,7 +253,7 @@ function Navbar() {
         </div>
       ) : (
         <div>
-          <div className='navigation-scale-resizer lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
+          <div className='navigation-scale-resizer lg-nav-parent  bg-white z-50 w-full '>
             {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
             <div className='lg-nav-content-container'>
               <div className='lg-nav-img-container w-[20%] flex justify-center items-center my-auto space-x-4'>

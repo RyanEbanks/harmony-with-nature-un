@@ -55,7 +55,7 @@ function Library() {
     };
 
     return (
-        <div className='container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='mt-[160px]'>
                 <h1 className='text-center md:text-left text-gray-800 text-6xl font-bold border-l-[6px] pl-8 border-[#004d6f]'>Library</h1>
             </div>
@@ -68,84 +68,85 @@ function Library() {
                     governance structures in which Nature is treated in partnership with humankind.</p>
             </div>
 
-            {/* Search Bar */}
-            <div className='my-12'>
-                <div className='max-w-xl mx-auto'>
-                    <h2 className='text-sm font-semibold tracking-wider text-gray-700 text-center mb-4'>EXPLORE BY</h2>
-                    <div className='relative'>
-                        <input
-                            type='text'
-                            placeholder='Search books...'
-                            className='w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-[#40916C] focus:border-transparent transition duration-200 outline-none'
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
+            {/* Scrollable container */}
+            {/* <div className="h-[800px] overflow-auto border-gray-300 border-[1px] my-20 p-4"> */}
+                {/* Search Bar */}
+                <div className='my-12'>
+                    <div className='max-w-xl mx-auto'>
+                        <h2 className='text-sm font-semibold tracking-wider text-gray-700 text-center mb-4'>EXPLORE BY</h2>
+                        <div className='relative'>
+                            <input
+                                type='text'
+                                placeholder='Search books...'
+                                className='w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-[#40916C] focus:border-transparent transition duration-200 outline-none'
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Pagination Controls */}
-            <div className='flex justify-between items-center max-w-2xl mx-auto mb-8'>
-                <button
-                    onClick={handlePreviousPage}
-                    disabled={currentPage === 1}
-                    className='px-5 py-2.5 bg-[#40916C] hover:bg-[#265741] text-white rounded-lg transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
-                >
-                    Previous
-                </button>
-                <p className='text-gray-700'>Page {currentPage} of {totalPages}</p>
-                <button
-                    onClick={handleNextPage}
-                    disabled={currentPage === totalPages}
-                    className='px-5 py-2.5 bg-[#40916C] hover:bg-[#265741] text-white rounded-lg transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
-                >
-                    Next
-                </button>
-            </div>
-
-            {/* Book List */}
-            <div className='max-w-4xl mx-auto'>
-                <ul className='space-y-6'>
-                    {currentBooks.map((book, index) => (
-                        <li key={index} className='bg-white rounded-lg shadow-sm hover:shadow-md transition duration-200'>
-                            <div className='p-4 border-b'>
-                                <h2 className='text-lg font-semibold text-gray-800'>{book.title}</h2>
-                            </div>
-                            <div className='p-4'>
-                                <p className='text-gray-600'>{book.author} &#40;{book.year}&#41; - {book.publisher} - {book.country}</p>
-                                <div className='flex gap-3 mt-4'>
-                                    <span className='inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800'>
-                                        {book.type}
-                                    </span>
-                                    <span className='inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800'>
-                                        <TbWorld className='mr-1.5' />
-                                        {book.language}
-                                    </span>
+                {/* Pagination Controls */}
+                <div className='flex justify-between items-center max-w-2xl mx-auto mb-8'>
+                    <button
+                        onClick={handlePreviousPage}
+                        disabled={currentPage === 1}
+                        className='px-5 py-2.5 bg-[#40916C] hover:bg-[#265741] text-white rounded-[4px] transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+                    >
+                        Previous
+                    </button>
+                    <p className='text-gray-700'>Page {currentPage} of {totalPages}</p>
+                    <button
+                        onClick={handleNextPage}
+                        disabled={currentPage === totalPages}
+                        className='px-5 py-2.5 bg-[#40916C] hover:bg-[#265741] text-white rounded-[4px] transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+                    >
+                        Next
+                    </button>
+                </div>
+                {/* Book List */}
+                <div className='max-w-full mx-auto'>
+                    <ul className='flex flex-row flex-wrap justify-evenly'>
+                        {currentBooks.map((book, index) => (
+                            <li key={index} className='bg-white rounded-lg border-gray-300 border-[1px] w-[300px] h-[450px] m-4'>
+                                <div className='p-4'>
+                                    <h2 className='text-lg font-semibold text-gray-800'>{book.title}</h2>
                                 </div>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            {/* Bottom Pagination - Same as top */}
-            <div className='flex justify-between items-center max-w-2xl mx-auto my-12'>
-                <button
-                    onClick={handlePreviousPage}
-                    disabled={currentPage === 1}
-                    className='px-5 py-2.5 bg-[#40916C] hover:bg-[#265741] text-white rounded-lg transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
-                >
-                    Previous
-                </button>
-                <p className='text-gray-700'>Page {currentPage} of {totalPages}</p>
-                <button
-                    onClick={handleNextPage}
-                    disabled={currentPage === totalPages}
-                    className='px-5 py-2.5 bg-[#40916C] hover:bg-[#265741] text-white rounded-lg transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
-                >
-                    Next
-                </button>
-            </div>
+                                <div className='p-4'>
+                                    <p className='text-gray-600'>{book.author} &#40;{book.year}&#41; - {book.publisher} - {book.country}</p>
+                                    <div className='flex gap-3 mt-4'>
+                                        <span className='inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800'>
+                                            {book.type}
+                                        </span>
+                                        <span className='inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800'>
+                                            <TbWorld className='mr-1.5' />
+                                            {book.language}
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                {/* Bottom Pagination - Same as top */}
+                <div className='flex justify-between items-center max-w-2xl mx-auto my-12'>
+                    <button
+                        onClick={handlePreviousPage}
+                        disabled={currentPage === 1}
+                        className='px-5 py-2.5 bg-[#40916C] hover:bg-[#265741] text-white rounded-[4px] transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+                    >
+                        Previous
+                    </button>
+                    <p className='text-gray-700'>Page {currentPage} of {totalPages}</p>
+                    <button
+                        onClick={handleNextPage}
+                        disabled={currentPage === totalPages}
+                        className='px-5 py-2.5 bg-[#40916C] hover:bg-[#265741] text-white rounded-[4px] transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+                    >
+                        Next
+                    </button>
+                </div>
+            {/* </div> */}
         </div>
     )
 }

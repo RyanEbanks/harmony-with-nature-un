@@ -83,7 +83,7 @@ code {
 }
 
 .mask-gradient {
-  mask-image: linear-gradient(90deg, transparent, #FAF9F6, #FAF9F6, transparent);
+  mask-image: linear-gradient(90deg, transparent 0%, #FAF9F6 8%, #FAF9F6 92%, transparent 100%);
 }
 .home-btn-styling {
   @apply font-normal text-[1.1rem] h-[50px] w-[150px] mt-5 mr-[20px];
