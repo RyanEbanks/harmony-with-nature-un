@@ -12,7 +12,7 @@ type RightsProps = {
 const Rights: React.FC<RightsProps> = ({ setLaw, setPolicy }) => {
     return (
         <div className='min-h-screen bg-white antialiased'>
-          <div className='w-full h-full mt-[40px] lg:mt-[100px]'>
+          <div className='w-full h-full'>
             <Map2 setLaw={setLaw} setPolicy={setPolicy} />
           </div>
             

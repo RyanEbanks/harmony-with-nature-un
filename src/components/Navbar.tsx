@@ -146,7 +146,7 @@ function Navbar() {
       {showBackground ? (
         <div>
           <div>
-            <div className='navigation-scale-resizer lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
+            <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 w-full shadow-lg'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
               <div className='lg-nav-content-container'>
                 <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto'>
@@ -236,18 +236,15 @@ function Navbar() {
         </div>
       ) : (
         <div>
-          <div className='navigation-scale-resizer lg-nav-parent  bg-white z-50 w-full '>
+          <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 w-full '>
             {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
             <div className='lg-nav-content-container'>
-              <div className='lg-nav-img-container w-[20%] flex justify-center items-center my-auto space-x-4'>
-                <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
-                  <img src='/images/1ocean-logo.svg' alt='1Ocean Logo' className='mr-4 h-[100px] w-[100px]' />
-                </a>
+              <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto'>
                 <a href='/'>
                   <img className='ml-4 h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
                 </a>
               </div>
-              <div className='lg-nav-content justify-center w-[60%] h-[80px] my-auto'>
+              <div className='lg-nav-content justify-center w-1/3 h-[80px] my-auto'>
                 <Link to='/'>
                   <button className='lg-nav-link'>Home</button>
                 </Link>
@@ -257,26 +254,11 @@ function Navbar() {
                 <Link to='/rights-of-nature'>
                   <button className='lg-nav-link'>Rights</button>
                 </Link>
-                {/* <Link to='/timeline'>
-                  <button className='lg-nav-link'>Timeline</button>
-                </Link> */}
-                {/* <Link to='/assemblies'>
-                  <button className='lg-nav-link'>Assemblies</button>
-                </Link> */}
                 <Link to='/news'>
                   <button className='lg-nav-link'>News</button>
                 </Link>
-                {/* <Link to='/library'>
-                  <button className='lg-nav-link'>Library</button>
-                </Link> */}
-                {/* <Link to='/sponsors'>
-                    <button className='lg-nav-link'>Sponsors</button>
-                  </Link> */}
-              </div>
-              <div className='flex justify-center items-center h-[80px] mx-auto my-auto w-[20%]'>
-                {/* <div className='flex items-center space-x-4'> */}
                 <Link to='/donate'>
-                  <button className='btn-primary nav-btn-styling ml-8 lg:ml-0'>Donate</button>
+                  <button className='lg-nav-link'>Donate</button>
                 </Link>
                 {isAuthenticated && (
                   <button
@@ -286,7 +268,11 @@ function Navbar() {
                     Sign Out
                   </button>
                 )}
-                {/* </div> */}
+              </div>
+              <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto'>
+                <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
+                  <img src='/images/1ocean-logo.svg' alt='1Ocean Logo' className='mr-4 h-[100px] w-[100px]' />
+                </a>
               </div>
             </div>
           </div>
