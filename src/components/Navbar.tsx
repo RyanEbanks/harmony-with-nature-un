@@ -38,7 +38,7 @@ function Navbar() {
     exit: { x: '100%', opacity: 0 }, // Slide out to the right
   };
   //Creating Routes where the image should appear
-  const routesWithBackground = ['/', '/about', '/news', 'library', '/sponsors', '/donate'];
+  const routesWithBackground = ['/', '/about', '/news', '/sponsors', '/donate'];
   const showBackground = routesWithBackground.includes(location.pathname);
 
   return (
@@ -108,18 +108,18 @@ function Navbar() {
                 <Link to='/rights-of-nature' onClick={menuSelect}>
                   <button className='my-4'>Rights of Nature</button>
                 </Link>
-                <Link to='/timeline' onClick={menuSelect}>
+                {/* <Link to='/timeline' onClick={menuSelect}>
                   <button className='my-4'>Timeline</button>
-                </Link>
-                <Link to='/assemblies' onClick={menuSelect}>
+                </Link> */}
+                {/* <Link to='/assemblies' onClick={menuSelect}>
                   <button className='my-4'>Assemblies</button>
-                </Link>
+                </Link> */}
                 <Link to='/news' onClick={menuSelect}>
                   <button className='my-4' onClick={menuSelect}>News</button>
                 </Link>
-                <Link to='/library' onClick={menuSelect}>
+                {/* <Link to='/library' onClick={menuSelect}>
                   <button className='my-4'>Library</button>
-                </Link>
+                </Link> */}
                 {/* <Link to='/sponsors'>
                   <button className='my-4' onClick={menuSelect}>Sponsors</button>
                 </Link> */}
@@ -149,15 +149,12 @@ function Navbar() {
             <div className='navigation-scale-resizer lg-nav-parent fixed top-0 bg-white z-50 w-full shadow-lg'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
               <div className='lg-nav-content-container'>
-                <div className='lg-nav-img-container w-[20%] flex justify-center items-center my-auto space-x-4'>
-                  <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
-                    <img src='/images/1ocean-logo.svg' alt='1Ocean Logo' className='mr-4 h-[100px] w-[100px]' />
-                  </a>
+                <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto'>
                   <a href='/'>
                     <img className='ml-4 h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
                   </a>
                 </div>
-                <div className='lg-nav-content justify-center w-[60%] h-[80px] my-auto'>
+                <div className='lg-nav-content justify-center w-1/3 h-[80px] my-auto'>
                   <Link to='/'>
                     <button className='lg-nav-link'>Home</button>
                   </Link>
@@ -167,29 +164,11 @@ function Navbar() {
                   <Link to='/rights-of-nature'>
                     <button className='lg-nav-link'>Rights</button>
                   </Link>
-                  <Link to='/timeline'>
-                    <button className='lg-nav-link'>Timeline</button>
-                  </Link>
-                  <Link to='/assemblies'>
-                    <button className='lg-nav-link'>Assemblies</button>
-                  </Link>
                   <Link to='/news'>
                     <button className='lg-nav-link'>News</button>
                   </Link>
-                  <Link to='/library'>
-                    <button className='lg-nav-link'>Library</button>
-                  </Link>
-                  {/* <Link to='/sponsors'>
-                    <button className='lg-nav-link'>Sponsors</button>
-                  </Link> */}
-                </div>
-                <div className='flex justify-center items-center h-[80px] mx-auto my-auto w-[20%]'>
-                  {/* <div className='flex items-center space-x-4'> */}
                   <Link to='/donate'>
-                    <button className='flex flex-row justify-center items-center btn-primary nav-btn-styling ml-8 lg:ml-0'>
-                    <img src="/images/heart_icon.svg" alt="heart" className='mr-1'/>
-                    <p>Donate</p>
-                    </button>
+                    <button className='lg-nav-link'>Donate</button>
                   </Link>
                   {isAuthenticated && (
                     <button
@@ -199,7 +178,11 @@ function Navbar() {
                       Sign Out
                     </button>
                   )}
-                  {/* </div> */}
+                </div>
+                <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto'>
+                  <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
+                    <img src='/images/1ocean-logo.svg' alt='1Ocean Logo' className='mr-4 h-[100px] w-[100px]' />
+                  </a>
                 </div>
               </div>
             </div>
@@ -209,7 +192,7 @@ function Navbar() {
                 autoPlay
                 muted
                 playsInline /> */}
-              <video className='w-full h-full object-contain md:object-none'
+              <video className='w-full h-full object-cover lg:object-none'
                 autoPlay
                 muted
                 playsInline>
@@ -219,10 +202,10 @@ function Navbar() {
                 <div className='flex flex-col w-full lg:w-1/2 h-[45vh] lg:h-[80vh] px-10 md:px-36 justify-center'>
                   <h1 className='pl-2 md:pl-4 py-2 text-white text-2xl md:text-4xl lg:text-6xl font-normal border-l-8 border-[#F0910c]'>A Sustainable Future</h1>
                   <p className='pl-4 md:pl-6 py-5 text-white text-md md:text-xl font-light'>Devising a new world will require a new relationship with the Earth and with humankind's own existence.</p>
-                  <div className='hidden ml-6 md:flex flex-row h-[80px] w-[250px] border-[#b3b3b3] hover:border-[#F0910c] border-4 py-2 rounded-[4px]'>
+                  <div className='yt-video-btn'>
                     <span className='items-center'><IoIosPlay style={{ fontSize: '48px', color: 'white' }} /></span>
                     <button onClick={openVideo}>
-                      <div className='flex flex-col text-sm md:text-lg text-white text-left font-bold'>
+                      <div className='flex flex-col text-sm md:text-lg text-white text-left font-medium'>
                         <span>Check Out Our</span>
                         <span>Youtube Channel</span>
                       </div>
@@ -274,18 +257,18 @@ function Navbar() {
                 <Link to='/rights-of-nature'>
                   <button className='lg-nav-link'>Rights</button>
                 </Link>
-                <Link to='/timeline'>
+                {/* <Link to='/timeline'>
                   <button className='lg-nav-link'>Timeline</button>
-                </Link>
-                <Link to='/assemblies'>
+                </Link> */}
+                {/* <Link to='/assemblies'>
                   <button className='lg-nav-link'>Assemblies</button>
-                </Link>
+                </Link> */}
                 <Link to='/news'>
                   <button className='lg-nav-link'>News</button>
                 </Link>
-                <Link to='/library'>
+                {/* <Link to='/library'>
                   <button className='lg-nav-link'>Library</button>
-                </Link>
+                </Link> */}
                 {/* <Link to='/sponsors'>
                     <button className='lg-nav-link'>Sponsors</button>
                   </Link> */}

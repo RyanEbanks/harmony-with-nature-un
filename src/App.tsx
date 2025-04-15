@@ -36,11 +36,11 @@ const App: React.FC = () => {
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/rights-of-nature' element={<Rights setLaw={setLaw} setPolicy={setPolicy} />} />
-            <Route path='/timeline' element={<Timeline />} />
-            <Route path='/assemblies' element={<Assemblies />} />
+            {/* <Route path='/timeline' element={<Timeline />} /> */}
+            {/* <Route path='/assemblies' element={<Assemblies />} /> */}
             <Route path='/news' element={<News url={url}/>} />
             <Route path='/news/:id' element={<PostDetail url={url} />} />
-            <Route path='/library' element={<Library />} />
+            {/* <Route path='/library' element={<Library />} /> */}
             {/* <Route path='/sponsors' element={<Sponsors />} /> */}
             <Route path='/donate' element={<Donate />} />
             <Route path='/law' element={<Law law={law} />} />
