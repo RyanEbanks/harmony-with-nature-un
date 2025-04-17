@@ -149,12 +149,12 @@ function Navbar() {
             <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 w-full shadow-lg'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
               <div className='lg-nav-content-container'>
-                <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto'>
+                <div className='lg-nav-img-container w-1/2 flex justify-center items-center my-auto'>
                   <a href='/'>
                     <img className='ml-4 h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
                   </a>
                 </div>
-                <div className='lg-nav-content justify-center w-1/3 h-[80px] my-auto'>
+                {/* <div className='lg-nav-content justify-center w-1/3 h-[80px] my-auto'>
                   <Link to='/'>
                     <button className='lg-nav-link'>Home</button>
                   </Link>
@@ -178,14 +178,42 @@ function Navbar() {
                       Sign Out
                     </button>
                   )}
-                </div>
-                <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto'>
+                </div> */}
+                <div className='lg-nav-img-container w-1/2 flex justify-center items-center my-auto'>
                   <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
                     <img src='/images/1ocean-logo.svg' alt='1Ocean Logo' className='mr-4 h-[100px] w-[100px]' />
                   </a>
                 </div>
               </div>
             </div>
+              <div className='lg-nav-content-2 justify-center w-full h-[50px] my-auto'>
+                  <Link to='/'>
+                    <button className='lg-nav-link flex justify-center items-center'>
+                      <img src="/images/House_01.svg" alt="home icon" className='w-5 h-5 mr-1'/>
+                      Home
+                      </button>
+                  </Link>
+                  <Link to='/about'>
+                    <button className='lg-nav-link'>About Us</button>
+                  </Link>
+                  <Link to='/rights-of-nature'>
+                    <button className='lg-nav-link'>Rights</button>
+                  </Link>
+                  <Link to='/news'>
+                    <button className='lg-nav-link'>News</button>
+                  </Link>
+                  <Link to='/donate'>
+                    <button className='lg-nav-link'>Donate</button>
+                  </Link>
+                  {isAuthenticated && (
+                    <button
+                      onClick={handleSignOut}
+                      className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
+                    >
+                      Sign Out
+                    </button>
+                  )}
+                </div>
             <div className='video-banner-container'>
               {/* Renamed this banner to home-banner due to removing banner.mp4 forcefully based on file size on git */}
               {/* <video className='w-full h-full object-contain md:object-none' src='/images/home-banner.mp4'

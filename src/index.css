@@ -34,7 +34,7 @@ code {
 }
 
 .lg-nav-link {
-  @apply text-center mx-8 text-black text-lg h-[50px] hover:text-[#40916C] underline-offset-8;
+  @apply text-center text-white text-lg h-[50px] hover:bg-[#52A77E] w-[100px] underline-offset-8 mx-4;
 }
 
 .lg-nav-link-2 {
@@ -57,6 +57,10 @@ code {
   @apply flex flex-row items-center;
 }
 
+.lg-nav-content-2 {
+  @apply flex flex-row items-center bg-[#40916C];
+}
+
 .video-banner-container {
   @apply bg-cover bg-center h-[30vh] md:h-[80vh] relative;
 }
@@ -66,7 +70,7 @@ code {
 }
 
 .yt-video-btn {
-  @apply hidden ml-6 md:flex flex-row items-center justify-center h-[70px] w-[250px] bg-[#142c06] hover:bg-[#F0910c] py-2 rounded-[4px];
+  @apply hidden ml-6 md:flex flex-row items-center justify-center h-[80px] w-[250px] hover:bg-[#40916C] bg-[rgb(20,44,6,0.7)]  py-2 rounded-[4px];
 }
 
 /* Home Button  */
@@ -148,17 +152,32 @@ code {
   @apply w-[150px] h-[150px] mx-2 my-auto rounded-full;
 }
 
+ /* Rights */
+ /* -Sub page law */
+ .color-mask-gradient {
+  background:linear-gradient(
+  to right,
+  white 0%,
+  white 10%,
+  rgb(64, 145, 109, 0.2) 50%,
+  white 90%,
+  white 100%
+);
+}
 /* Timeline  */
 .year-h1 {
-  @apply text-2xl md:text-5xl font-light mx-8 lg:mx-0 border-b-[6px] border-[#F0910c] pb-2 mb-[27px];
+  @apply text-2xl md:text-4xl p-2 font-light mx-8 lg:mx-0 bg-[#40916C];
 }
 
+.text-h1 {
+  @apply text-2xl font-semibold pt-4;
+}
 .month-h1 {
  @apply text-center md:text-left text-xl md:text-3xl font-normal mx-8 lg:mx-0 border-l-[6px] border-[#004d6f] pl-2 mb-5 mt-10;
 }
 
 .timeline-p {
-  @apply text-center md:text-left text-sm md:text-lg font-normal mb-2 leading-golden lg:leading-golden-lg;
+  @apply text-center md:text-left text-sm md:text-lg font-normal pt-4 leading-golden lg:leading-golden-lg;
 }
 
 /* Donate */

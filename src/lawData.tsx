@@ -1,27 +1,29 @@
 const events = {
     AR: (
-        <div id='AR' className='my-[80px] lg:my-[120px]'>
-            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
-                <h1 className='year-h1'>Argentina</h1>
-            </div>
-            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
-            <h1 className='text-h1'>National Law / Federal Act</h1>
-            <p className='timeline-p'>2020 Proposal for a national regulation on Rights of Nature. <p>Click here.</p></p>
-            </div>
-
-            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
-            <h1 className='text-h1'>Local Regulations</h1>
-            <p className='timeline-p'>
-                2020 On 13 October, representative Valeria López Delzar (Partido CREO-Santa Fe) introduced an ordinance on the Rights of Nature 
-                to the deliberative council of the municipality of Santa Fe. <p>Click official document.</p>
-            </p>
-            <p className='timeline-p'>
-                2020 On 26 November, the Municipality of the city of Rosario, one of the largest cities in the country, adopted a decision declaring its 
-                support to recognize the Paraná River and Wetlands as a subject of law. The petition was put forward by Dr. Aníbal Faccendini, Director 
-                of the Water Faculty of the National University of Rosario in partnership with the Water Interdisciplinary Centre of the Political Sciences 
-                and International Relations Faculty of the same University and an important number of local NGOs and academic institutions. 
-                <p>Click article.</p> <p>Click official document.</p>
-            </p>
+        <div id='AR' className='my-[80px] lg:my-[120px] color-mask-gradient pb-5'>
+            <div className="flex flex-row w-3/4 mx-auto">
+                <div className="law-container">
+                    <div className="law-title pt-10">
+                        <h1 className='year-h1 text-white'>Argentina</h1>
+                        <h1 className='text-h1'>National Law / Federal Act</h1>
+                        <p className='timeline-p'>2020 Proposal for a national regulation on Rights of Nature. <p>Click here.</p></p>
+                        <h1 className='text-h1'>Local Regulations</h1>
+                        <p className='timeline-p'>
+                            2020 On 13 October, representative Valeria López Delzar (Partido CREO-Santa Fe) introduced an ordinance on the Rights of Nature
+                            to the deliberative council of the municipality of Santa Fe. <p>Click official document.</p>
+                        </p>
+                        <p className='timeline-p'>
+                            2020 On 26 November, the Municipality of the city of Rosario, one of the largest cities in the country, adopted a decision declaring its
+                            support to recognize the Paraná River and Wetlands as a subject of law. The petition was put forward by Dr. Aníbal Faccendini, Director
+                            of the Water Faculty of the National University of Rosario in partnership with the Water Interdisciplinary Centre of the Political Sciences
+                            and International Relations Faculty of the same University and an important number of local NGOs and academic institutions.
+                            <p>Click article.</p> <p>Click official document.</p>
+                        </p>
+                    </div>
+                </div>
+                <div className="law-img-container pt-10">
+                    <img src="/images/scenery/AR.jpg" alt="Argentina Scenery" className="w-3/4 mx-auto" />
+                </div>
             </div>
         </div>
     ),
@@ -32,30 +34,30 @@ const events = {
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
 
-            <h1 className='text-h1'>National Law / Federal Act</h1>
-            <p className='timeline-p'>
-                2020 A new legislation titled 'the Great Ocean Road and Environs Protection Act' passed on 16 June recognizes the Great Ocean Road as 
-                'one living and integrated natural entity' (section 1 (a)). The legislation also strengthens the involvement of Traditional Owners in the 
-                governance of the coast and parks. <p>Click article.</p> <p>Click official document.</p>
-            </p>
-            <p className='timeline-p'>
-                2017 The Victorian Parliament passed on 21 September, the Yarra River Protection (Wilip-gin Birrarung murron) Act 2017. The Act became 
-                law on 1 December 2017 and legally recognizes the Yarra as an indivisible living entity deserving protection. 
-                <p>Click here.</p>
-            </p>
+                <h1 className='text-h1'>National Law / Federal Act</h1>
+                <p className='timeline-p'>
+                    2020 A new legislation titled 'the Great Ocean Road and Environs Protection Act' passed on 16 June recognizes the Great Ocean Road as
+                    'one living and integrated natural entity' (section 1 (a)). The legislation also strengthens the involvement of Traditional Owners in the
+                    governance of the coast and parks. <p>Click article.</p> <p>Click official document.</p>
+                </p>
+                <p className='timeline-p'>
+                    2017 The Victorian Parliament passed on 21 September, the Yarra River Protection (Wilip-gin Birrarung murron) Act 2017. The Act became
+                    law on 1 December 2017 and legally recognizes the Yarra as an indivisible living entity deserving protection.
+                    <p>Click here.</p>
+                </p>
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
 
-            <h1 className='text-h1'>Local Regulations</h1>
-            <p className='timeline-p'>
-                2020 On 31 March, the Blue Mountains City Council of the Government of New South Wales supported a Mayoral Minute and agreed to integrate 
-                the Rights of Nature into future operations and planning. <p>Click article.</p>
-            </p>
-            <p className='timeline-p'>
-                2019 On 24 November, Diane Evers, a Member of the Western Australia Parliament, introduced the Rights of Nature and Future Generations Bill 
-                2019. This is the first time that legislation aiming to recognize the rights of nature has been introduced in an Australian Parliament. 
-                <p>Click article here.</p> <p>Click Bill 2019 here.</p>
-            </p>
+                <h1 className='text-h1'>Local Regulations</h1>
+                <p className='timeline-p'>
+                    2020 On 31 March, the Blue Mountains City Council of the Government of New South Wales supported a Mayoral Minute and agreed to integrate
+                    the Rights of Nature into future operations and planning. <p>Click article.</p>
+                </p>
+                <p className='timeline-p'>
+                    2019 On 24 November, Diane Evers, a Member of the Western Australia Parliament, introduced the Rights of Nature and Future Generations Bill
+                    2019. This is the first time that legislation aiming to recognize the rights of nature has been introduced in an Australian Parliament.
+                    <p>Click article here.</p> <p>Click Bill 2019 here.</p>
+                </p>
             </div>
         </div>
     ),
@@ -66,11 +68,11 @@ const events = {
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
 
-            <h1 className='text-h1'>Court Decisions</h1>
-            <p className='timeline-p'>
-                2019 The High Court of Bangladesh recognized the river Turag as a living entity with legal rights and held that the same would apply to all 
-                rivers in Bangladesh. <p>Click here.</p>
-            </p>
+                <h1 className='text-h1'>Court Decisions</h1>
+                <p className='timeline-p'>
+                    2019 The High Court of Bangladesh recognized the river Turag as a living entity with legal rights and held that the same would apply to all
+                    rivers in Bangladesh. <p>Click here.</p>
+                </p>
             </div>
         </div>
     ),
@@ -81,12 +83,12 @@ const events = {
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
 
-            <h1 className='text-h1'>Other Official Documents</h1>
-            <p className='timeline-p'>
-                2019 On 3 May, NGO Aadewerk for socio-ecological transition submitted a 'Voluntary Intervention Petition to Protect Trees' to the French-speaking 
-                court of first instance. Counsellors Hendrik Schoukens and Gwidje Vermeire submitted the petition on behalf of 82 protected trees and, in so 
-                doing, they joined the Climate Affair legal process. <p>Click official document.</p> <p>Click Climate Affair website.</p>
-            </p>
+                <h1 className='text-h1'>Other Official Documents</h1>
+                <p className='timeline-p'>
+                    2019 On 3 May, NGO Aadewerk for socio-ecological transition submitted a 'Voluntary Intervention Petition to Protect Trees' to the French-speaking
+                    court of first instance. Counsellors Hendrik Schoukens and Gwidje Vermeire submitted the petition on behalf of 82 protected trees and, in so
+                    doing, they joined the Climate Affair legal process. <p>Click official document.</p> <p>Click Climate Affair website.</p>
+                </p>
             </div>
         </div>
     ),
@@ -97,11 +99,11 @@ const events = {
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
 
-            <h1 className='text-h1'>National Law / Federal Act</h1>
-            <p className='timeline-p'>
-                2017 Adoption of an indefinite moratorium signed into law on 29 December to preserve the World Heritage site reef builds on earlier recognition of 
-                Nature as a subject of rights. <p>2009 Text Click here.</p> <p>2011 Text Click here.</p>
-            </p>
+                <h1 className='text-h1'>National Law / Federal Act</h1>
+                <p className='timeline-p'>
+                    2017 Adoption of an indefinite moratorium signed into law on 29 December to preserve the World Heritage site reef builds on earlier recognition of
+                    Nature as a subject of rights. <p>2009 Text Click here.</p> <p>2011 Text Click here.</p>
+                </p>
             </div>
         </div>
     ),
@@ -134,24 +136,24 @@ const events = {
                     www.pachamama.bo/convocatoria/</p>
 
                 <p className='mb-6 timeline-p'>2010   The first Peoples' World Conference on Climate Change and the Rights of Mother Earth. Click here.</p>
-                </div>
             </div>
+        </div>
     ),
     BR: (
-            <div id='BR' className='my-[80px] lg:my-[120px]'>
-                <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
+        <div id='BR' className='my-[80px] lg:my-[120px]'>
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Brazil</h1>
-                </div>
-                <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
+            </div>
+            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
 
                 <h2 className='month-h1'>National Law / Federal Act</h2>
                 <p className='mb-6 timeline-p'>2015   Sao Paulo - Projeto de Emenda a Lei Organica 04-00005/2015 do Veredador Eduardo Tuma (PSDB). Click here.</p>
 
                 <p className='mb-6 timeline-p'>2015   Justificativa - PLO 0005/2015 Click here.</p>
-                </div>
+            </div>
 
-                <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
+            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
 
                 <h2 className='month-h1'>Local Regulations</h2>
                 <p className='mb-6 timeline-p'>2024  On June 5, the municipality of Goiás (Goiás) recognized the River Vermelho as a subject with rights. Councilwoman Elenizia da Mata de Jesus put forward the proposal and she was supported by the NGO Mapas. Click article. Click official presentation.</p>
@@ -183,8 +185,8 @@ const events = {
                 <p className='mb-6 timeline-p'>2018 The San Severino Ramos Natural Water Spring was granted rights of Nature as a result of the Amendment to the Organic Law of the Municipality of Paudalho which recognized the RofN. Click here.</p>
 
                 <p className='mb-6 timeline-p'>2017 Amendment to the Organic Law of the municipality of Bonito in the State of Pernambuco adopts rights of Nature (page 6). Click article (only available in Portuguese). Click Official Document and English Translation.</p>
-                </div>
-                <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
+            </div>
+            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
                 <h2 className='month-h1'>Court Decisions</h2>
                 <p className='mb-6 timeline-p'>2021   On 11 June, the Sixth Federal Court of Florianópolis granted a preliminary injunction on the lawsuit filed by the Research Group on Environmental Law and Political Ecology at Risk Society, Florianópolis (Federal University of Santa Catarina), which aims at recognizing Lagoa da Conceição as a subject of rights and developing a new socio-ecological governance for protecting the regions. The injunction ensures the continuation of the lawsuit filed on 20 May 2021 and determines the creation of the Judicial Council for the Protection of Lagoa da Conceição. The Court will issue further decisions in the upcoming months. Court decision Click here. Video addressing the history of the rights of Nature in Florianópolis and the legal arguments put forward in the lawsuit Click here. Background Information Click here.</p>
 
@@ -198,50 +200,50 @@ const events = {
 
                 <p className='mb-6 timeline-p'>2023 On 1 November, the State of Piauí, through its Legislative Assembly and further to the inclusion of the Rights of Nature in the Organic Law of the Municipality of José de Freitas (Piauí), declared 6 October the State Day of Nature and included it in its official calendar. Click official document.</p>
             </div>
-            </div>
+        </div>
     ),
     CA: (
         <div id='CA' className='my-[80px] lg:my-[120px]'>
             <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
                 <h1 className='text-4xl font-bold mb-8'>Canada</h1>
             </div>
-                <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
+            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
                 <h2 className='month-h1'>National Law / Federal Act</h2>
                 <p className='mb-6 timeline-p'>2022  On 5 May, the House of Commons of Canada did a first reading of Bill C-271 an Act to give legal capacity to the St. Lawrence River and to provide for measures respecting its protection and to establish the St. Lawrence River Protection Committee. The federal Bill was introduced by MP Alexandre Boulerice who participated in the 11th Interactive Dialogue of the General Assembly on Harmony with Nature held on 22 April. The International Observatory on the Rights of Nature worked closely with political parties, research centers, municipalities, indigenous Nations, NGOs to support the development of those initiatives. Click article. Click official document.</p>
 
                 <p className='mb-6 timeline-p'>2022  On 5 May, the National Assembly of Québec did a first reading of Bill 990 an Act to confer rights on the St. Lawrence River, including the rights to protection, conservation and restoration, and establishes a council of guardians under the name 'Conseil des gardiens du Fleuve', whose mandate is to protect the interests of the River. The provincial Bill was introduced by Émilise Lessard-Therrien from the Quebec Solidaire Party. The International Observatory on the Rights of Nature worked closely with political parties, research centers, municipalities, indigenous Nations, NGOs to support the development of those initiatives. Click article. Click official document.</p>
-                </div>
+            </div>
 
-                <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
+            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
                 <h2 className='month-h1'>Local Regulations</h2>
                 <p className='mb-6 timeline-p'>2021   In Quebec, province of Canada, the Innu Council of Ekuanitshit and the Minganie Regional County Municipality (RCM) granted legal personhood to the Magpie River/Muteshekau Shipu (in Innu), through the adoption of twin resolutions. The river is thus assigned nine rights, as well as potential legal guardians responsible primarily for ensuring that these rights are respected. This is the first such case in Canada made in partnership with the International Observatory on the Rights of Nature (IORN), based in Montreal. Click video. Click English article. Click French article. Click official document on the Muteshekau Shipu river (adopted by the Innu) and click official document on the Magpie River (adopted by the Minganie Regional County Municipality).</p>
 
                 <p className='mb-6 timeline-p'>2020  The ?Esdilagh First Nations people (translated as Where the Land meets the Water) of the Tsilhqot'in Nation have documented their rights and responsibilities as traditional caretakers of ?Elhdaqox (Sturgeon River, alson known as the Fraser River). Endorsed by the Tsilhqot'in Council of Chiefs, on 28 May, 2020, the ?Esdilagh Sturgeon River Law states that people, animals, fish, plants, the nen ('lands'), and the tu ('waters') have rights. Click article. Click official document.</p>
 
                 <p className='mb-6 timeline-p'>2022   On 19 January, the city of Sainte-Flavie in Québec joined the newly launched Saint-Lawrence River Alliance between cities and indigenous peoples proposed by the International Observatory on the Rights of Nature (OIDN) in December 2021. During the period 6-14 December 2021, the cities of Sorel-Tracy and Saint-Catherine in Québec, as well as the Tribal Council of Mamuitum which gathers five Innu Nations, supported the Alliance, looking forward to presenting a bill to recognize the legal personality of the River. Click article. Click official documents of the cities of Sainte-Flavie, Sorel-Tracy, Saint-Catherine and the Tribal Council of Mamuitum. Click link to OIDN.</p>
-                </div>
+            </div>
 
-                <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
+            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
                 <h2 className='month-h1'>Other Official Documents</h2>
                 <p className='mb-6 timeline-p'>2023  On 19 April, the First Nations Assembly recognized the legal personhood of the St. Lawrence River and mandated Chief Picard, Chief of the Assembly, to build an alliance with other indigenous nations living in the Great Lakes watershed to recognize the legal personhood of the Great Lakes. Click article (English). Click article (French). Click official document (English). Click official document (French).</p>
 
                 <p className='mb-6 timeline-p'>2021   On 7 September, MP Alexandre Boulerice, House of Commons of Canada, in partnership with the International Observatory of Nature Rights, announced that his party, the New Democratic Party (NPD), is fully committed to recognize the inherent rights of the fauna and flora of the Saint-Laurent River. NPD is working closely with the International Observatory of Nature Rights as part of a comprehensive project led by the Observatory. Click article.</p>
 
                 <p className='mb-6 timeline-p'>2021  During the period 19-21 November, Québec Solidaire Political Party at the National Assembly of Québec (Canada), adopted a resolution including in its electoral platform their engagement to recognize the Saint-Lawrence River as a legal entity. (see p. 18, proposition 1.10). Click official document.</p>
-                </div>
             </div>
+        </div>
     ),
     CL: (
         <div id='CL' className='my-[80px] lg:my-[120px]'>
             <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
-            <h1 className='text-4xl font-bold mb-8'>Chile</h1>
+                <h1 className='text-4xl font-bold mb-8'>Chile</h1>
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
 
                 <h2 className='month-h1'>Other Official Documents</h2>
                 <p className='mb-6 timeline-p'>2022  On 25 March, the Plenary of the Constitutional Convention of Chile approved the draft report presented by the Commission on Environment, Rights of Nature, the Commons and Economic Model which recognized the Rights of Nature (art.4) 'De los Derechos de la Naturaleza. La Naturaleza tiene derecho a que se respete y proteja su existencia, a la regeneración, a la mantención y a la restauración de sus funciones y equilibrios dinámicos, que comprenden los ciclos naturales, los ecosistemas y la biodiversidad. El Estado, a través de sus instituciones, debe garantizar y promover los derechos de la Naturaleza según lo determine la Constitución y las Leyes.' Other articles adopted: Waste Management, Environmental Principles, Climate and Ecological Crises, of the Animal, Animal Rights, and Environmental Democracy. This decision will be part of the drafting of the new constitution to be approved in the coming months. Click article. Click official document.</p>
             </div>
-            </div>
+        </div>
     ),
     CO: (
         <div id='CO' className='my-[80px] lg:my-[120px]'>
@@ -251,8 +253,8 @@ const events = {
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
                 <h2 className='month-h1'>Local Regulations</h2>
                 <p className='mb-6 timeline-p'>2019  The department of Nariño became the first in the country to recognize Nature as a subject of rights by signing Decree 348. Click official document.</p>
-</div>
-<div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
+            </div>
+            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
                 <h2 className='month-h1'>Court Decisions</h2>
                 <p className='mb-6 timeline-p'>2021  On 20 May, the First Criminal Circuit Court with Knowledge Functions Neiva, declared the Fortalecillas River 'a subject with rights to protection, conservation, maintenance and restoration by the State and the community'. Click article. Click official document.</p>
 
@@ -291,8 +293,8 @@ const events = {
                 <p className='mb-6 timeline-p'>2017  The Supreme Court of Justice of Colombia established that animals are subjects with rights and granted rights to the Andean bear also called the Spectacled Bear or Oso de Anteojos (Tremarctus Omatus). Click article and click court decision (available only in Spanish).</p>
 
                 <p className='mb-6 timeline-p'>2016  The Constitutional Court of Colombia issued a decision on a case regarding illegal mining, which recognizes the Atrato River as a subject of Rights. Full text of the decision and specific reasoning on this subject in pages 135 - 140. Click article and click official document (English translation).</p>
-</div>
             </div>
+        </div>
     ),
     CR: (
         <div id='CR' className='my-[80px] lg:my-[120px]'>
@@ -305,7 +307,7 @@ const events = {
                 <h2 className='month-h1'>Local Regulations</h2>
                 <p className='mb-6 timeline-p'>2016  Executive decree declaring 22 April the National Day of Mother Earth. Click here. Unofficial Translation: Click here.</p>
             </div>
-            </div>
+        </div>
     ),
     EC: (
         <div id='EC' className='my-[80px] lg:my-[120px]'>
@@ -383,7 +385,7 @@ const events = {
 
                 <p className='mb-6 timeline-p'>2012  Defensoría del Pueblo: Bananeros en Los Ríos. Click here.</p>
             </div>
-            </div>
+        </div>
     ),
     SV: (
         <div id='SV' className='my-[80px] lg:my-[120px]'>
@@ -400,7 +402,7 @@ const events = {
                 <h2 className='month-h1'>National Law / Federal Act</h2>
                 <p className='mb-6 timeline-p'>2020  The NGO Sí por los Derechos de la Naturaleza is working on a proposal to recognize the rights of the Lempa River, El Salvador's main river, which shares its basin with Guatemala and Honduras. Click proposal.</p>
             </div>
-            </div>
+        </div>
     ),
     FR: (
         <div id='FR' className='my-[80px] lg:my-[120px]'>
@@ -418,26 +420,26 @@ const events = {
                 <p className='mb-6 timeline-p'>2023  On 29 June, the Assembly of the Province of the Loyalty Islands in New Caledonia, with its strong normative competence in environmental matters and in application of the unitary principle of life enshrined in 2016 in Article 110-3, has enriched the PIL Environment Code (CEPIL) by adopting regulations on the law of living organisms, creating natural entities subject to the law (ENJ), a new category of legal person that exists neither in France nor in any other overseas territory. The category of natural entities subject to law (ENJ) has thus been created as the highest category in its nomenclature of protected species and natural areas. Sharks and turtles are the first beneficiaries of this new status. Click article. Click official document.</p>
 
                 <p className='mb-6 timeline-p'>2016   The Loyalty Islands, part of the French territory of New Caledonia, inhabited by 90% of the Kanak people, adopted a first phase of its Environmental Code on 6 April, through which certain elements of Nature may be recognized in their own rights (See page 7, articles 110-1 & 110-3). Click official document.</p>
-</div>
-<div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
+            </div>
+            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
 
                 <h2 className='month-h1'>Other Official Documents</h2>
                 <p className='mb-6 timeline-p'>2021   On 29 July, in Corsica, a coalition including the Tavignanu Vivu collective, UMANI and Terre de Liens Corsica-Terra di u Cumunu, and assisted by Notre Affaire à Tous, launched a Declaration of the Rights of the Tavignanu River. The Declaration, a first in France and endorsed by citizens, local authorities and Members of the European Parliament (MEP) aims to gather support for a local referendum on the status of the Tavignanu River. Click Declaration.</p>
-</div>
             </div>
+        </div>
     ),
     GT: (
-            <div id='GT' className='my-[80px] lg:my-[120px]'>
-                <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
+        <div id='GT' className='my-[80px] lg:my-[120px]'>
+            <div className='flex justify-center mt-5 border-b-[1px] border-[#e7e6e9]'>
 
                 <h1 className='text-4xl font-bold mb-8'>Guatemala</h1>
-                </div>
-                <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
+            </div>
+            <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
 
                 <h2 className='month-h1'>Court Decisions</h2>
                 <p className='mb-6 timeline-p'>2019   The Constitutional Court of Guatemala, on 7 November 2019, rendered a non-anthropocentric verdict recognizing the spiritual and cultural relationship between Indigenous People and the Water element acknowledging Water as a living entity. Click article and click court decision.</p>
-                </div>
             </div>
+        </div>
     ),
     IN: (
         <div id='IN' className='my-[80px] lg:my-[120px]'>
@@ -471,7 +473,7 @@ const events = {
 
                 <p className='mb-6 timeline-p'>2017  The proposal National River Ganga Act would provide the Ganga with legal personhood. Click here.</p>
             </div>
-            </div>
+        </div>
     ),
     MX: (
         <div id='MX' className='my-[80px] lg:my-[120px]'>
@@ -522,7 +524,7 @@ const events = {
                 <p className='mb-6 timeline-p'>2016   First International Forum on the Rights of Mother Earth. Click here.</p>
                 <p className='mb-6 timeline-p'>Key messages from Lic. Luis Raúl González Pérez, President of the National Commission of Human Rights, on the occasion of the First International Forum on the Rights of Mother Earth' (Mexico City, 1 June 2016). See youtube.</p>
             </div>
-            </div>
+        </div>
     ),
     NL: (
         <div id='NL' className='my-[80px] lg:my-[120px]'>
@@ -537,7 +539,7 @@ const events = {
 
                 <p className='mb-6 timeline-p'>2019  The Frisian municipality of Dongeradeel, which in 2018 adopted a motion on special rights for the Wadden Sea, in 2019 merged with three other Frisian municipalities into the municipality of Nordeast-Fryslan. On 11 July 2019, the city council of Nordeast-Frylan passed a motion that proposes granting special rights to the Wadden Sea. Furthermore, the city council urged to appoint an independent governance authority for the ecosystem. The existing authority cannot be considered independent as it is part of the local government. Click article and click official document (in Dutch only).</p>
             </div>
-            </div>
+        </div>
     ),
     NZ: (
         <div id='NZ' className='my-[80px] lg:my-[120px]'>
@@ -560,7 +562,7 @@ const events = {
 
                 <p className='mb-6 timeline-p'>2012   Treaty Settlement between the Whanganui Iwi and the Crown Government. Click here.</p>
             </div>
-            </div>
+        </div>
     ),
     NG: (
         <div id='NG' className='my-[80px] lg:my-[120px]'>
@@ -579,7 +581,7 @@ const events = {
                 <h2 className='month-h1'>Local Regulations</h2>
                 <p className='mb-6 timeline-p'>On 30 September 2019, the Federal Ministry of Environment ruled in favour of the River Ethiope Trust Foundation's petition against Presco's oil palm/rubber activities on the River Ethiope. The Ministry ordered Presco Plc. to abide by the terms and conditions of the petition and thereby all the environmental rights to protect and sustain the river's integrity. Click official document.</p>
             </div>
-            </div>
+        </div>
     ),
     PK: (
         <div id='PK' className='my-[80px] lg:my-[120px]'>
@@ -594,7 +596,7 @@ const events = {
 
                 <p className='mb-6 timeline-p'>2020  On 21 May, the Islamabad High Court of Pakistan issued a decision that 'without any hesitation' affirms the rights of nonhuman animals and specifically orders the release to sanctuary of an Asian elephant named Kaavan held in solitary confinement at the Marghazar Zoo. Chief Justice Athar Minallah's decision begins with a reflection on how the COVID-19 crisis has presented an 'opportunity for humans to introspect and relate to the pain and distress suffered by other living beings' caused by 'the arrogance of humans'. Click article. Click official document.</p>
             </div>
-            </div>
+        </div>
     ),
     PA: (
         <div id='PA' className='my-[80px] lg:my-[120px]'>
@@ -611,7 +613,7 @@ const events = {
 
                 <p className='mb-6 timeline-p'>2020  On 23 September, Senator Juan Diego Vasquez presented to the National Assembly a draft bill recognizing the rights of Nature, which has been officially accepted, and will be voted upon in the course of 2021. Senator Vasquez drafted the bill in close collaboration with Callie Veelenturf, Director of The Leatherback Project and Founder of Rights of Nature who originally presented the project jointly with Felipe Baker, biology student and part of the Ngöbe-Buglé indigenous community, to Senator Vasquez and Panama's first lady Yazmin Cortizo. Lawyers Irma Hernandez, Juan Diego Infante, and Luisa Pilar Arauz Arredondo collaborated in the development of the bill. The bill has now entered a debating stage before the final vote in the course of 2021. See video. See official document. Photo Gallery.</p>
             </div>
-            </div>
+        </div>
     ),
     PE: (
         <div id='PE' className='my-[80px] lg:my-[120px]'>
@@ -638,7 +640,7 @@ const events = {
                 <h2 className='month-h1'>Other Official Documents</h2>
                 <p className='mb-6 timeline-p'>2019   On 10 December, a group of Peruvian youths filed a suit against Peru, alleging that the government has not taken sufficient action to address climate change. The complaint seeks to order the president, Ministry of Environment, the Ministry of Agriculture and Irrigation, the Ministry of Finance, and regional governments to develop action plans to reduce net deforestation in the Peruvian Amazon to zero by 2025. The complaint also seeks the recognition of the Peruvian Amazon as an entity subject to the rights of protection, conservation, maintenance and restoration, referencing other nature rights cases in Ecuador, Colombia and New Zealand; and a declaration that the situation of environmental degradation in the Peruvian Amazon is unconstitutional. The case is pending a decision. Click article. Click official document.</p>
             </div>
-            </div>
+        </div>
     ),
     PT: (
         <div id='PT' className='my-[80px] lg:my-[120px]'>
@@ -651,7 +653,7 @@ const events = {
                 <h2 className='month-h1'>Other Official Documents</h2>
                 <p className='mb-6 timeline-p'>There is an ongoing petition from Portuguese citizens appealing to the President of the Assembly of the Republic to acknowledge the intrinsic rights of Nature. The petition is requesting that the Assembly adopt the necessary legislative measures to acknowledge that the pursuit of human fundamental rights depends on the recognition of Nature's intrinsic rights. The petition also requests the establishment of a legal duty of the State and all its citizens to respect each and all elements of any ecosystem, as well as the right of any person or entity to require the Government to defend Nature's intrinsic rights.</p>
             </div>
-            </div>
+        </div>
     ),
     ZA: (
         <div id='ZA' className='my-[80px] lg:my-[120px]'>
@@ -666,7 +668,7 @@ const events = {
 
                 <p className='mb-6 timeline-p'>2018  The Supreme Court of Appeal issued a judgement on 1 June, supporting the Dwesa Cwebe indigenous community's customary law rights to harvest mussels on the East coast of South Africa in accordance with their own ancient sytem. Click here.</p>
             </div>
-            </div>
+        </div>
     ),
     ES: (
         <div id='ES' className='my-[80px] lg:my-[120px]'>
@@ -676,7 +678,7 @@ const events = {
             </div>
             <div className='bg-white shadow-lg p-5 mt-5 rounded-md mx-5'>
                 <h2 className='month-h1'>National Law / Federal Act</h2>
-                
+
                 <p className='mb-6 timeline-p'>2022  On 30 September, the Parliament adopted Law 19/2022, recognizing the legal personhood of Mar Menor and his basin thus becoming the first ecosystem in Europe with his own rights. Click article. Click official document.</p>
 
                 <p className='mb-6 timeline-p'>2022  On 5 April, the Iniciativa Legislativa Popular (ILP) to recognize Mar Menor and his entire basin as a subject with rights was overwhelmingly voted in the Congress of Deputies which approved initiating the processing of a law so that Mar Menor would have legal personality. See article. Click official document.</p>
@@ -689,7 +691,7 @@ const events = {
                 <h2 className='month-h1'>Other Official Documents</h2>
                 <p className='mb-6 timeline-p'>2024  On 1 March, the plenary session of the City Council of Outes (Galicia) unanimously agreed to the Declaration of Rights of the Tins River. In December 2023, the text had been previously agreed by the riparian communities, and now it has been formally adopted by the  municipality. This is the first time that a city council has expressly recognized the rights of a natural element, including the right to protection and conservation, not to be damaged or polluted. The Declaration also assumes a series of collective commitments to ensure that the rights of the Tins River are respected. Click article. Click Declaration. Council of Outes. Click Civil Society Petition.</p>
             </div>
-            </div>
+        </div>
     ),
     CH: (
         <div id='CH' className='my-[80px] lg:my-[120px]'>
@@ -702,7 +704,7 @@ const events = {
                 <h2 className='month-h1'>Constitution</h2>
                 <p className='mb-6 timeline-p'>2021  On 19 March, national councillors Jon Pult (SP), Anna Giacometti (FDP), Marionna Schlatter-Schmid (Green), Nik Gugger (EPP) and Beat Flach (GLP) representing five different political parties, presented an Initiative for the Rights of Nature to the Swiss Parliament requesting the recognition of a right to a healthy environment and Rights of Nature. The initiative further requests that the Federal Constitution be amended to recognize Nature as a legal entity. Click press article 1 and English translation. Click press article 2. Click civil society petition. Click official document.</p>
             </div>
-            </div>
+        </div>
     ),
     UG: (
         <div id='UG' className='my-[80px] lg:my-[120px]'>
@@ -721,7 +723,7 @@ const events = {
                 <h2 className='month-h1'>Local Regulations</h2>
                 <p className='mb-6 timeline-p'>2019  The Buliisa District Local Government Council signed a Resolution on 22 November 2019 in recognition of the Customary Laws of the Bagungu Custodian Clans, noting 'the concern of the Bagungu clan leaders for Butoka (Mother Earth) and for the future generations of all species of the Earth,' and their ancestral responsibility to protect the well-being of their land, and of the planet'. Click official document.</p>
             </div>
-            </div>
+        </div>
     ),
     GB: (
         <div id='GB' className='my-[80px] lg:my-[120px]'>
@@ -736,7 +738,7 @@ const events = {
 
                 <p className='mb-6 timeline-p'>2021   On 24 June, the Derry City and Strabane District Council of Northern Ireland 'first on these islands' to recognize the Rights of Nature. Click article. Click official document (see pages 5 & 6).</p>
             </div>
-            </div>
+        </div>
     ),
     US: (
         <div id='US' className='my-[80px] lg:my-[120px]'>
@@ -786,7 +788,7 @@ const events = {
 
                 <p className='mb-6 timeline-p'>Sierra Club v. Morton is known for the dissenting opinion by Judge William O. Douglas who asserted that natural resources ought to have standing to sue for their own protection. The section about Rights of Nature (pp 7-9) is highlighted in the document.</p>
             </div>
-            </div>
+        </div>
     ),
 
 };
