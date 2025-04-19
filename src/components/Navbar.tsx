@@ -47,35 +47,30 @@ function Navbar() {
       <div className='lg:hidden'>
 
         <div className='md:hidden flex flex-row w-full'>
-          <div className='flex flex-row w-[30%]'>
-            <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
-              <img className='h-[70px] w-[80px] ml-[20px] py-1' alt='Affiliated Website Logo' src='/images/1ocean-logo.svg' />
-            </a>
-          </div>
-          <div className='flex flex-row w-[40%]'>
+          <div className='flex flex-row w-1/2'>
             <a href='/'>
-              <img className=' h-[70px] w-[130px] ml-[20px] py-1' alt='Main Website Logo' src='/images/hwni-logo.svg' />
+              <img className='h-[70px] w-[130px] ml-[20px]' alt='Main Website Logo' src='/images/hwni-logo.svg' />
             </a>
           </div>
-          <div className='flex w-[30%] my-auto justify-center'>
+          <div className='flex w-1/2 my-auto justify-center'>
             <button onClick={menuSelect}>
               <CiMenuBurger size={24} />
             </button>
           </div>
         </div>
 
-        <div className='hidden md:flex flex-row w-full mt-5'>
+        <div className='hidden md:flex flex-row w-full'>
           <div className='flex flex-row w-[30%] items-center justify-center'>
             <a href='/'>
-              <img className=' h-[70px] w-[130px] py-1' alt='Main Website Logo' src='/images/hwni-logo.svg' />
+              <img className='h-[70px] w-[130px] py-1' alt='Main Website Logo' src='/images/hwni-logo.svg' />
             </a>
           </div>
           <div className='flex flex-row w-[40%] items-center justify-center'>
-            <p className='font-semibold text-xl'>Harmony With Nature Institute</p>
+            <p className='font-semibold text-lg'>Harmony With Nature Institute</p>
           </div>
           <div className='flex w-[30%] my-auto items-center justify-center'>
             <button onClick={menuSelect}>
-              <CiMenuBurger size={48} />
+              <CiMenuBurger size={36} />
             </button>
           </div>
         </div>
@@ -83,7 +78,7 @@ function Navbar() {
         <AnimatePresence>
           {toggleMenu && (
             <motion.div
-              className='absolute top-0 right-0 h-screen w-full z-50 bg-white text-2xl shadow-lg'
+              className='absolute top-0 right-0 h-screen w-full z-50 bg-white text-2xl shadow-lg flex flex-col justify-center'
               initial='hidden'
               animate='visible'
               exit='exit'
@@ -93,12 +88,7 @@ function Navbar() {
               <button onClick={menuSelect} className='ml-4 mt-4'>
                 <MdClose size={24} />
               </button>
-              <ul className='flex flex-col text-center mt-10 mx-auto'>
-                <button className='hidden md:block my-4' onClick={menuSelect}>
-                  <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
-                    One Ocean Fund
-                  </a>
-                </button>
+              <ul className='flex flex-col text-center my-auto h-3/4 w-full justify-center space-y-8'>
                 <Link to='/' onClick={menuSelect}>
                   <button className='my-4'>Home</button>
                 </Link>
@@ -106,7 +96,7 @@ function Navbar() {
                   <button className='my-4'>About</button>
                 </Link>
                 <Link to='/rights-of-nature' onClick={menuSelect}>
-                  <button className='my-4'>Rights of Nature</button>
+                  <button className='my-4'>Rights</button>
                 </Link>
                 {/* <Link to='/timeline' onClick={menuSelect}>
                   <button className='my-4'>Timeline</button>
@@ -149,14 +139,17 @@ function Navbar() {
             <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 w-full shadow-lg'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
               <div className='lg-nav-content-container'>
-                <div className='lg-nav-img-container w-1/2 flex justify-center items-center my-auto'>
+                <div className='lg-nav-img-container w-1/3 flex justify-center items-center'>
                   <a href='/'>
-                    <img className='ml-4 h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
+                    <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
                   </a>
                 </div>
-                {/* <div className='lg-nav-content justify-center w-1/3 h-[80px] my-auto'>
+                <div className='lg-nav-content justify-center w-3/4 h-[80px]'>
                   <Link to='/'>
-                    <button className='lg-nav-link'>Home</button>
+                    <button className='lg-nav-link flex justify-center items-center'>
+                      <img src="/images/House_01.svg" alt="home icon" className='w-5 h-5 mr-1' />
+                      Home
+                    </button>
                   </Link>
                   <Link to='/about'>
                     <button className='lg-nav-link'>About Us</button>
@@ -178,42 +171,9 @@ function Navbar() {
                       Sign Out
                     </button>
                   )}
-                </div> */}
-                <div className='lg-nav-img-container w-1/2 flex justify-center items-center my-auto'>
-                  <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
-                    <img src='/images/1ocean-logo.svg' alt='1Ocean Logo' className='mr-4 h-[100px] w-[100px]' />
-                  </a>
                 </div>
               </div>
             </div>
-              <div className='lg-nav-content-2 justify-center w-full h-[50px] my-auto'>
-                  <Link to='/'>
-                    <button className='lg-nav-link flex justify-center items-center'>
-                      <img src="/images/House_01.svg" alt="home icon" className='w-5 h-5 mr-1'/>
-                      Home
-                      </button>
-                  </Link>
-                  <Link to='/about'>
-                    <button className='lg-nav-link'>About Us</button>
-                  </Link>
-                  <Link to='/rights-of-nature'>
-                    <button className='lg-nav-link'>Rights</button>
-                  </Link>
-                  <Link to='/news'>
-                    <button className='lg-nav-link'>News</button>
-                  </Link>
-                  <Link to='/donate'>
-                    <button className='lg-nav-link'>Donate</button>
-                  </Link>
-                  {isAuthenticated && (
-                    <button
-                      onClick={handleSignOut}
-                      className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
-                    >
-                      Sign Out
-                    </button>
-                  )}
-                </div>
             <div className='video-banner-container'>
               {/* Renamed this banner to home-banner due to removing banner.mp4 forcefully based on file size on git */}
               {/* <video className='w-full h-full object-contain md:object-none' src='/images/home-banner.mp4'
@@ -267,14 +227,17 @@ function Navbar() {
           <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 w-full '>
             {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
             <div className='lg-nav-content-container'>
-              <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto'>
+              <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto border-2 border-green-500'>
                 <a href='/'>
-                  <img className='ml-4 h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
+                  <img className='ml-4 h-[150px] w-[150px] py-1' alt='Main Website Logo' src='/images/hwni-short.svg' />
                 </a>
               </div>
-              <div className='lg-nav-content justify-center w-1/3 h-[80px] my-auto'>
+              <div className='lg-nav-content justify-center w-3/4 h-[80px] my-auto border-2 border-red-800'>
                 <Link to='/'>
-                  <button className='lg-nav-link'>Home</button>
+                  <button className='lg-nav-link flex justify-center items-center'>
+                    <img src="/images/House_01.svg" alt="home icon" className='w-5 h-5 mr-1' />
+                    Home
+                  </button>
                 </Link>
                 <Link to='/about'>
                   <button className='lg-nav-link'>About Us</button>
@@ -296,11 +259,6 @@ function Navbar() {
                     Sign Out
                   </button>
                 )}
-              </div>
-              <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto'>
-                <a href='https://1oceanfund.org/' target='_blank' rel='noopener noreferrer'>
-                  <img src='/images/1ocean-logo.svg' alt='1Ocean Logo' className='mr-4 h-[100px] w-[100px]' />
-                </a>
               </div>
             </div>
           </div>

@@ -30,11 +30,11 @@ code {
 
 /* Navigation bar */
 .lg-nav-parent {
-  @apply hidden lg:text-white lg:flex lg:flex-row lg:flex-grow-[2] py-1;
+  @apply hidden lg:flex lg:flex-row lg:flex-grow-[2];
 }
 
 .lg-nav-link {
-  @apply text-center text-white text-lg h-[50px] hover:bg-[#52A77E] w-[100px] underline-offset-8 mx-4;
+  @apply text-center text-black text-lg h-[50px] hover:bg-[#52A77E] w-[100px] underline-offset-8 mx-4;
 }
 
 .lg-nav-link-2 {
@@ -42,7 +42,7 @@ code {
 }
 
 .lg-nav-content-container {
-  @apply flex flex-row flex-grow-[2] z-[2];
+  @apply flex flex-row z-[2] w-[60%] mx-auto;
 }
 
 .lg-nav-img-container {
@@ -62,11 +62,11 @@ code {
 }
 
 .video-banner-container {
-  @apply bg-cover bg-center h-[30vh] md:h-[80vh] relative;
+  @apply bg-cover bg-center h-[30vh] md:h-[80vh] relative sm:hidden md:block;
 }
 
 .video-banner-content {
-  @apply flex flex-row mt-0 lg:mt-5 absolute top-0 right-0 w-full z-10
+  @apply flex flex-row mt-0 lg:mt-5 absolute md:top-[20%] top-0 right-0 w-full z-10;
 }
 
 .yt-video-btn {
