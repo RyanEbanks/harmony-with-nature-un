@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../App.css';
 import '../index.css';
@@ -6,12 +6,25 @@ import { CiMenuBurger } from 'react-icons/ci';
 import { motion, AnimatePresence } from 'motion/react';
 import { IoIosPlay } from 'react-icons/io';
 import { MdClose } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActivePage, selectActivePage } from '../activeNavSlice';
+import { current } from '@reduxjs/toolkit';
 
 function Navbar() {
   const [toggleVideo, setToggleVideo] = useState(false);
   const navigate = useNavigate();
   // const username = localStorage.getItem('username');
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('authToken'));
+  const activePage = useSelector(selectActivePage);
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const currentPath = location.pathname;
+
+ useEffect(() => {
+   dispatch(setActivePage(location.pathname));
+ }, [location.pathname, dispatch]);
+
 
   const handleSignOut = () => {
     localStorage.removeItem('authToken');
@@ -24,8 +37,6 @@ function Navbar() {
   const openVideo = () => setToggleVideo(true);
   const closeVideo = () => setToggleVideo(false);
 
-  const location = useLocation();
-  const [toggleMenu, setToggleMenu] = useState(false);
 
   const menuSelect = () => {
     setToggleMenu((prev) => !prev);
@@ -38,7 +49,7 @@ function Navbar() {
     exit: { x: '100%', opacity: 0 }, // Slide out to the right
   };
   //Creating Routes where the image should appear
-  const routesWithBackground = ['/', '/about', '/news', '/sponsors', '/donate'];
+  const routesWithBackground = ['/', '/about', '/news', '/donate'];
   const showBackground = routesWithBackground.includes(location.pathname);
 
   return (
@@ -139,28 +150,25 @@ function Navbar() {
             <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 w-full shadow-lg'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
               <div className='lg-nav-content-container'>
-                <div className='lg-nav-img-container w-1/3 flex justify-center items-center'>
+                <div className='lg-nav-img-container w-1/3 flex justify-start items-center'>
                   <a href='/'>
                     <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
                   </a>
                 </div>
                 <div className='lg-nav-content justify-center w-3/4 h-[80px]'>
-                  <Link to='/'>
-                    <button className='lg-nav-link flex justify-center items-center'>
-                      <img src="/images/House_01.svg" alt="home icon" className='w-5 h-5 mr-1' />
-                      Home
-                    </button>
+                  <Link to='/' className={currentPath === '/' ? 'active nav-border-effect' : ''}>
+                    <button className='lg-nav-link'>Home</button>
                   </Link>
-                  <Link to='/about'>
+                  <Link to='/about' className={currentPath === '/about' ? 'active nav-border-effect' : ''}>
                     <button className='lg-nav-link'>About Us</button>
                   </Link>
-                  <Link to='/rights-of-nature'>
+                  <Link to='/rights-of-nature' className={currentPath === '/rights-of-nature' ? 'active nav-border-effect' : ''}>
                     <button className='lg-nav-link'>Rights</button>
                   </Link>
-                  <Link to='/news'>
+                  <Link to='/news' className={currentPath === '/news' ? 'active nav-border-effect' : ''}>
                     <button className='lg-nav-link'>News</button>
                   </Link>
-                  <Link to='/donate'>
+                  <Link to='/donate' className={currentPath === '/donate' ? 'active nav-border-effect' : ''}>
                     <button className='lg-nav-link'>Donate</button>
                   </Link>
                   {isAuthenticated && (
@@ -184,7 +192,7 @@ function Navbar() {
                 autoPlay
                 muted
                 playsInline>
-                <source src="https://hwni-videos.s3.us-east-2.amazonaws.com/home-banner.mp4" type="video/mp4" />
+                <source src="https://hwni-videos.s3.us-east-2.amazonaws.com/new-banner.mp4" type="video/mp4" />
               </video>
               <div className='video-banner-content'>
                 <div className='flex flex-col w-full lg:w-1/2 h-[45vh] lg:h-[80vh] px-10 md:px-36 justify-center'>
@@ -223,49 +231,45 @@ function Navbar() {
           </div>
         </div>
       ) : (
-        <div>
-          <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 w-full '>
-            {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
-            <div className='lg-nav-content-container'>
-              <div className='lg-nav-img-container w-1/3 flex justify-center items-center my-auto border-2 border-green-500'>
-                <a href='/'>
-                  <img className='ml-4 h-[150px] w-[150px] py-1' alt='Main Website Logo' src='/images/hwni-short.svg' />
-                </a>
-              </div>
-              <div className='lg-nav-content justify-center w-3/4 h-[80px] my-auto border-2 border-red-800'>
-                <Link to='/'>
-                  <button className='lg-nav-link flex justify-center items-center'>
-                    <img src="/images/House_01.svg" alt="home icon" className='w-5 h-5 mr-1' />
-                    Home
-                  </button>
-                </Link>
-                <Link to='/about'>
-                  <button className='lg-nav-link'>About Us</button>
-                </Link>
-                <Link to='/rights-of-nature'>
-                  <button className='lg-nav-link'>Rights</button>
-                </Link>
-                <Link to='/news'>
-                  <button className='lg-nav-link'>News</button>
-                </Link>
-                <Link to='/donate'>
-                  <button className='lg-nav-link'>Donate</button>
-                </Link>
-                {isAuthenticated && (
-                  <button
-                    onClick={handleSignOut}
-                    className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
-                  >
-                    Sign Out
-                  </button>
-                )}
+        <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 w-full shadow-lg'>
+              {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
+              <div className='lg-nav-content-container'>
+                <div className='lg-nav-img-container w-1/3 flex justify-start items-center'>
+                  <a href='/'>
+                    <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
+                  </a>
+                </div>
+                <div className='lg-nav-content justify-center w-3/4 h-[80px]'>
+                  <Link to='/' className={currentPath === '/' ? 'active nav-border-effect' : ''}>
+                    <button className='lg-nav-link'>Home</button>
+                  </Link>
+                  <Link to='/about' className={currentPath === '/about' ? 'active nav-border-effect' : ''}>
+                    <button className='lg-nav-link'>About Us</button>
+                  </Link>
+                  <Link to='/rights-of-nature' className={currentPath === '/rights-of-nature' ? 'active nav-border-effect' : ''}>
+                    <button className='lg-nav-link'>Rights</button>
+                  </Link>
+                  <Link to='/news' className={currentPath === '/news' ? 'active nav-border-effect' : ''}>
+                    <button className='lg-nav-link'>News</button>
+                  </Link>
+                  <Link to='/donate' className={currentPath === '/donate' ? 'active nav-border-effect' : ''}>
+                    <button className='lg-nav-link'>Donate</button>
+                  </Link>
+                  {isAuthenticated && (
+                    <button
+                      onClick={handleSignOut}
+                      className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
+                    >
+                      Sign Out
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
       )}
     </div>
   );
 }
 
 export default Navbar;
+

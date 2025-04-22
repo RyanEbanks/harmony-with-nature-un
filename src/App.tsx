@@ -21,6 +21,8 @@ import './App.css';
 import TwoFactor from './components/TwoFactor';
 import PostDetail from './components/PostDetail';
 import NotFound from './components/NotFound';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 const App: React.FC = () => {
   const url = process.env.REACT_APP_API_URL;
@@ -28,6 +30,7 @@ const App: React.FC = () => {
   const [policy, setPolicy] = useState<keyof typeof policyEvents>('General');
 
   return (
+    <Provider store={store}>
     <Router>
       <div className='App font-poppins'>
         <Navbar />
@@ -54,6 +57,7 @@ const App: React.FC = () => {
         <Footer />
       </div>
     </Router>
+    </Provider>
   );
 };
 
