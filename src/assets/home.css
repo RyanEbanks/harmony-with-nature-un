@@ -23,7 +23,7 @@
     mask-image: linear-gradient(90deg, transparent 0%, #FAF9F6 8%, #FAF9F6 92%, transparent 100%);
   }
   .home-btn-styling {
-    @apply font-normal text-[1.1rem] h-[50px] w-[150px] mt-5 mr-[20px];
+    @apply font-normal text-sm md:text-lg lg:text-[1.1rem] h-[50px] w-[100px] lg:h-[50px] lg:w-[150px] mt-5 mr-[20px];
   }
   
   .nav-btn-styling {
