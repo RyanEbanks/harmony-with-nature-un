@@ -48,7 +48,7 @@ const App: React.FC = () => {
             <Route path='/donate' element={<Donate />} />
             <Route path='/law' element={<Law law={law} />} />
             <Route path='/policy' element={<Policy policy={policy} />} />
-            <Route path='/login' element={<SignIn url={url}/>} />
+            <Route path='/login' element={<SignIn />} />
             <Route path='/upload' element={<Posts url={url}/>} />
             <Route path='/two-factor-authentication' element={<TwoFactor url={url}/>} />
             <Route path='*' element={<NotFound />} />

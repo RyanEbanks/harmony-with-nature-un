@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { auth, db, storage } from '../firebase';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 
 interface PostsProps {
     url: string | undefined; // Define the type for the url prop
-  }
+}
 
-const Posts: React.FC<PostsProps> = ({url}) => {
+const Posts: React.FC<PostsProps> = ({ url }) => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -16,99 +19,49 @@ const Posts: React.FC<PostsProps> = ({url}) => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const authToken = localStorage.getItem('authToken');
-        setIsAuthenticated(!!authToken);
-    }, []);
+    // interface PostData {
+    //     title: string;
+    //     author: string;
+    //     displayText: string;
+    //     contentHeader: string;
+    //     content: string;
+    //     image: string;
+    //   }
 
-    if (!isAuthenticated) {
-        return (
-            <div className='min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4'>
-                <div className='max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center'>
-                    <svg 
-                        className='mx-auto h-12 w-12 text-red-500' 
-                        fill='none' 
-                        viewBox='0 0 24 24' 
-                        stroke='currentColor'
-                    >
-                        <path 
-                            strokeLinecap='round' 
-                            strokeLinejoin='round' 
-                            strokeWidth={2} 
-                            d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' 
-                        />
-                    </svg>
-                    <h2 className='mt-4 text-xl font-bold text-gray-900'>Access Denied</h2>
-                    <p className='mt-2 text-gray-600'>
-                        You must be signed in to access this page.
-                    </p>
-                    <div className='mt-6'>
-                        <Link
-                            to='/'
-                            className='inline-block px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors duration-200'
-                        >
-                            Return to Home
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-    
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setLoading(true);
-    
+    // Create Posts
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         try {
-            const formData = new FormData();
-            formData.append('title', title);
-            formData.append('author', author);
-            formData.append('displayText', displayText);
-            formData.append('contentHeader', contentHeader);
-            formData.append('content', content);
-            if (image) {
-                formData.append('image', image);
-            }
-    
-            console.log('Sending data:', {
+            await addDoc(collection(db, 'posts'), {
                 title,
                 author,
                 displayText,
                 contentHeader,
                 content,
-                image: image?.name
+                image: image ? image.name : '', // Uploading then getting the URL
+                createdAt: Timestamp.now()
             });
-    
-            const response = await fetch(`${url}/api/posts`, {
-                method: 'POST',
-                credentials: 'include',
-                body: formData,
-            });
-    
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.error || 'Failed to create post');
-            }
-    
-            const data = await response.json();
-            console.log('Success:', data);
-    
-            // Clear form
-            setTitle('');
-            setAuthor('');
-            setDisplayText('');
-            setContentHeader('');
-            setContent('');
-            setImage(null);
-            
-            // Redirect to news page
-            navigate('/news');
+            console.log('Post Added!');
         } catch (error) {
-            console.error('Error creating post:', error);
-        } finally {
-            setLoading(false);
+            console.error('Error adding post: ', error);
         }
-    }; 
+    };
+
+    const uploadPost = async (title: string, body: string, image: File) => {
+        const user = auth.currentUser;
+        if (!user) throw new Error("Unauthorized");
+
+        const imageRef = ref(storage, `posts/${image.name}`);
+        await uploadBytes(imageRef, image);
+        const imageUrl = await getDownloadURL(imageRef);
+
+        await addDoc(collection(db, 'posts'), {
+            title,
+            body,
+            imageUrl,
+            createdAt: Timestamp.now(),
+            author: user.email
+        });
+    };
 
     return (
         <div className='min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 mt-20'>

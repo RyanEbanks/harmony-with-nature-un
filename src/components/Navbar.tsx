@@ -9,6 +9,7 @@ import { MdClose } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActivePage, selectActivePage } from '../activeNavSlice';
 import { current } from '@reduxjs/toolkit';
+import { auth } from '../firebase';
 
 function Navbar() {
   const [toggleVideo, setToggleVideo] = useState(false);
@@ -18,13 +19,29 @@ function Navbar() {
   const activePage = useSelector(selectActivePage);
   const dispatch = useDispatch();
   const location = useLocation();
+  const [userEmail, setuserEmail] = useState<string | null>('');
   const [toggleMenu, setToggleMenu] = useState(false);
   const currentPath = location.pathname;
 
- useEffect(() => {
-   dispatch(setActivePage(location.pathname));
- }, [location.pathname, dispatch]);
+  useEffect(() => {
+    dispatch(setActivePage(location.pathname));
+  }, [location.pathname, dispatch]);
 
+
+  useEffect(() => {
+    const checkAuth = () => {
+      setIsAuthenticated(!!localStorage.getItem('authToken'));
+      setuserEmail(localStorage.getItem('userEmail'));
+    };
+
+    checkAuth(); // initial check
+
+    window.addEventListener('storage', checkAuth); // listen for auth changes across tabs/windows
+
+    return () => {
+      window.removeEventListener('storage', checkAuth);
+    };
+  }, []);
 
   const handleSignOut = () => {
     localStorage.removeItem('authToken');
@@ -146,6 +163,18 @@ function Navbar() {
       {/* Navbar LG Screens */}
       {showBackground ? (
         <div>
+          <div className="hidden account-container bg-[#EFEFEE] text-sm lg:flex flex-row items-center justify-end px-20">
+            {isAuthenticated && (
+              <>
+                <p className='mr-4'>Howdy, {userEmail}</p><button
+                  onClick={handleSignOut}
+                  className='px-4 py-2 hover:text-[#40916C]'
+                >
+                  Sign Out
+                </button>
+              </>
+            )}
+          </div>
           <div>
             <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 w-full shadow-lg'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
@@ -171,14 +200,6 @@ function Navbar() {
                   <Link to='/donate' className={currentPath === '/donate' ? 'active nav-border-effect' : ''}>
                     <button className='lg-nav-link'>Donate</button>
                   </Link>
-                  {isAuthenticated && (
-                    <button
-                      onClick={handleSignOut}
-                      className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
-                    >
-                      Sign Out
-                    </button>
-                  )}
                 </div>
               </div>
             </div>
@@ -231,41 +252,47 @@ function Navbar() {
           </div>
         </div>
       ) : (
+        <>
+        <div className="hidden account-container bg-[#EFEFEE] text-sm lg:flex flex-row items-center justify-end px-20">
+        {isAuthenticated && (
+          <>
+            <p className='mr-4'>Howdy, {userEmail}</p><button
+              onClick={handleSignOut}
+              className='px-4 py-2 hover:text-[#40916C]'
+              >
+              Sign Out
+            </button>
+          </>
+        )}
+      </div>
         <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 w-full shadow-lg'>
-              {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
-              <div className='lg-nav-content-container'>
-                <div className='lg-nav-img-container w-1/3 flex justify-start items-center'>
-                  <a href='/'>
-                    <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
-                  </a>
-                </div>
-                <div className='lg-nav-content justify-center w-3/4 h-[80px]'>
-                  <Link to='/' className={currentPath === '/' ? 'active nav-border-effect' : ''}>
-                    <button className='lg-nav-link'>Home</button>
-                  </Link>
-                  <Link to='/about' className={currentPath === '/about' ? 'active nav-border-effect' : ''}>
-                    <button className='lg-nav-link'>About Us</button>
-                  </Link>
-                  <Link to='/rights-of-nature' className={currentPath === '/rights-of-nature' ? 'active nav-border-effect' : ''}>
-                    <button className='lg-nav-link'>Rights</button>
-                  </Link>
-                  <Link to='/news' className={currentPath === '/news' ? 'active nav-border-effect' : ''}>
-                    <button className='lg-nav-link'>News</button>
-                  </Link>
-                  <Link to='/donate' className={currentPath === '/donate' ? 'active nav-border-effect' : ''}>
-                    <button className='lg-nav-link'>Donate</button>
-                  </Link>
-                  {isAuthenticated && (
-                    <button
-                      onClick={handleSignOut}
-                      className='px-4 py-2 text-white bg-red-600 hover:bg-red-700 text-sm rounded-full w-[100px]'
-                    >
-                      Sign Out
-                    </button>
-                  )}
-                </div>
-              </div>
+          {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
+          <div className='lg-nav-content-container'>
+            <div className='lg-nav-img-container w-1/3 flex justify-start items-center'>
+              <a href='/'>
+                <img className='h-[150px] w-[150px]' alt='Main Website Logo' src='/images/hwni-short.svg' />
+              </a>
             </div>
+            <div className='lg-nav-content justify-center w-3/4 h-[80px]'>
+              <Link to='/' className={currentPath === '/' ? 'active nav-border-effect' : ''}>
+                <button className='lg-nav-link'>Home</button>
+              </Link>
+              <Link to='/about' className={currentPath === '/about' ? 'active nav-border-effect' : ''}>
+                <button className='lg-nav-link'>About Us</button>
+              </Link>
+              <Link to='/rights-of-nature' className={currentPath === '/rights-of-nature' ? 'active nav-border-effect' : ''}>
+                <button className='lg-nav-link'>Rights</button>
+              </Link>
+              <Link to='/news' className={currentPath === '/news' ? 'active nav-border-effect' : ''}>
+                <button className='lg-nav-link'>News</button>
+              </Link>
+              <Link to='/donate' className={currentPath === '/donate' ? 'active nav-border-effect' : ''}>
+                <button className='lg-nav-link'>Donate</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        </>
       )}
     </div>
   );

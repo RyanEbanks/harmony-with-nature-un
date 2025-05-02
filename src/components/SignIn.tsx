@@ -1,64 +1,40 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // useNavigate instead of useHistory
-import '../index.css';
-import { db } from '../config/fbConfig';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
+import { isAllowedUser } from '../auth/authService';
 
-interface SignInProps {
-  url: string | undefined; // Define the type for the url prop
-}
-
-const SignIn: React.FC<SignInProps> = ({ url }) => {
+const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errMessage, setErrMessage] = useState('');
-  const navigate = useNavigate(); // Use useNavigate hook
+  const navigate = useNavigate();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name === 'email') {
+      setEmail(e.target.value);
+    } else if (e.target.name === 'password') {
+      setPassword(e.target.value);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const userCollection = collection(db, 'user'); //Grabbing user collection from firebase using firebaseconfig
-      const searchCollection = query(
-        userCollection,
-        where('email', '==', email),
-        where('password', '==', password)
-      );
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userEmail = userCredential.user.email;
 
-      const querySnapShot = await getDocs(searchCollection);
-
-      if (!querySnapShot.empty) {
-        console.log('User found: ', querySnapShot.docs[0].data());
-
-        // Call Firebase Function to send the 2FA code
-        await axios.post('https://us-central1-YOUR_PROJECT_ID.cloudfunctions.net/sendTwoFactorCode', { email });
-
-
-        // Get 2FA now
-        localStorage.setItem('tempEmail', email);
-        navigate('/two-factor-authentication');
-
-
-      } else {
-        setErrMessage('No Matching User Found');
-        console.log('Invalid Credentials');
+      if (!isAllowedUser(userEmail)) {
+        setErrMessage('Access Denied: You are not allowed to sign in.');
+        return;
       }
 
+      localStorage.setItem('authToken', 'true'); // Setting for local storage 
+      localStorage.setItem('userEmail', userEmail || '');
 
-    } catch (error) {
-      console.error('Error signing in: ', Error);
-      setErrMessage('Invalid Credentials');
-    }
-  };
-
-  // Update state on input change
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.name === 'email') {
-      setEmail(e.target.value);
-      // console.log('Checking the email now: ', email);
-    } else if (e.target.name === 'password') {
-      setPassword(e.target.value);
-      // console.log('Checking the password now: ', password);
+      navigate('/upload'); // Redirect on successful login
+    } catch (error: any) {
+      setErrMessage(error.message || 'Sign in failed.');
     }
   };
 
@@ -70,7 +46,7 @@ const SignIn: React.FC<SignInProps> = ({ url }) => {
           <p className='mt-2 text-sm text-gray-600'>Welcome back!</p>
         </div>
 
-        <form onSubmit={handleSubmit} method='POST' className='space-y-6'>
+        <form onSubmit={handleSubmit} className='space-y-6'>
           <div>
             <label htmlFor='email' className='block text-sm font-medium text-gray-700'>
               Email
@@ -108,14 +84,7 @@ const SignIn: React.FC<SignInProps> = ({ url }) => {
             )}
           </div>
 
-          <div className='flex items-center justify-between'>
-            <p className='text-sm text-gray-600'>
-              No account?{' '}
-              <a href='/register' className='font-medium text-[#40916c] hover:text-[#2d6a4f]'>
-                Sign up
-              </a>
-            </p>
-
+          <div className='flex items-center justify-end'>
             <button
               type='submit'
               className='px-6 py-3 text-sm font-semibold text-white bg-[#40916c] rounded-md hover:bg-[#2d6a4f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#40916c] transition-colors duration-200'
