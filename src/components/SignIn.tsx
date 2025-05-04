@@ -31,6 +31,7 @@ const SignIn: React.FC = () => {
 
       localStorage.setItem('authToken', 'true'); // Setting for local storage 
       localStorage.setItem('userEmail', userEmail || '');
+      window.dispatchEvent(new Event('storage')); // Manually triggering storage to get navbars useEffect to respond
 
       navigate('/upload'); // Redirect on successful login
     } catch (error: any) {
