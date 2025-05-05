@@ -1,5 +1,7 @@
+import { collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { db } from '../firebase';
 
 interface Post {
     id: string;
@@ -27,21 +29,24 @@ const News: React.FC<NewsProps> = ({ url }) => {
         fetchPosts();
     }, []);
 
+    // Read
     const fetchPosts = async () => {
         try {
-            const response = await fetch(`${url}/api/posts`, {
-                credentials: 'include'
-            });
-            const data = await response.json();
-            console.log('Fetched posts:', data); // Debug log
-            setPosts(Array.isArray(data) ? data : []);
-        } catch (error) {
-            console.error('Error fetching posts:', error);
-            setError('Failed to load posts');
+            const querySnapshot = await getDocs(collection(db, 'posts'));
+            const postsData = querySnapshot.docs.map(doc => ({
+                id: doc.id,
+                ...(doc.data() as Omit<Post, 'id'>)
+            }));
+            setPosts(postsData)
+            console.log('posts: ', posts);
+        } catch (err) {
+            console.error('Failed to fetch posts.', err)
+            setError('Failed to fetch posts.');
         } finally {
             setLoading(false);
         }
     };
+
 
     const handlePostClick = (postId: string) => {
         navigate(`/news/${postId}`);
@@ -50,25 +55,7 @@ const News: React.FC<NewsProps> = ({ url }) => {
     const handleDelete = async (postId: string) => {
         if (!window.confirm('Are you sure you want to delete this post?')) return;
 
-        try {
-            const response = await fetch(`${url}/api/posts/${Number(postId)}`, {
-                method: 'DELETE',
-                credentials: 'include',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                setPosts(posts.filter(post => post.id !== postId));
-            } else {
-                const data = await response.json();
-                throw new Error(data.error || 'Failed to delete post');
-            }
-        } catch (error) {
-            console.error('Error deleting post:', error);
-            alert('Failed to delete post');
-        }
+        await deleteDoc(doc(db, 'posts', postId));
     };
 
     if (loading) {
@@ -135,11 +122,7 @@ const News: React.FC<NewsProps> = ({ url }) => {
                                         </p>
                                         <div className='mt-4 text-sm text-gray-500 flex flex-row'>
                                             <div className='mr-2'>
-                                                {new Date(post.createdAt).toLocaleDateString('en-US', {
-                                                    month: 'short',  // Full month name
-                                                    day: 'numeric', // Numeric day
-                                                    year: 'numeric' // Full year
-                                                })}
+                                                {post.createdAt}
                                             </div>
                                             <div>
                                                 By {post.author}

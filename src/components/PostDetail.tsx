@@ -23,19 +23,6 @@ const PostDetail: React.FC<PostDetailProps> = ({ url }) => {
     const [post, setPost] = useState<Post | null>(null);
     const [loading, setLoading] = useState(true);
 
-    const fetchPost = async () => {
-        const snapshot = await getDocs(collection(db, 'posts'));
-        return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    };
-
-    const deletePost = async (postId: any) => {
-        await deleteDoc(doc(db, 'posts', postId));
-    };
-
-    const editPost = async (postId: string, newData: Partial<Omit<Post, 'id'>>): Promise<void> => {
-        const postRef = doc(db, 'posts', postId);
-        await updateDoc(postRef, newData);
-    };
 
     if (loading) {
         return <div className='min-h-screen flex items-center justify-center'>Loading...</div>;
