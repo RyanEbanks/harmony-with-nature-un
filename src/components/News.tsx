@@ -1,15 +1,17 @@
-import { collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
+import { getStorage } from 'firebase/storage';
 
 interface Post {
     id: string;
     title: string;
-    displayText: string;
     author: string;
-    category: string;
-    image: string;
+    displayText: string;
+    contentHeader: string;
+    content: string;
+    imageURL: string;
     createdAt: string;
 }
 
@@ -33,14 +35,20 @@ const News: React.FC<NewsProps> = ({ url }) => {
     const fetchPosts = async () => {
         try {
             const querySnapshot = await getDocs(collection(db, 'posts'));
-            const postsData = querySnapshot.docs.map(doc => ({
-                id: doc.id,
-                ...(doc.data() as Omit<Post, 'id'>)
-            }));
-            setPosts(postsData)
-            console.log('posts: ', posts);
+            const postsData = querySnapshot.docs.map(doc => {
+                const data = doc.data() as Omit<Post, 'id'> & {
+                    createdAt?: { toDate: () => Date };
+                };
+                return {
+                    id: doc.id,
+                    ...data,
+                    createdAt: data.createdAt?.toDate().toLocaleDateString() || 'Unknown date',
+                };
+            });
+            setPosts(postsData);
+            console.log('posts: ', postsData);
         } catch (err) {
-            console.error('Failed to fetch posts.', err)
+            console.error('Failed to fetch posts.', err);
             setError('Failed to fetch posts.');
         } finally {
             setLoading(false);
@@ -55,7 +63,13 @@ const News: React.FC<NewsProps> = ({ url }) => {
     const handleDelete = async (postId: string) => {
         if (!window.confirm('Are you sure you want to delete this post?')) return;
 
-        await deleteDoc(doc(db, 'posts', postId));
+        try {
+            await deleteDoc(doc(db, 'posts', postId));
+            setPosts((prevPosts) => prevPosts.filter(post => post.id !== postId))
+        } catch (error) {
+            console.error('Error deleting post:', error);
+            setError('Failed to delete post.');
+        }
     };
 
     if (loading) {
@@ -79,44 +93,30 @@ const News: React.FC<NewsProps> = ({ url }) => {
                                 key={post.id}
                                 className='bg-white rounded-lg shadow-lg overflow-hidden relative'
                             >
-                                {isAuthenticated && (
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation(); // Prevent navigation
-                                            handleDelete(post.id);
-                                        }}
-                                        className='absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors duration-200 z-10'
-                                        aria-label='Delete post'
-                                    >
-                                        <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
-                                        </svg>
-                                    </button>
-                                )}
                                 <div
                                     onClick={() => handlePostClick(post.id)}
                                     className='cursor-pointer transform transition duration-200 hover:scale-102'
                                 >
-                                    {post.image && (
+                                    {post.imageURL && (
                                         <div className='w-full h-48 relative'>
                                             <img
-                                                src={post.image.startsWith('http') ? post.image : `${url}${post.image}`}
+                                                src={post.imageURL}
                                                 alt={post.title}
                                                 className='w-full h-full object-fill'
                                                 onError={(e) => {
-                                                    console.error('Image failed to load:', post.image);
+                                                    console.error('Image failed to load:', post.imageURL);
                                                     (e.target as HTMLImageElement).style.display = 'none';
                                                 }}
                                             />
                                         </div>
                                     )}
                                     <div className='p-6'>
-                                        <span className='text-sm font-medium text-green-600'>
-                                            {post.category}
-                                        </span>
-                                        <h2 className='mt-2 text-xl font-semibold text-gray-900'>
+                                        <h2 className='text-xl font-semibold text-gray-900'>
                                             {post.title}
                                         </h2>
+                                        <span className='mt-2 text-sm font-medium text-green-600'>
+                                            {post.contentHeader}
+                                        </span>
                                         <p className='mt-3 text-gray-600 line-clamp-3'>
                                             {post.displayText}
                                         </p>
@@ -128,6 +128,18 @@ const News: React.FC<NewsProps> = ({ url }) => {
                                                 By {post.author}
                                             </div>
                                         </div>
+                                        {isAuthenticated && (
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation(); // Prevent navigation
+                                                    handleDelete(post.id);
+                                                }}
+                                                className='absolute bottom-2 right-2 p-2 bg-red-500 text-white hover:bg-red-600 transition-colors duration-200 z-10'
+                                                aria-label='Delete post'
+                                            >
+                                              Delete Post
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             </div>

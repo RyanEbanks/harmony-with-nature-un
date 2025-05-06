@@ -1,81 +1,89 @@
+// PostDetail.tsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { collection, getDocs, deleteDoc, updateDoc, doc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 
-
 interface Post {
-    id: number;
-    title: string;
-    author: string;
-    displayText: string;
-    contentHeader: string;
-    content: string;
-    image: string;
-    createdAt: string;
+  id: string;
+  title: string;
+  author: string;
+  displayText: string;
+  contentHeader: string;
+  content: string;
+  imageURL: string;
+  createdAt: string;
 }
 
-interface PostDetailProps {
-    url: string | undefined; // Define the type for the url prop
-}
+const PostDetail: React.FC<{ url?: string }> = ({ url }) => {
+  const { postId } = useParams<{ postId: string }>();
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-const PostDetail: React.FC<PostDetailProps> = ({ url }) => {
-    const [post, setPost] = useState<Post | null>(null);
-    const [loading, setLoading] = useState(true);
-
-
-    if (loading) {
-        return <div className='min-h-screen flex items-center justify-center'>Loading...</div>;
+  useEffect(() => {
+    if (!postId) {
+      setError('No post ID provided');
+      setLoading(false);
+      return;
     }
+    fetchPost(postId);
+  }, [postId]);
 
-    if (!post) {
-        return <div className='min-h-screen flex items-center justify-center'>No Posts Currently Available</div>;
+  const fetchPost = async (id: string) => {
+    try {
+      const docRef = doc(db, 'posts', id);
+      const snap = await getDoc(docRef);
+      if (!snap.exists()) {
+        setError('Post not found');
+      } else {
+        const data = snap.data() as any;
+        setPost({
+          id: snap.id,
+          title: data.title,
+          author: data.author,
+          displayText: data.displayText,
+          contentHeader: data.contentHeader,
+          content: data.content,
+          imageURL: data.imageURL,
+          createdAt: data.createdAt
+            ? data.createdAt.toDate().toLocaleDateString()
+            : 'Unknown date',
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      setError('Failed to load post');
+    } finally {
+      setLoading(false);
     }
+  };
 
-    return (
-        <div className='flex items-center min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 mt-20'>
-            <article className='flex items-center flex-col lg:flex-row max-w-[80%] mx-auto bg-white rounded-md shadow-md overflow-hidden'>
-                <div className=''>
-                    {post?.image && (
-                        <img
-                            src={post.image}
-                            alt={post.title}
-                            className='w-full lg:h-96 object-fill'
-                        />
-                    )}
-                </div>
-                <div className='p-8'>
-                    <div className='mb-8'>
-                        <span className='text-sm font-medium text-green-600'>
-                            By {post?.author}
-                        </span>
-                        <time className='mt-2 block text-sm text-gray-500'>
-                            {new Date(post?.createdAt || '').toLocaleDateString('en-US', {
-                                month: 'short',  // Full month name
-                                day: 'numeric', // Numeric day
-                                year: 'numeric' // Full year
-                            })}
-                        </time>
-                        <h1 className='mt-2 text-4xl font-bold text-gray-900'>
-                            {post?.title}
-                        </h1>
-                        <p className='mt-4 text-xl text-gray-600'>
-                            {post?.displayText}
-                        </p>
-                    </div>
-                    {post?.contentHeader && (
-                        <h2 className='text-2xl font-semibold text-gray-800 mb-4'>
-                            {post.contentHeader}
-                        </h2>
-                    )}
-                    <div className='prose prose-lg max-w-none'>
-                        {post?.content}
-                    </div>
-                </div>
-            </article>
-        </div>
-    );
+  if (loading) return <div>Loading…</div>;
+  if (error)   return <div className="text-red-600">{error}</div>;
+  if (!post)   return null;
+
+  return (
+    <div className="min-h-screen p-8 bg-gray-50">
+      <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+      {post.imageURL && (
+        <img
+          src={post.imageURL}
+          alt={post.title}
+          className="w-full max-h-96 object-cover mb-6"
+        />
+      )}
+      <p className="text-sm text-gray-500 mb-2">
+        {post.createdAt} — by {post.author}
+      </p>
+      {post.contentHeader && (
+        <h2 className="text-2xl font-semibold mb-4">{post.contentHeader}</h2>
+      )}
+      <div className="prose">
+        {post.content}
+      </div>
+    </div>
+  );
 };
 
 export default PostDetail;
-

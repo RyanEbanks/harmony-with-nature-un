@@ -134,7 +134,7 @@ function Navbar() {
                   <button className='my-4'>Assemblies</button>
                 </Link> */}
                   <Link to='/news' onClick={menuSelect}>
-                    <button className='my-4' onClick={menuSelect}>News</button>
+                    <button className='my-4'>News</button>
                   </Link>
                   {/* <Link to='/library' onClick={menuSelect}>
                   <button className='my-4'>Library</button>
