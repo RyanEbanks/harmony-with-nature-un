@@ -57,5 +57,5 @@
   } */
 /* Picture Styling for the home button */
 .home-picture-styling {
-  @apply sm:h-[339px] sm:w-[343.219px] md:h-[437.844px] md:w-[468.297px] lg:h-[504.141px] lg:w-[594.438px] object-cover;
+  @apply sm:h-[339px] sm:w-[343.219px] md:h-[437.844px] md:w-[468.297px] lg:h-[603.344px] lg:w-[630px] object-cover;
 }

@@ -9,7 +9,7 @@ import { FaBluesky } from 'react-icons/fa6';
 
 function Footer() {
   return (
-    <div className='bg-[#EFEFEE] py-2 text-sla'>
+    <div className='bg-[#385246] text-white py-2 text-sla'>
       <div className='flex flex-col lg:flex-row w-[80%] mx-auto items-stretch py-5'>
         {/* Logo & Links Section */}
         <div className='w-full lg:w-1/4 text-center lg:text-left'>
