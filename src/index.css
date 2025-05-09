@@ -21,11 +21,11 @@
 }
 
 .lg-nav-link {
-  @apply text-center text-black text-lg h-[50px] hover:text-[#52A77E] w-[100px] mx-4 border-transparent;
+  @apply text-center text-[#70708d] text-base font-medium h-[50px] hover:text-black w-[100px] mx-4 border-transparent;
 }
 
 .nav-border-effect {
-  @apply  text-[#52A77E] bg-opacity-40 rounded-lg;
+  @apply  text-black bg-opacity-40 rounded-lg;
 }
 
 .lg-nav-content-container {

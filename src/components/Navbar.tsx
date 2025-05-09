@@ -67,7 +67,7 @@ function Navbar() {
     exit: { x: '100%', opacity: 0 }, // Slide out to the right
   };
   //Creating Routes where the image should appear
-  const routesWithBackground = ['/', '/about', '/news', '/donate'];
+  const routesWithBackground = ['/', '/news', '/donate'];
   const showBackground = routesWithBackground.includes(location.pathname);
 
   return (
@@ -165,7 +165,7 @@ function Navbar() {
       {showBackground ? (
         <div>
           <div className='w-full fixed z-50'>
-            <div className="hidden account-container bg-[#385246] text-white text-sm lg:flex flex-row items-center justify-end px-20">
+            <div className="hidden account-container bg-emerald-700 text-white text-sm lg:flex flex-row items-center justify-end px-20">
               {isAuthenticated && (
                 <>
                   <p className='mr-8'>Howdy, {userEmail}</p>
@@ -181,7 +181,7 @@ function Navbar() {
                 </>
               )}
             </div>
-            <div className='navigation-scale-resizer lg-nav-parent bg-white z-50 py-1 w-full shadow-lg'>
+            <div className='navigation-scale-resizer lg-nav-parent bg-white z-50'>
               {/* <div className='absolute top-[90px] left-0 right-0 bottom-0 max-h-[60vh] bg-black bg-opacity-10 z-1'></div> */}
               <div className='lg-nav-content-container'>
                 <div className='lg-nav-img-container w-1/3 flex justify-start items-center'>

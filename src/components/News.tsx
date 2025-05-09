@@ -3,6 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { getStorage } from 'firebase/storage';
+import { Button } from "./ui/button"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
+import { Badge } from "./ui/badge"
+import { Input } from "./ui/input"
+import { ArrowRight, Search } from 'lucide-react';
+import NewsCard from './ui/news-card';
 
 interface Post {
     id: string;
@@ -77,77 +83,87 @@ const News: React.FC<NewsProps> = ({ url }) => {
     }
 
     return (
-        <div className='min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
-            <div className='max-w-7xl mx-auto'>
-                <h1 className='text-4xl md:text-6xl font-light mb-20'>
-                    <span className='border-l-8 border-[#40916C] pl-6'>Latest News</span>
-                </h1>
-                {error ? (
-                    <div className='text-center text-red-600'>{error}</div>
-                ) : posts.length === 0 ? (
-                    <div className='text-center text-gray-600'>No posts available</div>
-                ) : (
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                        {posts.map((post) => (
-                            <div
-                                key={post.id}
-                                className='bg-white rounded-lg shadow-lg overflow-hidden relative'
-                            >
-                                <div
-                                    onClick={() => handlePostClick(post.id)}
-                                    className='cursor-pointer transform transition duration-200 hover:scale-102'
-                                >
-                                    {post.imageURL && (
-                                        <div className='w-full h-48 relative'>
-                                            <img
-                                                src={post.imageURL}
-                                                alt={post.title}
-                                                className='w-full h-full object-fill'
-                                                onError={(e) => {
-                                                    console.error('Image failed to load:', post.imageURL);
-                                                    (e.target as HTMLImageElement).style.display = 'none';
-                                                }}
-                                            />
-                                        </div>
-                                    )}
-                                    <div className='p-6'>
-                                        <h2 className='text-xl font-semibold text-gray-900'>
-                                            {post.title}
-                                        </h2>
-                                        <span className='mt-2 text-sm font-medium text-green-600'>
-                                            {post.contentHeader}
-                                        </span>
-                                        <p className='mt-3 text-gray-600 line-clamp-3'>
-                                            {post.displayText}
-                                        </p>
-                                        <div className='mt-4 text-sm text-gray-500 flex flex-row'>
-                                            <div className='mr-2'>
-                                                {post.createdAt}
-                                            </div>
-                                            <div>
-                                                By {post.author}
-                                            </div>
-                                        </div>
-                                        {isAuthenticated && (
-                                            <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation(); // Prevent navigation
-                                                    handleDelete(post.id);
-                                                }}
-                                                className='absolute bottom-2 right-2 p-2 bg-red-500 text-white hover:bg-red-600 transition-colors duration-200 z-10'
-                                                aria-label='Delete post'
-                                            >
-                                              Delete Post
-                                            </button>
-                                        )}
-                                    </div>
-                                </div>
+        <>
+            <div className="flex min-h-screen flex-col">
+                <div className="flex-1">
+                    {/* Page Header */}
+                    <div className="bg-stone-50 py-10 md:py-16">
+                        <div className="container mx-auto px-4 md:px-6">
+                            <div className="mx-auto max-w-2xl text-center">
+                                <h1 className="text-3xl font-bold tracking-tight text-stone-900 md:text-4xl lg:text-5xl">Latest News</h1>
+                                <p className="mt-4 text-lg text-stone-600">
+                                    Stay updated with the latest developments in Earth Jurisprudence and Rights of Nature
+                                </p>
                             </div>
-                        ))}
+
+                            <div className="mx-auto mt-8 flex max-w-md flex-col space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0">
+                                <div className="relative flex-1">
+                                    <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-stone-500" />
+                                    <Input
+                                        type="search"
+                                        placeholder="Search articles..."
+                                        className="w-full rounded-md border-stone-300 pl-8 shadow-sm"
+                                    />
+                                </div>
+                                <Button variant="outline" className="h-10 rounded-md">
+                                    Filter
+                                </Button>
+                            </div>
+                        </div>
                     </div>
-                )}
+                </div>
+                <div className='bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
+                    <div className='max-w-7xl mx-auto'>
+                        <h1 className='mb-8 flex items-center justify-between'>
+                            <h2 className="text-2xl font-bold tracking-tight text-stone-900">Latest News</h2>
+                        </h1>
+                        {error ? (
+                            <div className='text-center text-red-600'>{error}</div>
+                        ) : posts.length === 0 ? (
+                            <div className='text-center text-gray-600'>No posts available</div>
+                        ) : (
+                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                                {posts.map((post) => (
+                                    <div
+                                        key={post.id}
+                                    >
+                                        <div
+                                            onClick={() => handlePostClick(post.id)}
+                                            className='cursor-pointer transform transition duration-200'
+                                        >
+                                            <NewsCard
+                                                title={post.title}
+                                                contentHeader={post.contentHeader}
+                                                displayText={post.displayText}
+                                                imageURL={post.imageURL}
+                                                createdAt={post.createdAt}
+                                                author={post.author} id={''} content={''}
+
+                                            />
+                                            <div className='p-8'>
+                                                {isAuthenticated && (
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation(); // Prevent navigation
+                                                            handleDelete(post.id);
+                                                        }}
+                                                        className='absolute bottom-2 right-2 p-2 bg-red-500 text-white hover:bg-red-600 transition-colors duration-200 z-10'
+                                                        aria-label='Delete post'
+                                                    >
+                                                        Delete Post
+                                                    </button>
+                                                )}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
