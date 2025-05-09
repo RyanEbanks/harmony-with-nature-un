@@ -260,7 +260,7 @@ function Navbar() {
         </div>
       ) : (
         <>
-          <div className="hidden account-container bg-[#EFEFEE] text-sm lg:flex flex-row items-center justify-end px-20">
+          <div className="hidden account-container text-white bg-emerald-700 text-sm lg:flex flex-row items-center justify-end px-20">
             {isAuthenticated && (
               <>
                 <p className='mr-8'>Howdy, {userEmail}</p>
