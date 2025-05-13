@@ -128,10 +128,10 @@ const News: React.FC<NewsProps> = ({ url }) => {
                                         key={post.id}
                                     >
                                         <div
-                                            onClick={() => handlePostClick(post.id)}
                                             className='cursor-pointer transform transition duration-200'
                                         >
-                                            <NewsCard
+                                            <div onClick={() => handlePostClick(post.id)}>
+                                            <NewsCard 
                                                 title={post.title}
                                                 contentHeader={post.contentHeader}
                                                 displayText={post.displayText}
@@ -140,6 +140,7 @@ const News: React.FC<NewsProps> = ({ url }) => {
                                                 author={post.author} id={''} content={''}
 
                                             />
+                                            </div>
                                             <div className='p-8'>
                                                 {isAuthenticated && (
                                                     <button

@@ -1,31 +1,49 @@
+import { Badge } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
+
 const events = {
     AR: (
-        <div id='AR' className='my-[80px] lg:my-[120px] color-mask-gradient pb-5'>
-            <div className="flex flex-row w-3/4 mx-auto">
-                <div className="law-container">
-                    <div className="law-title pt-10">
-                        <h1 className='year-h1 text-white'>Argentina</h1>
-                        <h1 className='text-h1'>National Law / Federal Act</h1>
-                        <p className='timeline-p'>2020 Proposal for a national regulation on Rights of Nature. <p>Click here.</p></p>
-                        <h1 className='text-h1'>Local Regulations</h1>
-                        <p className='timeline-p'>
-                            2020 On 13 October, representative Valeria López Delzar (Partido CREO-Santa Fe) introduced an ordinance on the Rights of Nature
-                            to the deliberative council of the municipality of Santa Fe. <p>Click official document.</p>
-                        </p>
-                        <p className='timeline-p'>
-                            2020 On 26 November, the Municipality of the city of Rosario, one of the largest cities in the country, adopted a decision declaring its
-                            support to recognize the Paraná River and Wetlands as a subject of law. The petition was put forward by Dr. Aníbal Faccendini, Director
-                            of the Water Faculty of the National University of Rosario in partnership with the Water Interdisciplinary Centre of the Political Sciences
-                            and International Relations Faculty of the same University and an important number of local NGOs and academic institutions.
-                            <p>Click article.</p> <p>Click official document.</p>
-                        </p>
+        <>
+            <Card>
+                <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between">
+                        <CardTitle className="text-xl font-semibold">Argentina</CardTitle>
+                        <Badge className="bg-amber-100 text-amber-800 hover:bg-amber-200">2020</Badge>
                     </div>
-                </div>
-                <div className="law-img-container pt-10">
-                    <img src="/images/scenery/AR.jpg" alt="Argentina Scenery" className="w-3/4 mx-auto" />
-                </div>
-            </div>
-        </div>
+                </CardHeader>
+                <CardContent>
+                    <div className="space-y-4">
+                        <div id='AR' className='my-[80px] lg:my-[120px] color-mask-gradient pb-5'>
+                            <div className="flex flex-row w-3/4 mx-auto">
+                                <div className="law-container">
+                                    <div className="law-title pt-10">
+                                        <h1 className='year-h1 text-white'>Argentina</h1>
+                                        <h1 className='text-h1'>National Law / Federal Act</h1>
+                                        <p className='timeline-p'>2020 Proposal for a national regulation on Rights of Nature. <p>Click here.</p></p>
+                                        <h1 className='text-h1'>Local Regulations</h1>
+                                        <p className='timeline-p'>
+                                            2020 On 13 October, representative Valeria López Delzar (Partido CREO-Santa Fe) introduced an ordinance on the Rights of Nature
+                                            to the deliberative council of the municipality of Santa Fe. <p>Click official document.</p>
+                                        </p>
+                                        <p className='timeline-p'>
+                                            2020 On 26 November, the Municipality of the city of Rosario, one of the largest cities in the country, adopted a decision declaring its
+                                            support to recognize the Paraná River and Wetlands as a subject of law. The petition was put forward by Dr. Aníbal Faccendini, Director
+                                            of the Water Faculty of the National University of Rosario in partnership with the Water Interdisciplinary Centre of the Political Sciences
+                                            and International Relations Faculty of the same University and an important number of local NGOs and academic institutions.
+                                            <p>Click article.</p> <p>Click official document.</p>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="law-img-container pt-10">
+                                    <img src="/images/scenery/AR.jpg" alt="Argentina Scenery" className="w-3/4 mx-auto" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </CardContent>
+            </Card>
+        </>
     ),
     AU: (
         <div id='AU' className='my-[80px] lg:my-[120px]'>
