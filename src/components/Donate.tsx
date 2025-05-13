@@ -128,7 +128,7 @@ const Donate = () => {
                 <label htmlFor="message" className="text-sm font-medium text-stone-700">
                   Message
                 </label>
-                <textarea id="message" placeholder="Type your message here..." className="text-sm font-medium min-h-[120px] w-full border-black border-[1.5px] rounded-lg p-2" />
+                <textarea id="message" placeholder="Type your message here..." className="text-sm font-medium min-h-[120px] w-full border-black border-[1.5px] rounded-md shadow-sm px-3 py-1" />
               </div>
 
               <Button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-600 text-white">

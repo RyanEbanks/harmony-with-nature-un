@@ -1,7 +1,7 @@
 // PostDetail.tsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, getFirestore, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { Button } from './ui/button';
 import { ArrowRight, Calendar, Search, SquarePen, User } from 'lucide-react';
@@ -23,7 +23,18 @@ const PostDetail: React.FC = () => {
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isEditable, setIsEditable] = useState(false);
   // console.log("Params: ", useParams());
+
+  const [editPostData, setEditPostData] = useState<Omit<Post, 'id' | 'createdAt'>>({
+    title: '',
+    author: '',
+    displayText: '',
+    contentHeader: '',
+    content: '',
+    imageURL: '',
+  });
 
   useEffect(() => {
     if (!postId) {
@@ -31,6 +42,7 @@ const PostDetail: React.FC = () => {
       setLoading(false);
       return;
     }
+    setIsAuthenticated(!!localStorage.getItem('authToken'));
     fetchPost(postId);
   }, [postId]);
 
@@ -50,6 +62,17 @@ const PostDetail: React.FC = () => {
           ...data,
           createdAt: data.createdAt?.toDate().toLocaleDateString() || 'Unknown date',
         };
+
+        // Setting post into state to better handle it later
+        setEditPostData({
+          title: data.title,
+          author: data.author,
+          displayText: data.displayText,
+          contentHeader: data.contentHeader,
+          content: data.content,
+          imageURL: data.imageURL,
+        });
+
 
         setPost(postData);
         console.log('Post:', postData);
@@ -71,70 +94,102 @@ const PostDetail: React.FC = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-stone-50">
+      <div className="min-h-screen">
         <div>
-          <div></div>
-          {/* Featured Article */}
-          <section className="container px-4 py-12 md:py-16 lg:py-20 w-[80%] mx-auto">
-            <div className="grid gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
-              <div className="order-2 flex flex-col justify-center md:order-1">
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="inline-flex items-center rounded-full bg-teal-100 px-2.5 py-0.5 text-xs font-medium text-teal-800">
-                    Harmony With Nature
-                  </span>
-                </div>
-                <h1 className="mb-4 text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl">
-                  {post.title}
-                </h1>
-                <p className="mb-6 text-lg leading-relaxed text-stone-700">
-                  {post.displayText}
-                </p>
-                <div className="mb-6 flex items-center gap-4 text-sm text-stone-500">
-                  <div className="flex items-center gap-1.5">
-                    <Calendar className="h-4 w-4" />
-                    <time dateTime="2025-05-06">{post.createdAt}</time>
+          <div className='bg-stone-50'>
+            {isAuthenticated && (
+              <div className='flex pt-4 justify-end mr-10'>
+                <Button variant="outline" className="mt-4 bg-teal-100 hover:bg-teal-200" onClick={() => setIsEditable(prev => !prev)}>
+                  <p className='text-teal-800'>Edit</p>
+                  <SquarePen className='text-teal-800' />
+                </Button>
+              </div>
+            )}
+            {/* Featured Article */}
+            <section className="container px-4 py-12 md:py-16 lg:py-20 w-[80%] mx-auto">
+              <div className="grid gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
+                <div className="order-2 flex flex-col justify-center md:order-1">
+                  <div className="mb-2 flex items-center gap-2">
+                    <span className="inline-flex items-center rounded-full bg-teal-100 px-2.5 py-0.5 text-xs font-medium text-teal-800">
+                      Harmony With Nature
+                    </span>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <User className="h-4 w-4" />
-                    <span>{post.author}</span>
+                  <h1 className="mb-4 text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl">
+                    {isEditable ? (
+                      <input value={editPostData.title} onChange={(e) => setEditPostData({ ...editPostData, title: e.target.value })} className='border-2 border-teal-800 rounded-md' />
+                    ):( 
+                      post.title
+                     )}
+                  </h1>
+                  <div>
+                    <p className="mb-6 text-lg leading-relaxed text-stone-700">
+                       {isEditable ? (
+                      <textarea value={editPostData.displayText} onChange={(e) => setEditPostData({ ...editPostData, displayText: e.target.value })} className='border-2 border-teal-800 rounded-md w-full' />
+                    ):( 
+                      post.displayText
+                     )}
+                    </p>
+                  </div>
+                  <div className="mb-6 flex items-center gap-4 text-sm text-stone-500">
+                    <div className="flex items-center gap-1.5">
+                      <Calendar className="h-4 w-4" />
+                      <time dateTime="2025-05-06">{post.createdAt}</time>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <User className="h-4 w-4" />
+                      <span>
+                         {isEditable ? (
+                      <input value={editPostData.author} onChange={(e) => setEditPostData({ ...editPostData, author: e.target.value })} className='border-2 border-teal-800 rounded-md' />
+                    ):( 
+                      post.author
+                     )}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="order-1 md:order-2">
+                  <div className="relative w-full overflow-hidden rounded-lg shadow-lg">
+                    <img
+                      src={post.imageURL}
+                      alt="Underwater diver with camera equipment"
+                      className="object-fill"
+                    />
                   </div>
                 </div>
               </div>
-              <div className="order-1 md:order-2">
-                <div className="relative w-full overflow-hidden rounded-lg shadow-lg">
-                  <img
-                    src={post.imageURL}
-                    alt="Underwater diver with camera equipment"
-                    className="object-fill"
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
+            </section>
+          </div>
 
           {/* Article Content */}
-          <section className="bg-white py-12 md:py-16 flex flex-col items-center">
+          <div className="bg-white py-12 md:py-16 flex flex-col items-center">
             <div className="container px-4 w-[90%]">
               <div>
                 <h2 className="mb-6 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
-                  {post.contentHeader}
+                   {isEditable ? (
+                      <textarea value={editPostData.contentHeader} onChange={(e) => setEditPostData({ ...editPostData, contentHeader: e.target.value })} className='border-2 border-teal-800 rounded-md w-full' />
+                    ):( 
+                      post.contentHeader
+                     )}
                 </h2>
                 <div className="prose prose-stone mx-auto max-w-none">
                   <p>
-                    {post.content}
+                     {isEditable ? (
+                      <textarea value={editPostData.content} onChange={(e) => setEditPostData({ ...editPostData, content: e.target.value })} className='flex border-2 border-teal-800 rounded-md w-full h-[200px]' />
+                    ):( 
+                      post.content
+                     )}
                   </p>
                 </div>
               </div>
             </div>
-              <div className="space-y-8 w-full lg:w-1/2 mt-8">
-            <div className="rounded-lg border border-stone-200 p-6 w-3/4 mx-auto">
-              <h3 className="mb-4 text-lg font-medium">Head Back</h3>
-              <Button variant="outline" className="mt-4 w-full">
-                <a href="/news">View All News</a>
-              </Button>
+            <div className="space-y-8 w-full lg:w-1/2 mt-8">
+              <div className="p-6 w-3/4 mx-auto">
+                <Button variant="outline" className="mt-4 w-full hover:bg-stone-50">
+                  <a href="/news">View All News</a>
+                </Button>
+              </div>
             </div>
           </div>
-          </section>
         </div>
       </div>
     </>
