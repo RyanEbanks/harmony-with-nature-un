@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { doc, getDoc, getFirestore, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { Button } from './ui/button';
-import { ArrowRight, Calendar, Search, SquarePen, User } from 'lucide-react';
+import { ArrowRight, Calendar, Search, SquarePen, User, Save } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
 
 interface Post {
@@ -87,6 +87,21 @@ const PostDetail: React.FC = () => {
     }
   };
 
+  const updatePost = async (id: string) => {
+    try {
+      const db = getFirestore();
+      const docRef = doc(db, 'posts', id);
+
+      await updateDoc(docRef, {
+        ...editPostData,
+      });
+
+      console.log('Post updated successfully');
+    } catch (err) {
+      console.error('Failed to update post', err);
+    }
+  };
+
 
   if (loading) return <div>Loading…</div>;
   if (error) return <div className="text-red-600">{error}</div>;
@@ -98,10 +113,22 @@ const PostDetail: React.FC = () => {
         <div>
           <div className='bg-stone-50'>
             {isAuthenticated && (
-              <div className='flex pt-4 justify-end mr-10'>
+              <div className='flex pt-4 justify-end mr-10 space-x-4'>
                 <Button variant="outline" className="mt-4 bg-teal-100 hover:bg-teal-200" onClick={() => setIsEditable(prev => !prev)}>
                   <p className='text-teal-800'>Edit</p>
                   <SquarePen className='text-teal-800' />
+                </Button>
+                <Button variant="outline" className="mt-4 bg-teal-100 hover:bg-teal-200" onClick={() => {
+                  if (postId) {
+                    updatePost(postId);
+                    fetchPost(postId);
+                    setIsEditable(false);
+                  } else {
+                    console.error('PostID is undefined. Cannot update the post.')
+                  }
+                }}>
+                  <p className='text-teal-800'>Save</p>
+                  <Save className='text-teal-800' />
                 </Button>
               </div>
             )}
@@ -117,17 +144,17 @@ const PostDetail: React.FC = () => {
                   <h1 className="mb-4 text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl">
                     {isEditable ? (
                       <input value={editPostData.title} onChange={(e) => setEditPostData({ ...editPostData, title: e.target.value })} className='border-2 border-teal-800 rounded-md' />
-                    ):( 
+                    ) : (
                       post.title
-                     )}
+                    )}
                   </h1>
                   <div>
                     <p className="mb-6 text-lg leading-relaxed text-stone-700">
-                       {isEditable ? (
-                      <textarea value={editPostData.displayText} onChange={(e) => setEditPostData({ ...editPostData, displayText: e.target.value })} className='border-2 border-teal-800 rounded-md w-full' />
-                    ):( 
-                      post.displayText
-                     )}
+                      {isEditable ? (
+                        <textarea value={editPostData.displayText} onChange={(e) => setEditPostData({ ...editPostData, displayText: e.target.value })} className='border-2 border-teal-800 rounded-md w-full' />
+                      ) : (
+                        post.displayText
+                      )}
                     </p>
                   </div>
                   <div className="mb-6 flex items-center gap-4 text-sm text-stone-500">
@@ -138,11 +165,11 @@ const PostDetail: React.FC = () => {
                     <div className="flex items-center gap-1.5">
                       <User className="h-4 w-4" />
                       <span>
-                         {isEditable ? (
-                      <input value={editPostData.author} onChange={(e) => setEditPostData({ ...editPostData, author: e.target.value })} className='border-2 border-teal-800 rounded-md' />
-                    ):( 
-                      post.author
-                     )}
+                        {isEditable ? (
+                          <input value={editPostData.author} onChange={(e) => setEditPostData({ ...editPostData, author: e.target.value })} className='border-2 border-teal-800 rounded-md' />
+                        ) : (
+                          post.author
+                        )}
                       </span>
                     </div>
                   </div>
@@ -165,19 +192,19 @@ const PostDetail: React.FC = () => {
             <div className="container px-4 w-[90%]">
               <div>
                 <h2 className="mb-6 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
-                   {isEditable ? (
-                      <textarea value={editPostData.contentHeader} onChange={(e) => setEditPostData({ ...editPostData, contentHeader: e.target.value })} className='border-2 border-teal-800 rounded-md w-full' />
-                    ):( 
-                      post.contentHeader
-                     )}
+                  {isEditable ? (
+                    <textarea value={editPostData.contentHeader} onChange={(e) => setEditPostData({ ...editPostData, contentHeader: e.target.value })} className='border-2 border-teal-800 rounded-md w-full' />
+                  ) : (
+                    post.contentHeader
+                  )}
                 </h2>
                 <div className="prose prose-stone mx-auto max-w-none">
                   <p>
-                     {isEditable ? (
+                    {isEditable ? (
                       <textarea value={editPostData.content} onChange={(e) => setEditPostData({ ...editPostData, content: e.target.value })} className='flex border-2 border-teal-800 rounded-md w-full h-[200px]' />
-                    ):( 
+                    ) : (
                       post.content
-                     )}
+                    )}
                   </p>
                 </div>
               </div>
